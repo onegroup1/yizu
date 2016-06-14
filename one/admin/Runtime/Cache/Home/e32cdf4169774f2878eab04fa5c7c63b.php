@@ -22,12 +22,11 @@
 <title>我的桌面</title>
 </head>
 <body>
-
 <div class="pd-20" style="padding-top:20px;">
 
     <table class="table table-border table-bordered table-bg">
         <P>
-            &nbsp;&nbsp;<input type="text" name="zhi" style="height:21px">
+            &nbsp;&nbsp;<input type="text" name="zhi" style="height:20px">
             &nbsp;&nbsp;<input type="button" value="搜索">
         </P>
         <thead>
@@ -58,12 +57,13 @@
                 </td>
             </tr><?php endforeach; endif; else: echo "" ;endif; ?>
             <tr class="text-c">
-                <th colspan="2">累计成交总笔数：<span>123笔</span></th>
-                <th colspan="2">累计成交总金额：<span>123元</span></th>
-                <th colspan="3">累计为用户赚取：<span>123元</span></th>
+                <td colspan="2">累计成交总笔数：<span>笔</span></td>
+                <td colspan="2">累计成交总金额：<span>元</span></td>
+                <td colspan="3">累计为用户赚取：<span>元</span></td>
             </tr>
         </tbody>
     </table>
+
 </div>
 <footer class="footer">
   <p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br>Copyright &copy;2015 H-ui.admin v2.3 All Rights Reserved.<br>
@@ -71,16 +71,16 @@
 </footer>
 <script type="text/javascript" src="/one/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/one/Public/admin/js/H-ui.js"></script>
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?080836300300be57b7f34f4b3e97d911";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F080836300300be57b7f34f4b3e97d911' type='text/javascript'%3E%3C/script%3E"));
-</script>
+    <script>
+        var _hmt = _hmt || [];
+        (function(){
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?080836300300be57b7f34f4b3e97d911";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F080836300300be57b7f34f4b3e97d911' type='text/javascript'%3E%3C/script%3E"));
+    </script>
 </body>
 </html>

@@ -26,7 +26,7 @@
     <table class="table table-border table-bordered table-bg">
         <thead>
             <tr>
-                <th colspan="8" scope="col">债权统计</th>
+                <th colspan="8" scope="col">转让债权统计</th>
             </tr>
             <tr class="text-c">
                 <th>借款标题</th>
