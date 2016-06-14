@@ -1,0 +1,59 @@
+<div class="wdg-top-header">
+    <div class="main-section">
+        <span class="tel-phone"><i class="icon-phone"></i>客服电话: 400-090-6600</span>
+        <ul class="site-nav">
+       <?php
+       $users=session('users');
+        if(empty($users)){ ?>
+        <li class="nav-item"><a target="_self" href="__APP__/home/logins/index">立即登录</a></li>
+        <li class="nav-item-split"></li>
+        <li class="nav-item"><a target="_self" href="__APP__/home/logins/register">快速注册</a></li>
+        <li class="nav-item-split"></li>
+        <?php }else{ ?>
+        <li class="nav-item"><?php echo $users; ?></li>
+        <li class="nav-item-split"></li>
+
+        <li class="nav-item"><a target="_self" href="__APP__/home/logins/tuichu">退出</a></li>
+        <li class="nav-item-split"></li>
+        <?php } ?>
+
+            <li class="nav-item"><a target="_blank" href="/about/about.action?flag=intro">关于我们</a></li>
+            <li class="nav-item-split"></li>
+            <li class="nav-item"><a target="_blank" href="/help/index.action">帮助中心</a></li>
+            <li class="nav-item-split"></li>
+            <li class="nav-item"><a target="_blank" href="http://bbs.we.com/">理财论坛</a></li>
+            <li class="nav-item-split"></li>
+            <li class="nav-item"><i class="icon-mobile3"></i><a target="_blank" href="/event/app.action">移动客户端</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="wdg-second-header">
+    <div class="main-section">
+        <a href="/" class="brand-logo mt15">
+            <img src="__PUBLIC__/images/we-logo_79fb26f.png" alt="logo" />
+        </a>
+        <ul class="site-nav">
+            <li class="user-item fn-clear">
+
+                    <div class="user-avatar-container fn-left">
+                        <img src="__PUBLIC__/images/.com/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjlFMzdFM0U2NTNCOTExRTVBNUM0ODE2MTc5OUFCNDBEIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjlFMzdFM0U3NTNCOTExRTVBNUM0ODE2MTc5OUFCNDBEIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OUUzN0UzRTQ1M0I5MTFFNUE1QzQ4MTYxNzk5QUI0MEQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OUUzN0UzRTU1M0I5MTFFNUE1QzQ4MTYxNzk5QUI0MEQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7KYAvEAAADpklEQVRYw81Y20uUQRSX9sV813f9IyIs6iEvQb31pF2gKHETMgIjK0vC0i4QukJuYhmuWhpdCAo1eqgUNzJBqdYuVNrL2oqCle5u7en8Pmdy+NzLzPo9OPDDz5lzfuf3zcyeM/NlEFHGWkS6jrmMcoaPMcIIMcICIdHnEza5aQvbcOBqSrCdi1HCGGTESL/FhA98XRpx9IWxTQHjvYz0ezFC/f4Jqr/1lPbXdVPxUS9tLmuygGf0YQw2sFUaOApWLYzHMhleyfp9eo7Otw/QVncz8bgWYAufqeCcKhCcmWkJ4/5sxiuwhCNRau59QZt4RnQF2QFfcIBLNHBnGwkTogLwxpvuqfWlLcgOcE0FZ6W4gF1cQmH8fxZj2PL6GqTtvGecEiUBzsC3oBSHWFk6wlqXZmqWiitbHBclAW5l5lqTChO/PloMRx1dvkTYfdZnxRKtIK4w/ruO8Q4W2KS65DtOdFGFd5hO3glYwDP6dP09HEtJJa54wkrkZs8/1Kj3xg1PqObup7jAmA4HYimppCSesJcYQc7RnalEoiR0Z67uZr8UNmivlahnsV8LYe3kiSVLJQw2ukkYsUX5ylOFudGLEqK7N6pvB1IKg40uH2KL5laF4SRAFzSXUVcYfgy6fIgtmk8VNooeFF9dIieXEkBs0d6ownCGoqIjLUZpwqnNDyC2aDOqMGvnmRZpJ9KFWuRFC69aGLCzulsk2AkLpgk2lTDjpXQaiZbSePM7DWXzj6rCOk3ThdNIlC6ME+y2yjYqrX/Me8pPxzvf0qmeDxbwjD6MwWa1CTZPtyQVHWuniuv+lKliOZf5LZ9knFvKPfFLklrEUVDjOW882Ej7rgxoC7IDvuAwKuKpjj35ZR6tTK9TCcC18tgzm/TY45J3R49yUMRbOiFKFafOXFPP8+QHRfvRuvRMx9Kt5lKfY6Ik9l7us7gRY2H5aF2Y6jJyQ15GdtV00+nej44LAye4lSVsM7q+Tf74SRcffXFcGDjBbXR9s194Z+Yj1Dww6ZgocIHT+MKrGOQwXsM7+idGfWMhqr33OW1B8AUHuEQDd47xtwv3tSGMrVc/quBNH4xM07n7+gJhC5/QfGTFRxXEMBZW1TGewcQW8IuRS2udS6J/aWxynh5yQO+zKWrgPYMZAfCMPozBBrZKA0eh5K3yjZsL47PVf2FCnPxwN2T44Y6ETyk4VE6urebCVAI7xHXvMKNLnNFxnosIhERfl7DJTcaVVNhaxD/MH9XEf+bN6AAAAABJRU5ErkJggg=="  />
+                        <div class="avatar-masking"><a href="/account/index.action"></a></div>
+                    </div>
+                    <div class="user-name fn-clear">
+                        <a href="/loginPage.action">我的账户</a>
+                    </div>
+
+
+            </li>
+            <li class="channel-item"><a href="__APP__/home/index">首页</a></li>
+            <li class="channel-item"><a href="__APP__/home/jijin/index">基金</a></li>
+            <li class="channel-item"><a href="__APP__/home/index/ujihua">U计划</a></li>
+            <li class="channel-item"><a href="__APP__/home/index/xinjihua">薪计划</a></li>
+
+
+            <li class="channel-item"><a href="__APP__/home/index/zq">债权</a></li>
+            <li class="channel-item"><a href="__APP__/home/index/xinshou">新手专区</a></li>
+        </ul>
+    </div>
+</div>
