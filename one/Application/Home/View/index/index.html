@@ -28,7 +28,7 @@
         </script>
         <script src="__PUBLIC__/js/vendors_8a6040f.js"></script>
         <!--header中的js-->
-
+        <script src="__PUBLIC__/js/jquery.js"></script>
         <!-- If you'd like to support IE8 -->
 
         <script src="__PUBLIC__/js/video_41dc322.js"></script>
@@ -51,13 +51,81 @@
     </span>
 </div>
 
+
+
+
+
+
+
+
+
+
+<style>
+    .color{ background-color:red;}
+    </style>
+    <script>
+    var pics=["__PUBLIC__/img/1.jpg","__PUBLIC__/img/2.jpg","__PUBLIC__/img/3.jpg","__PUBLIC__/img/4.jpg","__PUBLIC__/img/5.jpg"];
+        //初值
+        var currPicNum=1;
+        $(document).ready(function(){
+            $("#key>a").click(function(){
+                    var key=$(this).html();
+                    //alert(key);
+                    var values=pics[key-1];
+                    //alert(values);
+                    $("#mohui").attr("src",values);
+                    //变颜色
+                    $(this).addClass("color").siblings().removeClass("color");
+                    //变颜色结束
+                    currPicNum=key;
+            });
+            var picInterval=setInterval("changePic()",3500);
+            $("#mohui").hover(function(){
+                clearInterval(picInterval);
+            },function(){
+                picInterval=setInterval("changePic()",3500);
+            })
+        });
+        function changePic(){
+            var pic=pics[currPicNum-1];
+            $("#mohui").attr("src",pic);
+            //变颜色
+            $("#key a").each(function(){
+                var value=$(this).html();
+                if(currPicNum==value){
+                    $(this).addClass("color").siblings().removeClass("color");
+                }
+            })
+            if (currPicNum>=5) {
+                currPicNum=1;
+            }else{
+                currPicNum++;
+            }
+
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
 <div id="pg-server-message" data-status="" data-message="" data-ispop="" data-fundTips="" style="display: none;"></div>
 <div class="maincontent">
 
 <div class="index-banner content-section">
-    <div class="slides" id="slidebox">
+    <div class="slides" id="slidebox" style="m">
+                <div>
+                <img src="pic/1.jpg" id="mohui" onerror="this.src='a.jpg'" width="1500px" height="400px" alt="辉哥" />
 
-  <ul id="slides" class="ui-slides">
+                </div>
+
+<!--   <ul id="slides" class="ui-slides">
 
     	<li class="ui-slide01 fn-hide" data-background="url(__PUBLIC__/img/1.jpg) no-repeat 50% 50%" style="background-image: url(/upload/cms/banner/indexBanner/08437a94-89b5-4586-b237-da3a73b8bd30.jpg?20140401a); display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat;">
 
@@ -96,7 +164,7 @@
         </li>
 
   </ul>
-
+ -->
 </div>
 
 
@@ -113,7 +181,17 @@
 
 </div>
     <div class="main-section">
-        <div id="slider_nav"> </div>
+        <div id="slider_nav">
+             <div id="key">
+                <a class="color">1</a>
+                <a>2</a>
+                <a>3</a>
+                <a>4</a>
+                <a>5</a>
+                </div>
+
+
+        </div>
         <div class="register-box-outter">
             <div class="register-box  ">
             </div>
