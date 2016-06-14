@@ -7,16 +7,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="/TP/one/Public/admin/lib/html5.js"></script>
-<script type="text/javascript" src="/TP/one/Public/admin/lib/respond.min.js"></script>
-<script type="text/javascript" src="/TP/one/Public/admin/lib/PIE_IE678.js"></script>
+<script type="text/javascript" src="/one/Public/admin/lib/html5.js"></script>
+<script type="text/javascript" src="/one/Public/admin/lib/respond.min.js"></script>
+<script type="text/javascript" src="/one/Public/admin/lib/PIE_IE678.js"></script>
 <![endif]-->
-<link href="/TP/one/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="/TP/one/Public/admin/css/H-ui.login.css" rel="stylesheet" type="text/css" />
-<link href="/TP/one/Public/admin/css/style.css" rel="stylesheet" type="text/css" />
-<link href="/TP/one/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="/one/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="/one/Public/admin/css/H-ui.login.css" rel="stylesheet" type="text/css" />
+<link href="/one/Public/admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/one/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
-<script type="text/javascript" src="/TP/one/Public/admin/http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script type="text/javascript" src="/one/Public/admin/http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
 <title>后台登录 - H-ui.admin v2.3</title>
@@ -28,7 +28,7 @@
 <div class="header"></div>
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
-    <form class="form form-horizontal" action="/TP/one/admin.php/Home/Index/login" method="post">
+    <form class="form form-horizontal" action="/one/admin.php/Home/Index/login" method="post">
       <div class="row cl">
         <label class="form-label col-3"><i class="Hui-iconfont">&#xe60d;</i></label>
         <div class="formControls col-8">
@@ -44,7 +44,7 @@
       <div class="row cl">
         <div class="formControls col-8 col-offset-3">
           <input class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
-          <img src="/TP/one/Public/admin/images/VerifyCode.aspx.png"> <a id="kanbuq" href="/TP/one/Public/admin/javascript:;">看不清，换一张</a> </div>
+          <img src="/one/Public/admin/images/VerifyCode.aspx.png"> <a id="kanbuq" href="/one/Public/admin/javascript:;">看不清，换一张</a> </div>
       </div>
       <div class="row">
         <div class="formControls col-8 col-offset-3">
@@ -63,8 +63,8 @@
   </div>
 </div>
 <div class="footer">Copyright 你的公司名称 by H-ui.admin.v2.3</div>
-<script type="text/javascript" src="/TP/one/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="/TP/one/Public/admin/js/H-ui.js"></script>
+<script type="text/javascript" src="/one/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/one/Public/admin/js/H-ui.js"></script>
 <script>
 var _hmt = _hmt || [];
 (function() {
