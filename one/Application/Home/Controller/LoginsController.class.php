@@ -10,7 +10,7 @@ class LoginsController extends Controller {
 		$deng['login_phone']=I("post.j_username");
 		$deng['login_pwd']=I("post.login_pwd");
 		//print_r($deng);die;
-		$yilogin=M("yi_login");
+		$yilogin=M("login");
 		//根据条件查找
 		$log=$yilogin->where($deng)->find();
 		if($log){
@@ -48,7 +48,7 @@ class LoginsController extends Controller {
 	}
 	public function regist()
 	{
-		$login=M("yi_login");
+		$login=M("login");
 		$verifyname=I('post.code');
 		$verify = new \Think\Verify();
 		$yan=$verify->check($verifyname);

@@ -28,30 +28,25 @@
 <div class="header"></div>
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
-    <form class="form form-horizontal" action="__URL__/login" method="post">
+    <form class="form form-horizontal" action="__URL__/alogin" method="post">
       <div class="row cl">
         <label class="form-label col-3"><i class="Hui-iconfont">&#xe60d;</i></label>
         <div class="formControls col-8">
-          <input id="" name="" type="text" placeholder="账户" class="input-text size-L">
+          <input id="admin_user" name="admin_user" type="text" placeholder="账户" value="admin" class="input-text size-L">
         </div>
       </div>
       <div class="row cl">
         <label class="form-label col-3"><i class="Hui-iconfont">&#xe60e;</i></label>
         <div class="formControls col-8">
-          <input id="" name="" type="password" placeholder="密码" class="input-text size-L">
+          <input id="admin_pwd" name="admin_pwd" type="password" placeholder="密码" value="admin888" class="input-text size-L">
         </div>
       </div>
       <div class="row cl">
         <div class="formControls col-8 col-offset-3">
-          <input class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
-          <img src="__PUBLIC__/admin/images/VerifyCode.aspx.png"> <a id="kanbuq" href="__PUBLIC__/admin/javascript:;">看不清，换一张</a> </div>
-      </div>
-      <div class="row">
-        <div class="formControls col-8 col-offset-3">
-          <label for="online">
-            <input type="checkbox" name="online" id="online" value="">
-            使我保持登录状态</label>
-        </div>
+          <input class="input-text size-L" type="text" placeholder="验证码" name="code"  style="width:150px;">
+         <img src="__URL__/verify" id="img">
+           <a style="margin-left:50px;" onclick="fun();" href="javascript:void(0)">看不清？换一张</a>
+		  </div>
       </div>
       <div class="row">
         <div class="formControls col-8 col-offset-3">
@@ -70,11 +65,17 @@ var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "//hm.baidu.com/hm.js?080836300300be57b7f34f4b3e97d911";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F080836300300be57b7f34f4b3e97d911' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  //验证码变化
+  function fun(){
+    document.getElementById('img').src="__URL__/verify/"+Math.random();
+  }
 </script>
 </body>
 </html>
