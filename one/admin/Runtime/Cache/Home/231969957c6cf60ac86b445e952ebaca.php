@@ -7,16 +7,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="/one/Public/admin/lib/html5.js"></script>
-<script type="text/javascript" src="/one/Public/admin/lib/respond.min.js"></script>
-<script type="text/javascript" src="/one/Public/admin/lib/PIE_IE678.js"></script>
+<script type="text/javascript" src="/Public/admin/lib/html5.js"></script>
+<script type="text/javascript" src="/Public/admin/lib/respond.min.js"></script>
+<script type="text/javascript" src="/Public/admin/lib/PIE_IE678.js"></script>
 <![endif]-->
-<link href="/one/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="/one/Public/admin/css/H-ui.login.css" rel="stylesheet" type="text/css" />
-<link href="/one/Public/admin/css/style.css" rel="stylesheet" type="text/css" />
-<link href="/one/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="/Public/admin/css/H-ui.login.css" rel="stylesheet" type="text/css" />
+<link href="/Public/admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
-<script type="text/javascript" src="/one/Public/admin/http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script type="text/javascript" src="/Public/admin/http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
 <title>后台登录 - H-ui.admin v2.3</title>
@@ -28,30 +28,25 @@
 <div class="header"></div>
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
-    <form class="form form-horizontal" action="/one/admin.php/Home/Index/login" method="post">
+    <form class="form form-horizontal" action="/admin.php/Home/Index/alogin" method="post">
       <div class="row cl">
         <label class="form-label col-3"><i class="Hui-iconfont">&#xe60d;</i></label>
         <div class="formControls col-8">
-          <input id="" name="" type="text" placeholder="账户" class="input-text size-L">
+          <input id="admin_user" name="admin_user" type="text" placeholder="账户" value="admin" class="input-text size-L">
         </div>
       </div>
       <div class="row cl">
         <label class="form-label col-3"><i class="Hui-iconfont">&#xe60e;</i></label>
         <div class="formControls col-8">
-          <input id="" name="" type="password" placeholder="密码" class="input-text size-L">
+          <input id="admin_pwd" name="admin_pwd" type="password" placeholder="密码" value="admin888" class="input-text size-L">
         </div>
       </div>
       <div class="row cl">
         <div class="formControls col-8 col-offset-3">
-          <input class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
-          <img src="/one/Public/admin/images/VerifyCode.aspx.png"> <a id="kanbuq" href="/one/Public/admin/javascript:;">看不清，换一张</a> </div>
-      </div>
-      <div class="row">
-        <div class="formControls col-8 col-offset-3">
-          <label for="online">
-            <input type="checkbox" name="online" id="online" value="">
-            使我保持登录状态</label>
-        </div>
+          <input class="input-text size-L" type="text" placeholder="验证码" name="code"  style="width:150px;">
+         <img src="/admin.php/Home/Index/verify" id="img">
+           <a style="margin-left:50px;" onclick="fun();" href="javascript:void(0)">看不清？换一张</a>
+		  </div>
       </div>
       <div class="row">
         <div class="formControls col-8 col-offset-3">
@@ -63,18 +58,24 @@
   </div>
 </div>
 <div class="footer">Copyright 你的公司名称 by H-ui.admin.v2.3</div>
-<script type="text/javascript" src="/one/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="/one/Public/admin/js/H-ui.js"></script>
+<script type="text/javascript" src="/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/Public/admin/js/H-ui.js"></script>
 <script>
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "//hm.baidu.com/hm.js?080836300300be57b7f34f4b3e97d911";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F080836300300be57b7f34f4b3e97d911' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  //验证码变化
+  function fun(){
+    document.getElementById('img').src="/admin.php/Home/Index/verify/"+Math.random();
+  }
 </script>
 </body>
 </html>

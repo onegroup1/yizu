@@ -6,18 +6,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-<LINK rel="Bookmark" href="/one/Public/admin//favicon.ico" >
-<LINK rel="Shortcut Icon" href="/one/Public/admin//favicon.ico" />
+<LINK rel="Bookmark" href="/Public/admin//favicon.ico" >
+<LINK rel="Shortcut Icon" href="/Public/admin//favicon.ico" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="/one/Public/admin/lib/html5.js"></script>
-<script type="text/javascript" src="/one/Public/admin/lib/respond.min.js"></script>
-<script type="text/javascript" src="/one/Public/admin/lib/PIE_IE678.js"></script>
+<script type="text/javascript" src="/Public/admin/lib/html5.js"></script>
+<script type="text/javascript" src="/Public/admin/lib/respond.min.js"></script>
+<script type="text/javascript" src="/Public/admin/lib/PIE_IE678.js"></script>
 <![endif]-->
-<link href="/one/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="/one/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
-<link href="/one/Public/admin/skin/default/skin.css" rel="stylesheet" type="text/css" id="skin" />
-<link href="/one/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
-<link href="/one/Public/admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="/Public/admin/skin/default/skin.css" rel="stylesheet" type="text/css" id="skin" />
+<link href="/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="/Public/admin/css/style.css" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -46,7 +46,7 @@
 			<ul class="dropDown-menu radius box-shadow">
 				<li><a href="#">个人信息</a></li>
 				<li><a href="#">切换账户</a></li>
-				<li><a href="#">退出</a></li>
+				<li><a href="/admin.php/home/login/tuichu">退出</a></li>
 			</ul>
 		</li>
 		<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
@@ -114,10 +114,10 @@
             <dt><i class="Hui-iconfont">&#xe63a;</i> 债权<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a _href="/one/admin.php/home/creditor/creditor_add" href="javascript:void(0)">债权添加</a></li>
-                    <li><a _href="/one/admin.php/home/creditor/creditor_list" href="javascript:void(0)">债权列表</a></li>
-                    <li><a _href="/one/admin.php/home/creditor/let_add" href="javascript:void(0)">债权转让添加</a></li>
-                    <li><a _href="/one/admin.php/home/creditor/let_list" href="javascript:void(0)">债权转让列表</a></li>
+                    <li><a _href="/admin.php/home/creditor/creditor_add" href="javascript:void(0)">债权添加</a></li>
+                    <li><a _href="/admin.php/home/creditor/creditor_list" href="javascript:void(0)">债权列表</a></li>
+                    <li><a _href="/admin.php/home/creditor/let_add" href="javascript:void(0)">债权转让添加</a></li>
+                    <li><a _href="/admin.php/home/creditor/let_list" href="javascript:void(0)">债权转让列表</a></li>
                 </ul>
             </dd>
         </dl>
@@ -202,10 +202,10 @@
 	</div>
 	
 </section>
-<script type="text/javascript" src="/one/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="/one/Public/admin/lib/layer/1.9.3/layer.js"></script>
-<script type="text/javascript" src="/one/Public/admin/js/H-ui.js"></script>
-<script type="text/javascript" src="/one/Public/admin/js/H-ui.admin.js"></script>
+<script type="text/javascript" src="/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/Public/admin/lib/layer/1.9.3/layer.js"></script>
+<script type="text/javascript" src="/Public/admin/js/H-ui.js"></script>
+<script type="text/javascript" src="/Public/admin/js/H-ui.admin.js"></script>
 <script type="text/javascript">
 /*资讯-添加*/
 function article_add(title,url){

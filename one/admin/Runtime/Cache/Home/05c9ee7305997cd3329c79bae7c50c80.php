@@ -7,16 +7,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="/one/Public/admin/lib/html5.js"></script>
-<script type="text/javascript" src="/one/Public/admin/lib/respond.min.js"></script>
-<script type="text/javascript" src="/one/Public/admin/lib/PIE_IE678.js"></script>
+<script type="text/javascript" src="/Public/admin/lib/html5.js"></script>
+<script type="text/javascript" src="/Public/admin/lib/respond.min.js"></script>
+<script type="text/javascript" src="/Public/admin/lib/PIE_IE678.js"></script>
 <![endif]-->
-<link href="/one/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="/one/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
 
-<link href="/one/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
-<script type="text/javascript" src="/one/Public/admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script type="text/javascript" src="/Public/admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
 <title>我的桌面</title>
@@ -189,8 +189,8 @@
   <p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br>Copyright &copy;2015 H-ui.admin v2.3 All Rights Reserved.<br>
     本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
 </footer>
-<script type="text/javascript" src="/one/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="/one/Public/admin/js/H-ui.js"></script>
+<script type="text/javascript" src="/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/Public/admin/js/H-ui.js"></script>
 <script>
 var _hmt = _hmt || [];
 (function() {
