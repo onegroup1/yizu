@@ -7,7 +7,7 @@ class IndexController extends Controller {
     }
     public function login(){
         //echo 123;
-        //$this->display('index');
+        $this->display('index');
 
 
     }
