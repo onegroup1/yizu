@@ -1,8 +1,3 @@
-
-	
-		
-  
-    
 <!DOCTYPE html>
 <html><head>
         <meta charset="UTF-8">
@@ -201,46 +196,46 @@
 {{/ if }}
 {{# each loans }}
 <tr class="ui-list-item {{ itemStyle }}  {{ itemLast }} ">
-  <td class="ui-list-field  text">
+    <td class="ui-list-field  text">
   	<div class="pl25 w130  fn-text-overflow">
   		<em class="ui-loantype {{ loanType }}" title="{{ loanTypeText }}"></em><a  class="rrd-dimgray" href="{{ link }}" target="_blank" title="{{ title }}">{{{ title }}}</a>
   	</div>
   
-  </td>
-  <td class="ui-list-field  text-right   color-orange-text">
+    </td>
+    <td class="ui-list-field  text-right   color-orange-text">
   		<div class="pr15">
   			<em class="value">{{ interest }}</em>%
   	  </div>
-  </td>
-  <td class="ui-list-field  text-right">
-  	<div >
+    </td>
+    <td class="ui-list-field  text-right">
+    	<div >
   		<em class="value">{{ amount }}</em>元
   	</div>
-  </td>
-  <td class="ui-list-field  text-right  ">
+    </td>
+    <td class="ui-list-field  text-right  ">
   	<div class="pr15">
   		<em class="value">{{ term }}</em>个月
   	</div>
-  </td>
-  <td class="ui-list-field  text-right ">
-  	<div class="pl95">
-	  	<span class="ui-process-long  fn-clear">   
-	            <span class="basic-progress-bg fn-left"> 
-	            		<b class="basic-percent fn-left" style="width:{{ progress }}%"></b>
-	            </span>
-	  			<span class="basic-text fn-left text-right"><em>{{ progress }}</em>%</span>            
-	    </span>
-    </div>
-  </td>
-  <td class="ui-list-field   text-right">
-  	<div class="pr25">
-	    <a class="ui-button ui-button-rect-mid  ui-button-orange  ui-list-invest-button ui-list-invest-button-{{ status }}" {{# if buttonLink }}href="{{ buttonLink }}" target="_blank"{{/ if }}>
-	      <span class="OPEN">投标</span>
-	      <span class="READY FIRST_READY">已满标</span>
-	      <span class="IN_PROGRESS">还款中</span>
-	    </a>
-    </div>
-  </td>
+    </td>
+    <td class="ui-list-field  text-right ">
+        <div class="pl95">
+            <span class="ui-process-long  fn-clear">
+            <span class="basic-progress-bg fn-left">
+                <b class="basic-percent fn-left" style="width:{{ progress }}%"></b>
+            </span>
+            <span class="basic-text fn-left text-right"><em>{{ progress }}</em>%</span>
+            </span>
+        </div>
+    </td>
+    <td class="ui-list-field   text-right">
+        <div class="pr25">
+        <a class="ui-button ui-button-rect-mid  ui-button-orange  ui-list-invest-button ui-list-invest-button-{{ status }}" {{# if buttonLink }}href="{{ buttonLink }}" target="_blank"{{/ if }}>
+        <span class="OPEN">投标</span>
+        <span class="READY FIRST_READY">已满标</span>
+        <span class="IN_PROGRESS">还款中</span>
+        </a>
+        </div>
+    </td>
 </tr>
 {{ else }}
 <tr class="ui-list-status">

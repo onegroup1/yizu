@@ -26,8 +26,8 @@
 
     <table class="table table-border table-bordered table-bg">
         <P>
-            &nbsp;&nbsp;<input type="text" name="zhi" style="height:20px">
-            &nbsp;&nbsp;<input type="button" value="搜索">
+            &nbsp;&nbsp;<input type="text" value="" id="ss" style="height:20px">
+            &nbsp;&nbsp;<input type="button" onclick="sousuo" value="搜索">
         </P>
         <thead>
             <tr>
@@ -65,7 +65,7 @@
             </tr>
         </tbody>
     </table>
-
+    <p style="font-size: 16px;">{$page}</p>
 </div>
 <footer class="footer">
   <p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br>Copyright &copy;2015 H-ui.admin v2.3 All Rights Reserved.<br>
@@ -83,6 +83,19 @@
         })();
             var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
             document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F080836300300be57b7f34f4b3e97d911' type='text/javascript'%3E%3C/script%3E"));
+
+        /*ajax搜索*/
+        function sousuo(){
+            var ss=document.getElementById('ss').value;
+            var ajax=new XMLHttpRequest();
+            ajax.onreadystatechange=function(){
+                if(ajax.readyState==4 && ajax.status==200){
+                    document.getElementById('left').innerHTML=ajax.responseText;
+                }
+            }
+            ajax.open('post','__URL__/sousuo/ss/'+ss,true);
+            ajax.send(null);
+        }
     </script>
 </body>
 </html>

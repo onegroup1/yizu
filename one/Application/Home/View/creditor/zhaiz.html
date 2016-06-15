@@ -37,6 +37,7 @@
         <!---->
         <include file="./public/header.html"/>
         <!---->
+
 <div id="header-helper" style="display: none;">
     <span id="header-helper-authenticated">
         false
@@ -57,7 +58,7 @@
 <div class="wdg-loan-nav">
 	<div class="main-section">
 		<ul class="account-menu fn-clear">
-			<li class="active" ><a href="__URL__/home/zhaiw">散标投资</a></li>
+			<li class="" ><a href="__URL__/zhais">散标投资</a></li>
 			<li class=""><a href="__URL__/zhaiz">债权转让</a></li>
 		</ul>
 	</div>
@@ -66,17 +67,9 @@
 <div class="container_12_1080 mt10">
 <div class="loan-list-div container_12_1080 mt20 color-white-bg">
     <div class="fn-clear loan-title">
-        <h3 class="ui-invest-item-title fn-left mr10 text-big">散标列表</h3>
+        <h3 class="ui-invest-item-title fn-left mr10 text-big">债权转让列表</h3>
         <a class="fn-right ui-cal" target="_blank" href="/lend/calculator.action?prodType=Loanplan">
-        	 <span class="icon-cal">
-				<span class="path1"></span>
-                 <span class="path2"></span>
-                 <span class="path3"></span>
-                 <span class="path4"></span>
-                 <span class="path5"></span>
-                 <span class="path6"></span>
-                 <span class="path7"></span>
-			 </span>&nbsp;理财计算器 
+        	 &nbsp;理财计算器
         </a>
     </div>
       <!-- 散标页黄条 -->
@@ -95,8 +88,8 @@
             <dd class="text-big"><em class="mr10 font-36px color-orange-text num-family">260,785</em><em class="unit">笔</em></dd>
         </dl>
         <dl class="fn-left    text-center ">
-            <dt class="text-big"><span class="cross-line"></span>&nbsp;累计为用户赚取&nbsp;<span class="cross-line"></span></dt>
-            <dd class="text-big"><em class="mr10 font-36px color-orange-text num-family">155,877.73</em><em class="unit">万元</em></dd>
+            <dt class="text-big"><span class="cross-line"></span>&nbsp;单笔转让平均耗时&nbsp;<span class="cross-line"></span></dt>
+            <dd class="text-big"><em class="mr10 font-36px color-orange-text num-family">1时43分45秒</em><em class="unit"></em></dd>
         </dl>
     </div>
 				    
@@ -118,18 +111,22 @@
 
             <th class="ui-list-title  text-right   "  width="14%" name="INTEREST" next="desc">
                 <div class="ui-list-title-sortable ui-list-title-sortable-2 pr15"  name="INTEREST" next="desc">
-                    年<em></em>
+                    年利率<em></em>
                 </div>
             </th>
 
-            <th class="ui-list-title  text-right"  width="20%">金额</th>
+            <th class="ui-list-title  text-right"  width="20%">剩余期限</th>
 
             <th class="ui-list-title  text-right   " width="15%" >
-                <div class="ui-list-title-sortable ui-list-title-sortable-3 pr15"  name="MONTH" next="desc">期限<em></em></div>
+                <div class="ui-list-title-sortable ui-list-title-sortable-3 pr15"  name="MONTH" next="desc">转让系数<em></em></div>
             </th>
 
             <th class="ui-list-title  text-right  "  width="18%">
-                <div class=" ui-list-title-sortable ui-list-title-sortable-4 pr15" name="FINISHEDRATIO" next="desc">进度<em></em></div>
+                <div class=" ui-list-title-sortable ui-list-title-sortable-4 pr15" name="FINISHEDRATIO" next="desc">转出价格<em></em></div>
+            </th>
+
+            <th class="ui-list-title  text-right  "  width="18%">
+                <div class=" ui-list-title-sortable ui-list-title-sortable-4 pr15" name="FINISHEDRATIO" next="desc">剩余份数<em></em></div>
             </th>
 
             <th class="ui-list-title  text-right   " width="15% " >
@@ -144,46 +141,46 @@
             <td class="ui-list-field  text">
                 <div class="pl25 w130  fn-text-overflow">
                     <em class="ui-loantype {{ loanType }}" title="{{ loanTypeText }}"></em>
-                    <a  class="rrd-dimgray" href="{{ link }}" target="_blank" title="{{ title }}">{$vo.creditor_name}</a>
+                    <a  class="rrd-dimgray" href="{{ link }}" target="_blank" title="{{ title }}">{$vo.let_name}</a>
                 </div>
             </td>
 
             <td class="ui-list-field  text-right   color-orange-text">
                 <div class="pr15">
-                    <em class="value">{$vo.creditor_lilv}</em>%
+                    <em class="value">{$vo.let_lilv}</em>%
                 </div>
             </td>
 
             <td class="ui-list-field  text-right">
                 <div >
-                    <em class="value">{$vo.creditor_money}</em>元
+                    <em class="value">{$vo.let_qixian}</em>个月
                 </div>
             </td>
 
             <td class="ui-list-field  text-right  ">
                 <div class="pr15">
-                    <em class="value">{$vo.creditor_deadline}</em>个月
+                    <em class="value">{$vo.let_xishu}</em>%
                 </div>
             </td>
 
-            <td class="ui-list-field  text-right ">
-                <div class="pl95">
-                    <span class="ui-process-long  fn-clear">
-                        <span class="basic-progress-bg fn-left">
-                            <b class="basic-percent fn-left" style="width:23%"></b>
-                        </span>
-                        <span class="basic-text fn-left text-right">
-                            <em>23</em>%
-                        </span>
-                    </span>
+            <td class="ui-list-field  text-right">
+                <div >
+                    <em class="value">{$vo.let_money}</em>元
                 </div>
             </td>
+
+
+            <td class="ui-list-field  text-right">
+                <div >
+                    <em class="value">{$vo.let_status}</em>份
+                </div>
+            </td>
+
             <td class="ui-list-field   text-right">
                 <div class="pr25">
                     <a class="ui-button ui-button-rect-mid  ui-button-orange  ui-list-invest-button ui-list-invest-button-{{ status }}" {{# if buttonLink }}href="{{ buttonLink }}" target="_blank"{{/ if }}>
-                        <span class="OPEN">投标</span>
-                        <span class="READY FIRST_READY">已满标</span>
-                        <span class="IN_PROGRESS">还款中</span>
+                        <span class="OPEN">购买</span>
+                        <span class="READY FIRST_READY">已完成</span>
                     </a>
                 </div>
             </td>
