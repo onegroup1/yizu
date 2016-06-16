@@ -43,6 +43,7 @@ class CreditorController extends Controller {
         $date['creditor_lilv']=$_POST['creditor_lilv'];
         $date['creditor_money']=$_POST['creditor_money'];
         $date['creditor_deadline']=$_POST['creditor_deadline'];
+        $date['creditor_time']=time();
         if($User->add($date)){
             $this->success('添加成功',U('Creditor/creditor_list'));
         }else{

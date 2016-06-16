@@ -89,7 +89,7 @@
             <li class="channel-item"><a href="/one/index.php/home/index">首页</a></li>
             <li class="channel-item"><a href="/one/index.php/home/index/ujihua">U计划</a></li>
             <li class="channel-item"><a href="/one/index.php/home/index/xinjihua">薪计划</a></li>
-			<li class="channel-item"><a href="/one/index.php/home/creditor/zhaiw">债权</a></li>
+			<li class="channel-item"><a href="/one/index.php/home/creditor/zhais">债权</a></li>
             <li class="channel-item"><a href="/one/index.php/home/index/xinshou">新手专区</a></li>
         </ul>
     </div>
@@ -104,13 +104,8 @@
       
     </span>
 </div>
-        
-        
-            
-                <!--民生银行引导开户小黄条 只要是未开户的用户都可见-->
-                
+    <!--民生银行引导开户小黄条 只要是未开户的用户都可见-->
 	<!--未开户-->
-	
 		<div id="wdgYellowBar" class="wdg-yellow-bar">
 			<div class="wdg-yellow-bar-inner">
 				<span>开通民生银行资金存管账户，您的资金会更加安全</span>
@@ -118,8 +113,7 @@
 			</div>
 		</div>
             <!--民生银行引导开户和设置密码弹窗  且为基金存管上线之后首次登录可见   测试改成false-->
-
-<!-- 头部 -->
+        <!-- 头部 -->
 <div id="commonCMBCDialog" class="common-cmbc-dialog-module fn-hide" >
     <span id="commonCMBCDilogCloseBtn" class="j-dialog-close-btn">&times;</span>
 	<div class="cmbc-dialog-top">
@@ -130,10 +124,8 @@
 			<!--已经开户且设置交易密码-->
 			
 			<!--未开户-->
-			
-				<p class="mbc-dialog-title">个人账户升级为民生存管账户</p>
-				<p class="mbc-dialog-subtitle">请开通存管账户以便于您能正常理财</p>
-			
+            <p class="mbc-dialog-title">个人账户升级为民生存管账户</p>
+            <p class="mbc-dialog-subtitle">请开通存管账户以便于您能正常理财</p>
 		</div>
 	</div>
 	<div class="cmbc-dialog-bottom">
