@@ -105,12 +105,12 @@
 	<div class="wdg-account-header">
 		<div class="main-section">
 			<ul class="account-menu fn-clear">
-				<li class="" ><a href="/account/index.action">账户总览</a></li>
-				<li class=""><a href="/fund/userFundAction!myFundListPage.action">基金账户</a></li>
-				<li class=""><a href="/account/invest!plan.action">债权</a></li>
-				<li class=""><a href="/account/coupon!toCoupon.action">我的特权</a></li>
-				<li class=""><a href="/account/comm!mail.action">服务窗</a> <span class="org fn-hide">(0)</span></li>
-				<li class="active"><a href="/account/info!basicInfo.action">账户设置</a></li>
+				<li class="" ><a href="__URL__/zhzl">账户总览</a></li>
+                <li class=""><a href="__URL__/jjzh">基金账户</a></li>
+                <li class=""]><a href="__URL__/zhaiq">债权</a></li>
+                <li class=""><a href="__URL__/wdtq">我的特权</a></li>
+                <li class=""><a href="__URL__/fuc">服务窗</a> <span class="org fn-hide">(0)</span></li>
+                <li class="active"><a href="__URL__/index">账户设置</a></li>
 			</ul>
 		</div>
 	</div>
@@ -160,6 +160,26 @@
 
     <div class="detail-info-con">
         <ul class="info-list fn-clear">
+         <li class="info-item">
+                <span class="col-1">
+                    完善信息
+                </span>
+                <span class="col-2">
+                    完善个人基本
+                </span>
+                <span class="col-3">
+                        --
+                </span>
+                <span class="col-4">
+                        <span class="not-set-status">未完善</span>
+                </span>
+                <span class="col-5">
+                        <a target="_blank" href="__URL__/xqy/loginid/{$arr.login_id}">个人信息</a>
+                </span>
+            </li>
+
+
+
             <li class="info-item">
                 <span class="col-1">
                     存管账户
@@ -168,19 +188,12 @@
                     与民生银行合作资金存管，保障用户资金安全
                 </span>
                 <span class="col-3">
-
                 </span>
                 <span class="col-4">
-
-
                         <span class="not-set-status">未开通</span>
-
                 </span>
                 <span class="col-5">
-
-
                         <a target="_blank" href="/rrdRegist!toCreateAccountByCust.action">立即开通</a>
-
                 </span>
             </li>
             <li class="info-item">
@@ -217,16 +230,16 @@
                     完成实名认证，账户更安全理财更放心
                 </span>
                 <span class="col-3">
-
-                        188****6364
-
-
+                        <?php
+                         $phone=$arr['login_phone'];
+                         $staphone=substr($phone,0,3);
+                         $endphone=substr($phone,7,4);
+                         $sephone=$staphone."***".$endphone;
+                         echo $sephone;
+                          ?>
                 </span>
                 <span class="col-4">
-
                         <span class="status-ok">已绑定</span>
-
-
                 </span>
                 <span class="col-5">
 
