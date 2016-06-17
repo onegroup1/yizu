@@ -21,24 +21,22 @@ class CreditorController extends Controller {
         for ($i=0;$i<count($arr);$i++) {
             $arr[$i]['cred']=intval($arr[$i]['yet_bid']/$arr[$i]['creditor_money']*100);
         }
+        $arr1 = $User->select();
+        //print_r($arr1);die;
+        $count=count($arr1);
+        $moneyone=0;
+        for ($i=0;$i<count($arr1);$i++) {
+            $moneyone=$arr1[$i]['creditor_money']+$moneyone;
+        }
         $this->assign("data", $arr);
+        $this->assign("dat", $moneyone);
+        $this->assign("count", $count);
         $this->assign('page',$show);// 赋值分页输出
         $this->display();
     }
-    /*
-     //总金额
-     public function moneys(){
-        $User = M('Creditor');
-        $arr = $User->select();
-        $moneyone=0;
-        for ($i=0;$i<count($arr);$i++) {
-            $moneyone=$arr[$i]['creditor_money']+$moneyone;
-        }
-        $mon['mon']=$moneyone;
-        $this->assign("mon", $mon);
-        $this->display('zhais');
-    }
-    */
+
+
+
     //显示债权转让页面
     public function zhaiz(){
         $User = M('Creditor_let');
@@ -57,22 +55,33 @@ class CreditorController extends Controller {
             $this->display('zqxq');
             //登陆且不等于100%
         }else if(!empty($sess) && $cred!=100){
+            $User=M('Creditor');
+            $arr=$User
+                ->join("yi_login on yi_creditor.login_id=yi_login.login_id")
+                ->where("creditor_id=$id")->select();
+            $this->assign("data",$arr);
             $this->display('zqxqtb');
             //没登陆且不等于100%
         }else if(empty($sess) && $cred!=100){
             $this->display('zqxqd');
-            //登陆且100%
+            //登陆且等于100%
         }else if(!empty($sess) && $cred==100){
+            //echo "登陆且等于100%";die;
             $User = M('Creditor');
             $arr=$User
                 ->join("yi_login on yi_creditor.login_id=yi_login.login_id")
                 ->where("creditor_id = $id")->select();
+            for ($i=0;$i<count($arr);$i++) {
+                $money=$arr[$i]['creditor_money'];
+                $lilv=$arr[$i]['creditor_lilv'];
+                $deadline=$arr[$i]['creditor_deadline'];
+            }
 
             $this->assign("data", $arr);
+            $this->assign("money", $money);
+            $this->assign("lilv", $lilv);
+            $this->assign("deadline", $deadline);
             $this->display('zqxqdl');
         }
     }
-
-
-
 }
