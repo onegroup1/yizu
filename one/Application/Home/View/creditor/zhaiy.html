@@ -50,13 +50,8 @@
       
     </span>
 </div>
-        
-        
-            
-                <!--民生银行引导开户小黄条 只要是未开户的用户都可见-->
-                
+    <!--民生银行引导开户小黄条 只要是未开户的用户都可见-->
 	<!--未开户-->
-	
 		<div id="wdgYellowBar" class="wdg-yellow-bar">
 			<div class="wdg-yellow-bar-inner">
 				<span>开通民生银行资金存管账户，您的资金会更加安全</span>
@@ -64,8 +59,7 @@
 			</div>
 		</div>
             <!--民生银行引导开户和设置密码弹窗  且为基金存管上线之后首次登录可见   测试改成false-->
-
-<!-- 头部 -->
+        <!-- 头部 -->
 <div id="commonCMBCDialog" class="common-cmbc-dialog-module fn-hide" >
     <span id="commonCMBCDilogCloseBtn" class="j-dialog-close-btn">&times;</span>
 	<div class="cmbc-dialog-top">
@@ -76,10 +70,8 @@
 			<!--已经开户且设置交易密码-->
 			
 			<!--未开户-->
-			
-				<p class="mbc-dialog-title">个人账户升级为民生存管账户</p>
-				<p class="mbc-dialog-subtitle">请开通存管账户以便于您能正常理财</p>
-			
+            <p class="mbc-dialog-title">个人账户升级为民生存管账户</p>
+            <p class="mbc-dialog-subtitle">请开通存管账户以便于您能正常理财</p>
 		</div>
 	</div>
 	<div class="cmbc-dialog-bottom">
@@ -109,9 +101,9 @@
 			</ul>
 		</div>
 	</div>
-		<div class="main-section">
-			<div id="assets-tab">
-				
+<div class="main-section">
+<div id="assets-tab">
+
 <ul class="assets-list-tab fn-clear" data-selectedid="pie-u" >
 	<li class="assets-tab-li " data-name="uplan">
 		<a>U计划</a>
@@ -158,43 +150,46 @@
                 持有中(0)
             </li>
             <li class="ui-tab-item" data-name="exiting">
-                退出中(0)
+                投标中(0)
             </li>
             <li class="ui-tab-item" data-name="exited">
-                已退出(0)
+                转出中(0)
+            </li>
+            <li class="ui-tab-item" data-name="exited">
+                已完成(0)
             </li>
         </ul>
     </div>
-            <div id="plans-tab-content">  
-              <div class="ui-tab-content ui-tab-content-current fn-clear" data-name="holding">
+        <div id="plans-tab-content">
+            <div class="ui-tab-content ui-tab-content-current fn-clear" data-name="holding">
                 <div class="all-products ui-filter" id="holding-list-filter" >
-                  <a class="filter-uplan" href="javascript:"></a>
-                  <ul data-category="category" class="ui-filter-category category filter-list">
-                    <li class="category-tag all active"><input type="checkbox" checked="checked" value="" name="category"><span>所有产品</span></li>
-                    <li class="category-tag"><input type="checkbox" value="A" name="category"><span>U计划A</span></li>
-                    <li class="category-tag"><input type="checkbox" value="B" name="category"><span>U计划B</span></li>
-                    <li class="category-tag"><input type="checkbox" value="C" name="category"><span>U计划C</span></li>
-                    <li class="category-tag"><input type="checkbox" value="OLD" name="category"><span>优选理财计划</span></li>
-                  </ul>
+                    <a class="filter-uplan" href="javascript:"></a>
+                    <ul data-category="category" class="ui-filter-category category filter-list">
+                        <li class="category-tag all active"><input type="checkbox" checked="checked" value="" name="category"><span>所有产品</span></li>
+                        <li class="category-tag"><input type="checkbox" value="A" name="category"><span>U计划A</span></li>
+                        <li class="category-tag"><input type="checkbox" value="B" name="category"><span>U计划B</span></li>
+                        <li class="category-tag"><input type="checkbox" value="C" name="category"><span>U计划C</span></li>
+                        <li class="category-tag"><input type="checkbox" value="OLD" name="category"><span>优选理财计划</span></li>
+                    </ul>
                 </div>
-                <ul class="ui-list ui-list-s" id="holding-list"></ul>  
+                <ul class="ui-list ui-list-s" id="holding-list"></ul>
                 <div class="fn-right mt10" id="holding-list-pagination"></div>
-              </div>  
-            <div class="ui-tab-content fn-clear" data-name="exiting">  
-              <ul class="ui-list ui-list-s" id="exiting-list"></ul>
-              <div class="fn-right mt10" id="exiting-list-pagination"></div>
             </div>
-            <div class="ui-tab-content fn-clear" data-name="exited">  
-              <ul class="ui-list ui-list-s" id="exited-list"></ul>
-              <div class="fn-right mt10" id="exited-list-pagination"></div>
+            <div class="ui-tab-content fn-clear" data-name="exiting">
+                <ul class="ui-list ui-list-s" id="exiting-list"></ul>
+                <div class="fn-right mt10" id="exiting-list-pagination"></div>
             </div>
-            
-          </div>
-				</div>
-			</div>
-		</div>
+            <div class="ui-tab-content fn-clear" data-name="exited">
+                <ul class="ui-list ui-list-s" id="exited-list"></ul>
+                <div class="fn-right mt10" id="exited-list-pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
       
 <script id="holding-list-template" type="text/x-handlebars-template">
+
 	<li class="ui-list-header fn-clear">
 		<div class="ui-list-title pl25 w80">债权ID</div>
 		<div class="ui-list-title pr30 w80 text-right">持有份数</div>
@@ -232,14 +227,18 @@
 	    <p class="color-gray-text">{{# if _message }}{{ _message }}{{ else }}没有持有中的U计划{{/ if }}</p>
 	  </li>
 	{{/ each }}
+
 </script>
+
 <script id="exiting-list-template" type="text/x-handlebars-template">
 	<li class="ui-list-header fn-clear">
-		<div class="ui-list-title pl25 w185">理财工具</div>
-		<div class="ui-list-title pr75 w145 text-right">加入金额</div>
-		<div class="ui-list-title pr80 w170 text-right">退出前已提取的金额</div>
-		<div class="ui-list-title pr60 w160 text-right">已转让债权金额</div>
-		<div class="ui-list-title pr20 w160 text-right">待转让债权价值</div>
+		<div class="ui-list-title pl25 w80">债权ID</div>
+		<div class="ui-list-title pr80 w80 text-right">年利率</div>
+		<div class="ui-list-title pr80 w80 text-right">投资金额</div>
+		<div class="ui-list-title pr60 w100 text-right">期限</div>
+		<div class="ui-list-title pr20 w100 text-right">信用等级</div>
+		<div class="ui-list-title pr20 w100 text-right">剩余时间</div>
+		<div class="ui-list-title pr20 w100 text-right">投标进度</div>
 	</li>
 	 {{# each financePlanList }}
 	<li class="ui-list-item fn-clear {{itemStyle}}" >
@@ -255,15 +254,18 @@
 	  </li>
 	{{/ each }}
 </script>
+
 <script id="exited-list-template" type="text/x-handlebars-template">
 	<li class="ui-list-header fn-clear">
-		<div class="ui-list-title pl25 w155">理财工具</div>
-		<div class="ui-list-title pr20 w125 text-right">收益率</div>
-		<div class="ui-list-title pr55 w145 text-right">加入金额</div>
+		<div class="ui-list-title pl25 w155">转让ID</div>
+		<div class="ui-list-title pr20 w125 text-right">债权ID</div>
+		<div class="ui-list-title pr55 w145 text-right">剩余期数</div>
 		<div class="ui-list-title pr55 w105 text-right">已获收益</div>
-		<div class="ui-list-title pr40 w90 text-right">投标次数</div>
-		<div class="ui-list-title w150 text-center">完成时间</div>
-		<div class="ui-list-title pr20 w95 text-right">退出途径</div>
+		<div class="ui-list-title pr40 w90 text-right">年利率</div>
+		<div class="ui-list-title w150 text-center">债权价值</div>
+		<div class="ui-list-title pr20 w95 text-right">转让价格</div>
+		<div class="ui-list-title pr20 w95 text-right">转让系数</div>
+		<div class="ui-list-title pr20 w95 text-right">剩余份数</div>
 	</li>
 	 {{# each financePlanList }}
 	<li class="ui-list-item fn-clear {{itemStyle}}" >
@@ -281,14 +283,16 @@
 	  </li>
 	{{/ each }}
 </script>
+
 <script id="reserve-list-template" type="text/x-handlebars-template">
 	<li class="ui-list-header fn-clear">
-		<div class="ui-list-title pl25 w155 name">理财工具</div>
-		<div class="ui-list-title pr30 w145 text-right joned-amount">加入金额</div>
-		<div class="ui-list-title paid pr55 w145 text-right">已付定金</div>
-		<div class="ui-list-title obligation pr55 w125 text-right">待付金额</div>
-		<div class="ui-list-title endPayMentTime pr40 w130 text-right">支付截止时间</div>
-		<div class="ui-list-title state pr20 w130 text-right">状态</div>
+		<div class="ui-list-title pl25 w155 name">债权ID</div>
+		<div class="ui-list-title pr30 w145 text-right joned-amount">投资金额</div>
+		<div class="ui-list-title paid pr55 w145 text-right">年利率</div>
+		<div class="ui-list-title obligation pr55 w125 text-right">回收金额</div>
+		<div class="ui-list-title endPayMentTime pr40 w130 text-right">已赚金额</div>
+		<div class="ui-list-title state pr20 w130 text-right">结清日期</div>
+		<div class="ui-list-title state pr20 w130 text-right">结清方式</div>
 	</li>
 	 {{# each financePlanList }}
 	<li class="ui-list-item fn-clear {{itemStyle}}" >
