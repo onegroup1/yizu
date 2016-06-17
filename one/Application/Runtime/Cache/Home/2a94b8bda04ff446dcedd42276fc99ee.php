@@ -18,7 +18,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="/Public/static/common/img/favicon.ico" />
         <link rel="stylesheet" type="text/css" href="/Public/css/base_ac0da34.css">
         <!--header中的css-->
-
+<script src="/Public/js/jquery.js"></script>
 
         <link rel="stylesheet" href="/Public/css/video-js_f377876.css"/>
 
@@ -28,7 +28,7 @@
         </script>
         <script src="/Public/js/vendors_8a6040f.js"></script>
         <!--header中的js-->
-
+        <script src="/Public/js/jquery.js"></script>
         <!-- If you'd like to support IE8 -->
 
         <script src="/Public/js/video_41dc322.js"></script>
@@ -42,7 +42,7 @@
     <script>
         weLogger.perf.bodyStart( );
     </script>
-    <!---->
+    <!--引用公共头部-->
         <div class="wdg-top-header">
     <div class="main-section">
         <span class="tel-phone"><i class="icon-phone"></i>客服电话: 400-090-6600</span>
@@ -79,13 +79,20 @@
         </a>
         <ul class="site-nav">
             <li class="user-item fn-clear">
+            <?php
+ $loign_img=session('loign_img'); ?>
 
                     <div class="user-avatar-container fn-left">
-                        <img src="/Public/images/.com/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjlFMzdFM0U2NTNCOTExRTVBNUM0ODE2MTc5OUFCNDBEIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjlFMzdFM0U3NTNCOTExRTVBNUM0ODE2MTc5OUFCNDBEIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OUUzN0UzRTQ1M0I5MTFFNUE1QzQ4MTYxNzk5QUI0MEQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OUUzN0UzRTU1M0I5MTFFNUE1QzQ4MTYxNzk5QUI0MEQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7KYAvEAAADpklEQVRYw81Y20uUQRSX9sV813f9IyIs6iEvQb31pF2gKHETMgIjK0vC0i4QukJuYhmuWhpdCAo1eqgUNzJBqdYuVNrL2oqCle5u7en8Pmdy+NzLzPo9OPDDz5lzfuf3zcyeM/NlEFHGWkS6jrmMcoaPMcIIMcICIdHnEza5aQvbcOBqSrCdi1HCGGTESL/FhA98XRpx9IWxTQHjvYz0ezFC/f4Jqr/1lPbXdVPxUS9tLmuygGf0YQw2sFUaOApWLYzHMhleyfp9eo7Otw/QVncz8bgWYAufqeCcKhCcmWkJ4/5sxiuwhCNRau59QZt4RnQF2QFfcIBLNHBnGwkTogLwxpvuqfWlLcgOcE0FZ6W4gF1cQmH8fxZj2PL6GqTtvGecEiUBzsC3oBSHWFk6wlqXZmqWiitbHBclAW5l5lqTChO/PloMRx1dvkTYfdZnxRKtIK4w/ruO8Q4W2KS65DtOdFGFd5hO3glYwDP6dP09HEtJJa54wkrkZs8/1Kj3xg1PqObup7jAmA4HYimppCSesJcYQc7RnalEoiR0Z67uZr8UNmivlahnsV8LYe3kiSVLJQw2ukkYsUX5ylOFudGLEqK7N6pvB1IKg40uH2KL5laF4SRAFzSXUVcYfgy6fIgtmk8VNooeFF9dIieXEkBs0d6ownCGoqIjLUZpwqnNDyC2aDOqMGvnmRZpJ9KFWuRFC69aGLCzulsk2AkLpgk2lTDjpXQaiZbSePM7DWXzj6rCOk3ThdNIlC6ME+y2yjYqrX/Me8pPxzvf0qmeDxbwjD6MwWa1CTZPtyQVHWuniuv+lKliOZf5LZ9knFvKPfFLklrEUVDjOW882Ej7rgxoC7IDvuAwKuKpjj35ZR6tTK9TCcC18tgzm/TY45J3R49yUMRbOiFKFafOXFPP8+QHRfvRuvRMx9Kt5lKfY6Ik9l7us7gRY2H5aF2Y6jJyQ15GdtV00+nej44LAye4lSVsM7q+Tf74SRcffXFcGDjBbXR9s194Z+Yj1Dww6ZgocIHT+MKrGOQwXsM7+idGfWMhqr33OW1B8AUHuEQDd47xtwv3tSGMrVc/quBNH4xM07n7+gJhC5/QfGTFRxXEMBZW1TGewcQW8IuRS2udS6J/aWxynh5yQO+zKWrgPYMZAfCMPozBBrZKA0eh5K3yjZsL47PVf2FCnPxwN2T44Y6ETyk4VE6urebCVAI7xHXvMKNLnNFxnosIhERfl7DJTcaVVNhaxD/MH9XEf+bN6AAAAABJRU5ErkJggg=="  />
+                    <?php
+ if($loign_img){ ?>
+                        <img src="/Public/<?php echo ($loign_img); ?>"  />
+                    <?php }else{ ?>
+                        <img src="/Public/images/default-avatar-96_dc38986.png"  />
+                    <?php } ?>
                         <div class="avatar-masking"><a href="/account/index.action"></a></div>
                     </div>
                     <div class="user-name fn-clear">
-                        <a href="/loginPage.action">我的账户</a>
+                        <a href="/index.php/home/zhsz">我的账户</a>
                     </div>
 
 
@@ -105,53 +112,81 @@
     </span>
 </div>
 
+
+
+
+
+
+
+    <style>
+        .color{ background-color:red;}
+    </style>
+    <script>
+    pics=[
+        <?php if(is_array($piclist)): foreach($piclist as $key=>$vo): ?>"/Public/<?php echo ($vo["pict_name"]); ?>",<?php endforeach; endif; ?>
+        ];
+   // var pics=["/Public/img/1.jpg","/Public/img/2.jpg","/Public/img/3.jpg","/Public/img/4.jpg","/Public/img/5.jpg"];
+    //alert(pics);
+        //初值
+        var currPicNum=1;
+        $(document).ready(function(){
+            $("#key>a").click(function(){
+                    var key=$(this).html();
+                    //alert(key);
+                    var values=pics[key-1];
+                    //alert(values);
+                    $("#mohui").attr("src",values);
+                    //变颜色
+                    $(this).addClass("color").siblings().removeClass("color");
+                    //变颜色结束
+                    currPicNum=key;
+            });
+            var picInterval=setInterval("changePic()",3500);
+            $("#mohui").hover(function(){
+                clearInterval(picInterval);
+            },function(){
+                picInterval=setInterval("changePic()",3500);
+            })
+        });
+        function changePic(){
+            var pic=pics[currPicNum-1];
+            $("#mohui").attr("src",pic);
+            //变颜色
+            $("#key a").each(function(){
+                var value=$(this).html();
+                if(currPicNum==value){
+                    $(this).addClass("color").siblings().removeClass("color");
+                }
+            })
+            if (currPicNum>=5) {
+                currPicNum=1;
+            }else{
+                currPicNum++;
+            }
+
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
 <div id="pg-server-message" data-status="" data-message="" data-ispop="" data-fundTips="" style="display: none;"></div>
 <div class="maincontent">
 
 <div class="index-banner content-section">
-    <div class="slides" id="slidebox">
+    <div class="slides" id="slidebox" style="m">
+        <div>
+            <img src="pic/1.jpg" id="mohui" onerror="this.src='a.jpg'" width="1500px" height="400px" alt="辉哥" />
 
-  <ul id="slides" class="ui-slides">
-
-    	<li class="ui-slide01 fn-hide" data-background="url(/Public/img/1.jpg) no-repeat 50% 50%" style="background-image: url(/upload/cms/banner/indexBanner/08437a94-89b5-4586-b237-da3a73b8bd30.jpg?20140401a); display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat;">
-
-          <a  href="http://www.we.com/event/eventPage.action?type=wealth"  target="_blank"></a>
-
-        </li>
-
-	<li class="ui-slide01 fn-hide" data-background="url(/Public/img/2.jpg?20140401a) no-repeat 50% 50%" style="background-image: url(/upload/cms/banner/indexBanner/4917ea1b-c60c-48d2-9ad5-1ff55894ab49.jpg?20140401a); display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat;">
-
-          <a  href="http://www.we.com/about/detail.action?news_id=news_371"  target="_blank"></a>
-
-        </li>
-
-	<li class="ui-slide01 fn-hide" data-background="url(/upload/cms/banner/indexBanner/0600ba1f-060d-4c61-a276-5c75bbb8c3f3.jpg?20140401a) no-repeat 50% 50%" style="background-image: url(/upload/cms/banner/indexBanner/0600ba1f-060d-4c61-a276-5c75bbb8c3f3.jpg?20140401a); display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat;">
-
-          <a  href="http://www.we.com/about/detail.action?news_id=news_376"  target="_blank"></a>
-
-        </li>
-
-	<li class="ui-slide01 fn-hide" data-background="url(/upload/cms/banner/indexBanner/89a48c22-2993-4128-860f-9ae9e77e42cf.jpg?20140401a) no-repeat 50% 50%" style="background-image: url(/upload/cms/banner/indexBanner/89a48c22-2993-4128-860f-9ae9e77e42cf.jpg?20140401a); display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat;">
-
-          <a  href="http://www.we.com/event/eventPage.action?type=assetsAllocation2"  target="_blank"></a>
-
-        </li>
-
-	<li class="ui-slide01 fn-hide" data-background="url(/upload/cms/banner/indexBanner/b1935945-b5cd-4fc8-bb40-dea2f2b79ee9.jpg?20140401a) no-repeat 50% 50%" style="background-image: url(/upload/cms/banner/indexBanner/b1935945-b5cd-4fc8-bb40-dea2f2b79ee9.jpg?20140401a); display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat;">
-
-          <a  href="http://www.we.com/event/inviteFriend!rulePage.action"  target="_blank"></a>
-
-        </li>
-
-	<li class="ui-slide01 fn-hide" data-background="url(/upload/cms/banner/indexBanner/8a38bafd-1f34-4fe9-913b-7a04ee1ac010.jpg?20140401a) no-repeat 50% 50%" style="background-image: url(/upload/cms/banner/indexBanner/8a38bafd-1f34-4fe9-913b-7a04ee1ac010.jpg?20140401a); display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat;">
-
-          <a  href="http://www.we.com/about/detail.action?news_id=news_370"  target="_blank"></a>
-
-        </li>
-
-  </ul>
-
-</div>
+        </div>
+    </div>
 
 
 
@@ -167,7 +202,17 @@
 
 </div>
     <div class="main-section">
-        <div id="slider_nav"> </div>
+        <div id="slider_nav">
+             <div id="key">
+                <a class="color">1</a>
+                <a>2</a>
+                <a>3</a>
+                <a>4</a>
+                <a>5</a>
+                </div>
+
+
+        </div>
         <div class="register-box-outter">
             <div class="register-box  ">
             </div>
@@ -266,14 +311,14 @@
             <div class="card-detail-item fn-clear">
                 <ul class="card-detail-item-left fn-left fn-clear">
                     <li class="card-detail-item-left-01 fn-left">
-                        <div class="number num-family"><span>9.6</span><i>%</i></div>
+                        <div class="number num-family"><span><?php echo ($ua["upay_annua"]); ?></span><i>%</i></div>
                         <div class="text">预期年收益</div>
                     </li>
 
                     <li class="card-detail-item-left-02 fn-left">
                         <div class="number num-family">
 
-                                 <span>30</span>
+                                 <span><?php echo ($ux["upay_periodss"]); ?></span>
                                  <i>天</i>
 
 
@@ -284,8 +329,12 @@
                 <div class="card-detail-item-right fn-left">
                        <div class="btn-wrap">
 
+                            <?php
+ $mxa=$ux['upay_sunk']; $mxb=$ux['upay_paymoney']; ?>
+                         <?php if(($mxa == $mxb)): ?><a target="_blank" class="j-btn j-btn-orange" href="/financeplan/2735">查看详情</a>
+                         <?php else: ?>
 
-                                <a target="_blank" class="j-btn j-btn-orange" href="/financeplan/2735">立即加入</a>
+                                <a target="_blank" class="j-btn j-btn-orange" href="/financeplan/2735">立即加入</a><?php endif; ?>
 
 
 
@@ -331,273 +380,65 @@
 </a>
 
 
-<div id="wdg-index-fund" class="main-section content-section index-card fixed-plan-card">
-    <div class="card-caption">
-        <div class="text">专业4C标准甄选优质基金</div>
-        <div class="more-wrap">
-            <a href="/fund/info/tag000011">查看更多&gt; </a>
-        </div>
-    </div>
-
-    <div class="card-detail">
-        <ul class="index-fund-info fn-clear">
-
-
-
-
-				     		<li class='fixed-info-item fn-left  border-right-gray  border-bottom-gray' >
-				     			<dl>
-				     				<dt><a target="_blank" href="/fund/info/000217-tag000013">华安易富黄金ETF联接C</a></dt>
-				     				<dd class="pd15">
-				     					<span class="text-small color-gray-text pr10">
-
-
-
-
-
-
-
-						     					指数型基金
-
-
-
-				     					</span>
-
-				     					<span class="risk-level risk-level-3">
-
-
-
-
-                                                高风险
-
-
-				     					</span>
-				     				</dd>
-				      				<dd class="fund-info">
-
-
-				      						 <span class="fund-desc">近一年涨跌幅</span>
-				      					 	 <span class="fund-num  plus-color">
-
-                                                   11.66<i class="num-family"></i><i class="fund-unit">%</i>
-
-
-                                              </span><span class="fund-btn">投资 </span>
-
-				      					<a target="_blank" href="/fund/info/000217-tag000012" class="fund-btn">投资 </a>
-				      				</dd>
-				     			</dl>
-				     		</li>
-
-
-
-
-				     		<li class='fixed-info-item fn-left   border-bottom-gray' >
-				     			<dl>
-				     				<dt><a target="_blank" href="/fund/info/110007-tag000013">易方达稳健收益A</a></dt>
-				     				<dd class="pd15">
-				     					<span class="text-small color-gray-text pr10">
-
-
-				     							债券型基金
-
-
-
-
-
-
-
-
-				     					</span>
-
-				     					<span class="risk-level risk-level-2">
-
-
-
-				     					    	中风险
-
-
-
-				     					</span>
-				     				</dd>
-				      				<dd class="fund-info">
-
-
-				      						 <span class="fund-desc">近一年涨跌幅</span>
-				      					 	 <span class="fund-num  plus-color">
-
-                                                   6.45<i class="num-family"></i><i class="fund-unit">%</i>
-
-
-                                              </span><span class="fund-btn">投资 </span>
-
-				      					<a target="_blank" href="/fund/info/110007-tag000012" class="fund-btn">投资 </a>
-				      				</dd>
-				     			</dl>
-				     		</li>
-
-
-
-
-
-
-
-        </ul>
-
-   <ul class="index-fund-info fn-clear">
-
-
-
-
-
-
-
-
-
-
-				     		<li class='fixed-info-item fn-left  border-right-gray  ' >
-				     			<dl>
-				     				<dt><a target="_blank" href="/fund/info/001178-tag000013">前海开源再融资主题精选</a></dt>
-				     				<dd class="pd15">
-				     					<span class="text-small color-gray-text pr10">
-
-				     							股票型基金
-
-
-
-
-
-
-
-
-
-				     					</span>
-
-				     					<span class="risk-level risk-level-3">
-
-
-
-
-                                                高风险
-
-
-				     					</span>
-				     				</dd>
-				      				<dd class="fund-info">
-
-
-				      						 <span class="fund-desc">近一年涨跌幅</span>
-				      						 <span class="fund-num mius-color">
-
-                                               <i class="fund-unit">--</i>
-                                            </span><span class="fund-btn">投资 </span>
-
-				      					<a target="_blank" href="/fund/info/001178-tag000012" class="fund-btn">投资 </a>
-				      				</dd>
-				     			</dl>
-				     		</li>
-
-
-
-
-				     		<li class='fixed-info-item fn-left   ' >
-				     			<dl>
-				     				<dt><a target="_blank" href="/fund/info/163406-tag000013">兴全合润分级</a></dt>
-				     				<dd class="pd15">
-				     					<span class="text-small color-gray-text pr10">
-
-
-
-
-				     							混合型基金
-
-
-
-
-
-
-				     					</span>
-
-				     					<span class="risk-level risk-level-3">
-
-
-
-
-                                                高风险
-
-
-				     					</span>
-				     				</dd>
-				      				<dd class="fund-info">
-
-
-				      						 <span class="fund-desc">近一年涨跌幅</span>
-				      						 <span class="fund-num mius-color">
-
-                                               <i class="fund-unit">--</i>
-                                            </span><span class="fund-btn">投资 </span>
-
-				      					<a target="_blank" href="/fund/info/163406-tag000012" class="fund-btn">投资 </a>
-				      				</dd>
-				     			</dl>
-				     		</li>
-
-
-
-        </ul>
-
-    </div>
-</div>
 
 
 <div id="wdg-u-plan" class="main-section content-section index-card u-plan-card">
     <div class="card-caption">
         <div class="text">每周工作日上午10点开始</div>
         <div class="more-wrap">
-            <a href="/financeplan">查看更多&gt; </a>
+            <a href="/index.php/home/index/ujihua">查看更多&gt; </a>
         </div>
     </div>
     <div class="card-detail">
         <ul class="u-plan-list fn-clear">
             <li class="u-plan-item col-1-3 u-plan-a">
                 <h3>U计划A&nbsp;&nbsp;&nbsp;</h3>
-                <div class="rate-wrap"><span class="num-family">6.2</span>%</div>
-                <div class="duration-limit">理财期限3个月</div>
+                <div class="rate-wrap"><span class="num-family"><?php echo ($ua["upay_annua"]); ?></span>%</div>
+                <div class="duration-limit">理财期限<?php echo ($ua["upay_periodss"]); ?>个月</div>
                 <div class="btn-wrap">
 
 
-
-
-                        <a id="J_count_time_a" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2738" data-wait="1392" data-status="3">等待加入</a>
-
+                    <?php if(($ua["yn"] > 0)): ?><a id="J_count_time_a" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2738" data-wait="1392" data-status="3">等待加入</a>
+                    <?php else: ?>
+                        <?php
+ $maa=$ua['upay_sunk']; $mab=$ua['upay_paymoney']; ?>
+                         <?php if(($maa == $mab)): ?><a id="J_count_time_a" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2738" data-wait="1392" data-status="3">查看详情</a>
+                         <?php else: ?>
+                        <a id="J_count_time_a" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2738" data-wait="1392" data-status="3">立即加入</a><?php endif; endif; ?>
 
                 </div>
             </li>
             <li class="u-plan-item col-1-3 u-plan-b">
                 <h3>U计划B&nbsp;&nbsp;&nbsp;</h3>
-                <div class="rate-wrap"><span class="num-family">7.5</span>%</div>
-                <div class="duration-limit">理财期限6个月</div>
+                <div class="rate-wrap"><span class="num-family"><?php echo ($ub["upay_annua"]); ?></span>%</div>
+                <div class="duration-limit">理财期限<?php echo ($ub["upay_periodss"]); ?>个月</div>
                 <div class="btn-wrap">
 
-
-
-
-                        <a id="J_count_time_b" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2739" data-wait="1392" data-status="3">等待加入</a>
-
-
+                    <?php if(($ub["yn"] > 0)): ?><a id="J_count_time_b" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2739" data-wait="1392" data-status="3">等待加入</a>
+                    <?php else: ?>
+                        <?php
+ $mba=$ub['upay_sunk']; $mbd=$ub['upay_paymoney']; ?>
+                         <?php if(($mba == $mbd)): ?><a id="J_count_time_b" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2739" data-wait="1392" data-status="3">查看详情</a>
+                        <?php else: ?>
+                        <a id="J_count_time_b" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2739" data-wait="1392" data-status="3">立即加入</a><?php endif; endif; ?>
                 </div>
             </li>
             <li class="u-plan-item col-1-3 u-plan-c">
                 <h3>U计划C&nbsp;&nbsp;&nbsp;</h3>
-                <div class="rate-wrap"><span class="num-family">8.8</span>%</div>
-                <div class="duration-limit">理财期限12个月</div>
+                <div class="rate-wrap"><span class="num-family"><?php echo ($uc["upay_annua"]); ?></span>%</div>
+                <div class="duration-limit">理财期限<?php echo ($uc["upay_periodss"]); ?>个月</div>
                 <div class="btn-wrap">
 
 
+                    <?php if(($uc["yn"] > 0)): ?><a id="J_count_time_c" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2740" data-wait="1392" data-status="3">等待加入</a>
 
+                    <?php else: ?>
+                       <?php
+ $a=$uc['upay_sunk']; $b=$uc['upay_paymoney']; ?>
+                         <?php if(($a == $b)): ?><a id="J_count_time_c" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2740" data-wait="1392" data-status="3">查看详情</a>
+                        <?php else: ?>
 
-                        <a id="J_count_time_c" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2740" data-wait="1392" data-status="3">等待加入</a>
-
+                         <a id="J_count_time_c" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2740" data-wait="1392" data-status="3">立即加入</a><?php endif; endif; ?>
 
                 </div>
             </li>
@@ -610,17 +451,17 @@
     <div class="card-caption">
         <div class="text">每月1-25号，上午10:30开放</div>
         <div class="more-wrap">
-            <a href="/autoinvestplan">查看更多&gt; </a>
+            <a href="/index.php/home/index/xinjihua">查看更多&gt; </a>
         </div>
     </div>
     <div class="card-detail">
         <ul class="fixed-plan-info fn-clear">
             <li class="fixed-info-item col-1-3 fixed-info-1 ">
                 <div class="sub-text">投资起点</div>
-                <div class="text">每月<span class="num-family">500</span>元</div>
+                <div class="text">每月<span class="num-family"><?php echo ($xinplan["payplan_stamoney"]); ?></span>元</div>
                 <div class="foot">
 
-                        <div class="item-dt">开放名额: 200人</div>
+                        <div class="item-dt">开放名额: <?php echo ($xinplan["payplan_num"]); ?>人</div>
 
 
 
@@ -629,17 +470,17 @@
             </li>
             <li class="fixed-info-item col-1-3 fixed-info-2 ">
                 <div class="sub-text">预期年收益</div>
-                <div class="text"><span class="num-family" style="font-size: 20px;">8</span>%</div>
+                <div class="text"><span class="num-family" style="font-size: 20px;"><?php echo ($xinplan["payplan_annua"]); ?></span>%</div>
                 <div class="foot">
                     <span>每月投资日<span class="text-orange">7</span>日</span>
                 </div>
             </li>
             <li class="fixed-info-item col-1-3 fixed-info-3 ">
                 <div class="sub-text">理财期限</div>
-                <div class="text"><span class="num-family">12</span>个月</div>
+                <div class="text"><span class="num-family"><?php echo ($xinplan["payplan_deadline"]); ?></span>个月</div>
                 <div class="foot">
 
-                        <a id="J_count_time_fixed" target="_blank" class="j-btn j-btn-orange" href="/autoinvestplan/20088" data-wait="3192" data-type="XJH" data-status="0">等待加入</a>
+                        <a id="J_count_time_fixed" target="_blank" class="j-btn j-btn-orange" href="/index.php/home/index/xinjihua" data-wait="3192" data-type="XJH" data-status="0">等待加入</a>
 
 
 
@@ -655,11 +496,62 @@
     <div class="card-caption">
 
         <div class="more-wrap">
-            <a target="_self" href="/loan">查看更多&gt; </a>
+            <a target="_self" href="/index.php/home/creditor/zhaiw">查看更多&gt; </a>
         </div>
     </div>
     <div class="card-detail">
-        <ul class="ui-list ui-list-m ui-list-invest" id="loan-list"></ul>
+        <ul class="ui-list ui-list-m ui-list-invest" id="loan-list">
+<li id="loan-list-header" class="ui-list-header fn-clear">
+<span class="ui-list-title fn-left color-gray-text w140 pl30" next="-1">借款标题</span>
+<span class="ui-list-title fn-left color-gray-text text-center w86" next="-1" name="INTEREST">年利率</span>
+<span class="ui-list-title fn-left color-gray-text text-right w160" next="-1">金额</span>
+<span class="ui-list-title fn-left color-gray-text text-right w135" next="-1" name="MONTH">期限</span>
+<span class="ui-list-title fn-left color-gray-text text-right w110" next="-1" name="FINISHEDRATIO">进度</span>
+<span class="ui-list-title fn-left color-gray-text text-right w130" name="REFRESH" next="-1"></span>
+</li>
+
+<?php if(is_array($credit)): foreach($credit as $key=>$vo): ?><li class="ui-list-item fn-clear ">
+<span class="ui-list-field fn-left text-big w140 pl30">
+<em class="ui-loantype XYRZ" title="信用认证标"></em>
+<a class="fn-left w116 rrd-dimgray fn-text-overflow" title="<?php echo ($vo["creditor_name"]); ?>" target="_blank" href="/loan/2035776"><?php echo ($vo["creditor_name"]); ?></a>
+</span>
+<span class="ui-list-field fn-left num text-center w86 ">
+<em class="value"><?php echo ($vo["creditor_lilv"]); ?></em>
+%
+</span>
+<span class="ui-list-field fn-left num text-right w160 ">
+<em class="value"><?php echo ($vo["creditor_money"]); ?></em>
+元
+</span>
+<span class="ui-list-field fn-left num text-right w135 ">
+<em class="value"><?php echo ($vo["creditor_deadline"]); ?></em>
+个月
+</span>
+<span class="ui-list-field fn-left text-right w110">
+<span class="">
+<em><?php echo ($vo["ed"]); ?></em>
+%
+</span>
+</span>
+<span class="ui-list-field fn-left text-right w130">
+
+<?php if(($vo["ed"] == 100) ): ?><a href="aa" class="ui-button j-btn j-btn-orange ui-list-invest-button ui-list-invest-button-READY FIRST_READY">
+        <span class="IN_PROGRESS">投标</span>
+        <span class="READY FIRST_READY">已满标</span>
+        <span class="OPEN">还款中</span>
+        </a>
+<?php else: ?>
+        <a href="/index.php/home/index/xinjihua" class="ui-button j-btn j-btn-orange ui-list-invest-button ui-list-invest-button-OPEN">
+        <span class="OPEN">投标</span>
+        <span class="READY FIRST_READY">已满标</span>
+        <span class="IN_PROGRESS">还款中</span>
+        </a><?php endif; ?>
+
+</span>
+</li><?php endforeach; endif; ?>
+
+
+        </ul>
     </div>
 </div>
 
@@ -671,45 +563,21 @@
         <dt><a href="/about/about.action?flag=news" target="_self" class="fn-right more">更多网站动态</a>公司动态</dt>
         <dd>
             <ul class="news-list-con">
-                <li class="news-item">
-                    <a href="/about/detail.action?news_id=news_377" target="_blank" class="title">人人贷WE理财张乐：合规成长、不忘初心是普惠金融的新使命</a>
-                    <span class="news-date">2016-06-03</span>
-                </li>
-                <li class="news-item">
-                    <a href="/about/detail.action?news_id=news_375" target="_blank" class="title">欧洲银行管理局主席中国考察之旅 为何特意到访人人贷？</a>
-                    <span class="news-date">2016-05-31</span>
-                </li>
-                <li class="news-item">
-                    <a href="/about/detail.action?news_id=news_374" target="_blank" class="title">WE理财黄秋子：行业已迎来V形拐点</a>
-                    <span class="news-date">2016-05-24</span>
-                </li>
-                <li class="news-item">
-                    <a href="/about/detail.action?news_id=news_372" target="_blank" class="title">杨一夫：网贷行业向好 平台发展需理性</a>
-                    <span class="news-date">2016-04-29</span>
-                </li>
+            <?php if(is_array($trend)): foreach($trend as $key=>$vo): ?><li class="news-item">
+                    <a href="/about/detail.action?news_id=news_377" target="_blank" class="title"><?php echo ($vo["trends_name"]); ?></a>
+                    <span class="news-date"><?php echo (date("Y-m-d",$vo["trends_time"])); ?></span>
+                </li><?php endforeach; endif; ?>
             </ul>
         </dd>
     </dl>
     <dl class="company-info-con media-info-con">
-        <dt><a href="/about/about.action?flag=report" target="_self" class="fn-right more">更多媒体报道</a>媒体报道</dt>
+        <dt><a href="/about/about.action?flag=report" target="_self" class="fn-right more"></a>媒体报道</dt>
         <dd>
             <ul class="news-list-con">
-                        <li class="news-item">
-                            <a href="/about/detail.action?report_id=report_72" target="_blank" class="title">人人贷杨一夫：普惠金融是金融领域的消费升级</a>
-                            <span class="news-date">2016-05-27</span>
-                        </li>
-                        <li class="news-item">
-                            <a href="/about/detail.action?report_id=report_70" target="_blank" class="title">【腾讯财经博鳌三日谈】张适时：平台转型并非去“P2P化”</a>
-                            <span class="news-date">2016-04-07</span>
-                        </li>
-                        <li class="news-item">
-                            <a href="/about/detail.action?report_id=report_71" target="_blank" class="title">从蜿蜒到加速：互联网金融带来的变革</a>
-                            <span class="news-date">2016-03-31</span>
-                        </li>
-                        <li class="news-item">
-                            <a href="/about/detail.action?report_id=report_69" target="_blank" class="title">CCTV三大资讯频道采访张适时：互金发展需监管与自律并行</a>
-                            <span class="news-date">2016-03-25</span>
-                        </li>
+            <?php if(is_array($trend1)): foreach($trend1 as $key=>$vo): ?><li class="news-item">
+                            <a href="/about/detail.action?report_id=report_72" target="_blank" class="title"><?php echo ($vo["trends_name"]); ?></a>
+                            <span class="news-date"><?php echo (date("Y-m-d",$vo["trends_time"])); ?></span>
+                        </li><?php endforeach; endif; ?>
             </ul>
         </dd>
     </dl>
@@ -932,7 +800,7 @@
 <script id="loan-list-template" type="text/x-handlebars-template">
   {{# if _hasHeader }}
   <li class="ui-list-header fn-clear" id="loan-list-header">
-    <span class="ui-list-title fn-left color-gray-text w140 pl30">借款标题</span>
+    <span class="ui-list-title fn-left color-gray-text w140 pl30">借款标题对对对</span>
 
     <span class="ui-list-title fn-left color-gray-text text-center w86 ui-list-title-sortable ui-list-title-sortable-2" name="INTEREST" next="desc">年利率<em></em></span>
     <span class="ui-list-title fn-left color-gray-text text-right w160">金额</span>
@@ -977,7 +845,7 @@
 <script id="transfer-list-template" type="text/x-handlebars-template">
   {{# if _hasHeader }}
   <li class="ui-list-header fn-clear" id="transfer-list-header">
-    <span class="ui-list-title fn-left color-gray-text w240">借款标题</span>
+    <span class="ui-list-title fn-left color-gray-text w240">借款标题ss</span>
     <span class="ui-list-title fn-left color-gray-text w80">信用等级</span>
     <span class="ui-list-title fn-left color-gray-text w75">年利率</span>
     <span class="ui-list-title fn-left color-gray-text w80">剩余期限</span>
@@ -1027,11 +895,7 @@
   {{/ if }}
 </script>
 
- <script   type="text/x-json">com.renrendai.vo.PriorFinancePlanVo@7041c3c6</script>
 
-
-
-        <script id="loan-list-rsp" type="text/x-json">{"status":0,"message":"okey","data":{"loans":[{"loanId":2031741,"title":"软件公司中层借款，有借有还","picture":"","amount":6000.0,"interest":10.0,"months":6,"loanType":"DEBX","status":"IN_PROGRESS","allowAccess":false,"utmSource":"debx-rrd","openTime":"Jun 6, 2016 5:23:13 PM","startTime":"Jun 13, 2016 5:34:10 PM","readyTime":"Jun 6, 2016 5:35:10 PM","passTime":"Jun 6, 2016 5:52:45 PM","surplusAmount":0.0,"finishedRatio":100.0,"repaidByGuarantor":false,"borrowerId":1075666,"forbidComment":false,"nickName":"投你一百万.rrd","borrowerLevel":"E","displayLoanType":"XYRZ","currentIsRepaid":false,"amountPerShare":0.0,"oldLoan":false,"interestPerShare":0.0,"principal":0.0,"leftMonths":6,"overDued":false,"beginBidTime":"Jun 6, 2016 5:34:10 PM","productId":50},{"loanId":2031083,"title":"资金周转","picture":"","amount":20000.0,"interest":10.0,"months":24,"loanType":"DEBX","status":"IN_PROGRESS","allowAccess":false,"utmSource":"debx-zaxy","openTime":"Jun 6, 2016 9:58:30 AM","startTime":"Jun 13, 2016 1:54:50 PM","readyTime":"Jun 6, 2016 2:03:07 PM","passTime":"Jun 6, 2016 3:04:24 PM","surplusAmount":0.0,"finishedRatio":100.0,"repaidByGuarantor":false,"borrowerId":5163510,"forbidComment":false,"nickName":"755999160602581","borrowerLevel":"A","displayLoanType":"JGDB","currentIsRepaid":false,"amountPerShare":0.0,"oldLoan":false,"interestPerShare":0.0,"principal":0.0,"leftMonths":24,"overDued":false,"beginBidTime":"Jun 6, 2016 1:54:50 PM","productId":44},{"loanId":2031769,"title":"日常生活消费","picture":"","amount":44100.0,"interest":10.2,"months":36,"loanType":"DEBX","status":"IN_PROGRESS","allowAccess":false,"utmSource":"debx-yx","openTime":"Jun 6, 2016 5:42:05 PM","startTime":"Jun 13, 2016 7:30:00 PM","readyTime":"Jun 6, 2016 8:11:56 PM","passTime":"Jun 7, 2016 8:57:35 AM","surplusAmount":0.0,"finishedRatio":100.0,"repaidByGuarantor":false,"borrowerId":5165132,"forbidComment":false,"nickName":"ChenC_51141133272.yx","borrowerLevel":"A","displayLoanType":"SDRZ","currentIsRepaid":false,"amountPerShare":0.0,"oldLoan":false,"interestPerShare":0.0,"principal":0.0,"leftMonths":36,"overDued":false,"beginBidTime":"Jun 6, 2016 7:30:00 PM","productId":26},{"loanId":2031770,"title":"资金周转","picture":"","amount":19800.0,"interest":9.6,"months":24,"loanType":"DEBX","status":"IN_PROGRESS","allowAccess":false,"utmSource":"debx-yx","openTime":"Jun 6, 2016 5:42:09 PM","startTime":"Jun 13, 2016 7:30:00 PM","readyTime":"Jun 6, 2016 8:20:56 PM","passTime":"Jun 7, 2016 8:57:24 AM","surplusAmount":0.0,"finishedRatio":100.0,"repaidByGuarantor":false,"borrowerId":5165133,"forbidComment":false,"nickName":"MaoNN_73251137257.yx","borrowerLevel":"A","displayLoanType":"SDRZ","currentIsRepaid":false,"amountPerShare":0.0,"oldLoan":false,"interestPerShare":0.0,"principal":0.0,"leftMonths":24,"overDued":false,"beginBidTime":"Jun 6, 2016 7:30:00 PM","productId":26}]}}</script>
 
         </div>
         <div class="pg-container-content"></div>

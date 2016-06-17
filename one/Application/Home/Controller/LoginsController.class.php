@@ -16,6 +16,7 @@ class LoginsController extends Controller {
 		if($log){
 			$username=$log['login_nickname'];
 			session('users',$username);
+			session('login_name',$log);
 			$this->success("登录成功",U("Index/index"));
 		}else{
 			$this->error("登录失败");
@@ -24,6 +25,7 @@ class LoginsController extends Controller {
 	//退出操作
    public function tuichu(){
    	$tui=session('users',null);
+   	$tui=session('login_name',null);
    	$this->success("退出成功",U("Index/index"));
    }
    //验证码
@@ -64,12 +66,14 @@ class LoginsController extends Controller {
 			//入库
 			$add=$login->data($regi)->add();
 			//print_r($add);
-			if($add){
+			if($add)
+			{
 				$username=$regi['login_nickname'];
 				session('users',$username);
 				$this->success('注册成功',U('Index/index'));
-			}else{
-				$this->error('添加成功');
+			}else
+			{
+				$this->error('添加失败');
 			}
 		}
 	}

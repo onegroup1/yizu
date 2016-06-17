@@ -77,7 +77,18 @@
 			<dt><i class="Hui-iconfont">&#xe613;</i> 图片管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="picture-list.html" href="javascript:void(0)">图片管理</a></li>
+					<li><a _href="__APP__/home/picture/pic_add" href="javascript:void(0)">图片添加</a></li>
+					<li><a _href="__APP__/home/picture/pic_list" href="javascript:void(0)">图片查看</a></li>
+				</ul>
+			</dd>
+		</dl>
+		</dl>
+		<dl id="menu-picture">
+			<dt><i class="Hui-iconfont">&#xe613;</i> 公司动态<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a _href="__APP__/home/gsdt/gsdt_add" href="javascript:void(0)">动态添加</a></li>
+					<li><a _href="__APP__/home/picture/pic_list" href="javascript:void(0)">图片查看</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -193,14 +204,14 @@
 		</div>
 		<div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
 	</div>
-	
+
 	<div id="iframe_box" class="Hui-article">
 		<div class="show_iframe">
 			<div style="display:none" class="loading"></div>
 			<iframe scrolling="yes" frameborder="0" src="welcome.html"></iframe>
 		</div>
 	</div>
-	
+
 </section>
 <script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/admin/lib/layer/1.9.3/layer.js"></script>
@@ -238,13 +249,13 @@ function product_add(title,url){
 function member_add(title,url,w,h){
 	layer_show(title,url,w,h);
 }
-</script> 
+</script>
 <script type="text/javascript">
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "//hm.baidu.com/hm.js?080836300300be57b7f34f4b3e97d911";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s)})();
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F080836300300be57b7f34f4b3e97d911' type='text/javascript'%3E%3C/script%3E"));
