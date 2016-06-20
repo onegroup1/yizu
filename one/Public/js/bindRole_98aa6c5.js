@@ -1,0 +1,1 @@
+define("user:page/setting/modifyPages/bindRole/bindRole",function(){});
