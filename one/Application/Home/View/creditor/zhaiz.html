@@ -143,7 +143,7 @@
             <td class="ui-list-field  text">
                 <div class="pl25 w130  fn-text-overflow">
                     <em class="ui-loantype {{ loanType }}" title="{{ loanTypeText }}"></em>
-                    <a  class="rrd-dimgray" href="{{ link }}" target="_blank" title="{{ title }}">{$vo.let_name}</a>
+                    <a  class="rrd-dimgray" href="__URL__/zrxq/id/{$vo.let_id}" target="_blank" title="{{ title }}">{$vo.let_name}</a>
                 </div>
             </td>
 
@@ -180,9 +180,15 @@
 
             <td class="ui-list-field   text-right">
                 <div class="pr25">
-                    <a class="ui-button ui-button-rect-mid  ui-button-orange  ui-list-invest-button ui-list-invest-button-{{ status }}" {{# if buttonLink }}href="{{ buttonLink }}" target="_blank"{{/ if }}>
-                        <span class="OPEN">购买</span>
-                        <span class="READY FIRST_READY">已完成</span>
+                    <if condition="$vo.let_status != 0">
+                        <a href="__URL__/zrxq/id/{$vo.let_id}" class="ui-button ui-button-rect-mid  ui-button-orange  ">
+                            <span class="OPEN">购&nbsp;&nbsp;&nbsp;买</span>
+                        </a>
+                        <else />
+                        <a href="javascript:void (0)" class="ui-button ui-button-rect-mid  ui-button-orange  " style="background-color: #6a6a6a">
+                            <span class="READY FIRST_READY">已完成</span>
+                        </a>
+                        </if>
                     </a>
                 </div>
             </td>
