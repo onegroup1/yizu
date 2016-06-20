@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,member-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/html5.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/respond.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/PIE_IE678.js"></script>
+<![endif]-->
+<link href="__PUBLIC__/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/admin/lib/icheck/icheck.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="__PUBLIC__/admin/http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>添加用户</title>
+</head>
+<body>
+    <div class="pd-20">
+        <form action="__URL__/huiadd" method="post" enctype="multipart/form-data" class="form form-horizontal" id="form-member-add">
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>昵称</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder=""  name="login_nickname" datatype="*2-16">
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>密码</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_pwd" datatype="*2-16">
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>确认密码</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder=""   name="login_qpwd" datatype="*2-16">
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>手机号</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_phone"  datatype="*2-16">
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>年龄</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_age" >
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>学历</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_educational" >
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>婚姻</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_marriage" >
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>收入</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_income"  >
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>车产</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_vehicle"  >
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>房产</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_house"  >
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>车贷</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_carloans" >
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>房贷</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_houseloans">
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>公司行业</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_business" >
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>工作城市</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_city" >
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>公司规模</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_scale">
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>工作时间</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_worktime" >
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>职位</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_position" >
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>账户余额</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_balance">
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>邮箱</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="" name="login_email">
+                </div>
+                <div class="col-4"> </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>头像</label>
+                <div>
+                    <input type="file"value="" placeholder="" name="myfile">
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="col-9 col-offset-3">
+                    <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    <footer class="footer">
+        <p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br>Copyright &copy;2015 H-ui.admin v2.3 All Rights Reserved.<br>
+            本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
+    </footer>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/icheck/jquery.icheck.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/Validform/5.3.2/Validform.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/layer/1.9.3/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+
+	$("#form-member-add").Validform({
+		tiptype:2,
+		callback:function(form){
+			form[0].submit();
+			var index = parent.layer.getFrameIndex(window.name);
+			parent.$('.btn-refresh').click();
+			parent.layer.close(index);
+		}
+	});
+});
+</script>
+</body>
+</html>
