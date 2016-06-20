@@ -257,18 +257,29 @@
                         --
 
                 </span>
+
+        <?php if($arr['login_email']){ ?>
                 <span class="col-4">
-
-
-                        <span class="not-set-status">未绑定</span>
-
+                        <span class="status-ok">已绑定</span>
+                        <span class="status-ok">已绑定</span>
                 </span>
                 <span class="col-5">
-
-
-                        <a target="_blank" href="/account/bindRole.action?type=EMAIL">立即绑定</a>
-
+                        <a target="_blank" href="__URL__/xqy/loginid/{$arr.login_id}/status/5">更换邮箱</a>
                 </span>
+
+                <?php }else{ ?>
+
+
+
+                <span class="col-4">
+                        <span class="not-set-status">未绑定</span>
+                </span>
+                <span class="col-5">
+                        <a target="_blank" href="__URL__/xqy/loginid/{$arr.login_id}/status/5">立即绑定</a>
+                </span>
+
+
+                <?php } ?>
             </li>
             <li class="info-item">
                 <span class="col-1">

@@ -1,6 +1,9 @@
 <?php
+
 namespace Home\Controller;
 use Think\Controller;
+include("../class.phpmailer.php");
+include("../class.smtp.php");
 class ZhszController extends Controller {
    public function index(){
     	$users=session('users');
@@ -83,8 +86,8 @@ class ZhszController extends Controller {
         }elseif($id=='4'){
             //实名认证
             $this->display("idcard");
-        }
-
+        }elseif($id='5')
+            $this->display("email");
     }
     //信息完善之入库
     public function emailadd(){
@@ -150,8 +153,62 @@ class ZhszController extends Controller {
                 $this->error("手机修改失败");
             }
         }
+    }
+    public function emails(){
+        $email=$_POST['login_email'];
+        $login_id=$_POST['login_id'];
+        header("content-type:text/html;charset=utf-8");
+        vendor('Emails.phpmailer');
+        //vendor('Emails..phpmailer');
+        $mail = new \PHPMailer();
+        $mail->IsSMTP(); // send via SMTP
+        $mail->Host = "smtp.163.com"; // SMTP servers
+        $mail->SMTPAuth = true; // turn on SMTP authentication
+        $mail->Username = "wanghehui1011"; // SMTP username 注意：普通邮件认证不需要加 @域名
+        $mail->Password = "hehui521"; // SMTP password
+        $mail->From = "wanghehui1011@163.com"; // 发件人邮箱
+        $mail->FromName = "易贷"; // 发件人
 
+        $mail->CharSet = "utf-8"; // 这里指定字符集！
+        $mail->Encoding = "base64";
 
+        $mail->AddAddress($email,"王贺辉"); // 收件人邮箱和姓名
+        $mail->AddReplyTo("wanghehui1011@163.com","易贷");
+        //$mail->WordWrap = 50; // set word wrap 换行字数
+        //$mail->AddAttachment("/var/tmp/file.tar.gz"); // attachment 附件
+        //$mail->AddAttachment("/tmp/image.jpg", "new.jpg");
+        $mail->IsHTML(true); // send as HTML
+        // 邮件主题
+        $subject="易贷绑定邮箱";
+        $mail->Subject = $subject;
+        // 邮件内容
+        $text="http://www.renrendai.com/index.php/Home/Zhsz/email/ids/$login_id/email/$email";
+        $mail->Body = "$text";
+        $mail->AltBody ="text/html";
+        if(!$mail->Send())
+        {
+            echo "邮件发送有误 <p>";
+            echo "邮件错误信息: " . $mail->ErrorInfo;
+            exit;
+        }
+        else {
+            //echo "邮件发送成功!<br />";
+            $this->success("邮箱发送成功",U("zhsz/index"));
+        }
+    }
+    public function email(){
+        $id=$_GET['ids'];
+        //echo $id;
+        $email=$_GET['email'];
+        //echo $id,$email;
+        $login=M("login");
+        $data['login_email']=$email;
+        $up=$login->where("login_id='$id'")->save($data);
+        if($up){
+            $this->success("邮箱绑定成功",U("zhsz/index"));
+        }else{
+            $this->error("邮箱绑定失败");
+        }
     }
  }
  ?>
