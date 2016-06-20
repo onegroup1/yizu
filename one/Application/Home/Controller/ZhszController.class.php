@@ -58,6 +58,7 @@ class ZhszController extends Controller {
    }
    //账户总览
    public function zhzl(){
+       //$id
         $this->display("zhzl");
    }
    //个人中心
