@@ -3,8 +3,51 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
-        //$this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover,{color:blue;}</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP</b>！</p><br/>版本 V{$Think.version}</div><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_55e75dfae343f5a1"></thinkad><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
-		$this->display('index');
+        $time=time();
+        $picture=M('picture');
+        //前台轮播图
+        $piclist=$picture->order('pict_time DESC')->limit(5)->select();
+        //前台公司动态
+        $trends=M("trends");
+        $trend=$trends->order('trends_time DESC')->limit(4)->select();
+        $trend1=$trends->limit(4)->select();
+        //债权
+        $creditor=M("creditor");
+        $credit=$creditor->order('creditor_id DESC')->limit(4)->select();
+        foreach ($credit as $k => $v) {
+            $zje=$v['creditor_money'];
+            $dqje=$v['yet_bid'];
+            $ed=($dqje/$zje)*100;
+            $ned=intval($ed);
+            $credit[$k]['ed']=$ned;
+        }
+        //前台首页之薪计划
+        $payplan=M("payplan");
+        $xinplan=$payplan->order("payplan_id DESC")->limit(1)->find();
+        //U计划
+        $upay_content=M("upay_content");
+        $ua=$upay_content->where("upay_up_id='1'")->order("upay_id DESC")->limit(1)->find();
+        $fq=$ua['upay_financialstime'];
+        $yn=$fq-$time;
+        $ua['yn']=$yn;
+        $ub=$upay_content->where("upay_up_id='2'")->order("upay_id DESC")->limit(1)->find();
+        $ub['yn']=$yn;
+        $uc=$upay_content->where("upay_up_id='3'")->order("upay_id DESC")->limit(1)->find();
+        $uc['yn']=$yn;
+        $ux=$upay_content->where("upay_up_id='4'")->order("upay_id DESC")->limit(1)->find();
+        $ux['yn']=$yn;
+        //print_r($ua);die;
+        //die;
+        $this->assign('piclist',$piclist);//轮播图
+        $this->assign('trend',$trend);  //公司动态
+        $this->assign('trend1',$trend1);  //公司动态
+        $this->assign('credit',$credit);//债权
+        $this->assign('xinplan',$xinplan);//薪计划
+        $this->assign('ua',$ua);//U计划A
+        $this->assign('ub',$ub);//U计划B
+        $this->assign('uc',$uc);//U计划C
+        $this->assign('ux',$ux);//U计划C
+        $this->display('index');
     }
     public function jijin(){
         $this->display('jijin');

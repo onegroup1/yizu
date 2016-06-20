@@ -7,6 +7,7 @@ class LoginsController extends Controller {
 	}
 	//验证登录
 	public function login(){
+		header("content-type:text/html;charset=utf8");
 		$deng['login_phone']=I("post.j_username");
 		$deng['login_pwd']=I("post.login_pwd");
 		//print_r($deng);die;
@@ -15,7 +16,15 @@ class LoginsController extends Controller {
 		$log=$yilogin->where($deng)->find();
 		if($log){
 			$username=$log['login_nickname'];
+			$files=$log['login_img'];
 			session('users',$username);
+			session('login_name',$log);
+			session('loign_img',$files);
+			$time=time();
+			//echo $time;die;
+			$upd=M('login');
+        $data['login_times']="$time";
+        $upd->where("login_nickname='$username'")->save($data);
 			$this->success("登录成功",U("Index/index"));
 		}else{
 			$this->error("登录失败");
@@ -24,6 +33,8 @@ class LoginsController extends Controller {
 	//退出操作
    public function tuichu(){
    	$tui=session('users',null);
+   	$tui=session('login_name',null);
+   	$tui=session('loign_img',null);
    	$this->success("退出成功",U("Index/index"));
    }
    //验证码
@@ -64,12 +75,14 @@ class LoginsController extends Controller {
 			//入库
 			$add=$login->data($regi)->add();
 			//print_r($add);
-			if($add){
+			if($add)
+			{
 				$username=$regi['login_nickname'];
 				session('users',$username);
 				$this->success('注册成功',U('Index/index'));
-			}else{
-				$this->error('添加成功');
+			}else
+			{
+				$this->error('添加失败');
 			}
 		}
 	}
