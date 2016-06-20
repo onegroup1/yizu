@@ -79,7 +79,6 @@ class CreditorController extends Controller {
             $arr=$User
                 ->join("yi_login on yi_creditor.login_id=yi_login.login_id")
                 ->where("creditor_id=$id")->select();
-            //print_r($arr);die;
             for ($i=0;$i<count($arr);$i++) {
                 $money=$arr[$i]['creditor_money'];
                 $lilv=$arr[$i]['creditor_lilv'];
@@ -110,12 +109,24 @@ class CreditorController extends Controller {
     }
     //显示投标页面
     public function zqxqtb(){
+        $id=$_GET['login_id'];
         $User=M('Login');
-        $data['creditor_id']=$_GET['creditor_id'];
-        $data['login_id']=$_GET['login_id'];
-        $arr=$User->select();
+        $creditor_id=$_GET['creditor_id'];
+        //$arr=$User->select();
+        $arr=$User
+            ->join("yi_creditor on yi_login.login_id=yi_creditor.login_id")
+            ->where("creditor_id = $id")->select();
+        for ($i=0;$i<count($arr);$i++) {
+            $money=$arr[$i]['creditor_money'];
+            $lilv=$arr[$i]['creditor_lilv'];
+            $deadline=$arr[$i]['creditor_deadline'];
+        }
         $this->assign("data", $arr);
+        $this->assign("money", $money);
+        $this->assign("lilv", $lilv);
+        $this->assign("deadline", $deadline);
         $this->display();
+
     }
     public function bid_money(){
         $User=M('Bid');
@@ -144,10 +155,56 @@ class CreditorController extends Controller {
         $show= $Page->show();// 分页显示输出
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $arr = $User->order('let_id')->limit($Page->firstRow.','.$Page->listRows)->select();
-
+        $arr1 = $User->select();
+        $count=count($arr1);
+        $moneyone=0;
+        for ($i=0;$i<count($arr1);$i++) {
+            $moneyone=$arr1[$i]['creditor_money']+$moneyone;
+        }
         $this->assign("data", $arr);
         $this->assign('page',$show);// 赋值分页输出
+        $this->assign("dat", $moneyone);
+        $this->assign("count", $count);
         $this->display();
+    }
+    public function zrxq(){
+        $id=$_GET['id'];
+        $sess=$_SESSION['users'];
+        if(empty($sess)){
+            //echo "没登陆";die;
+            $User = M('Creditor_let');
+            $arr=$User
+                ->join("yi_login on yi_creditor_let.login_id=yi_login.login_id")
+                ->where("let_id = $id")->select();
+            //print_r($arr);die;
+            for ($i=0;$i<count($arr);$i++) {
+                $lilv=$arr[$i]['let_lilv'];
+                $money=$arr[$i]['let_money'];
+                $qixian=$arr[$i]['let_qixian'];
+            }
+            $this->assign("data", $arr);
+            $this->assign("lilv", $lilv);
+            $this->assign("money", $money);
+            $this->assign("qixian", $qixian);
+            $this->display('zrxqd');
+        }else{
+            //echo "登陆";die;
+            $User = M('Creditor_let');
+            $arr=$User
+                ->join("yi_login on yi_creditor_let.login_id=yi_login.login_id")
+                ->where("let_id = $id")->select();
+            //print_r($arr);die;
+            for ($i=0;$i<count($arr);$i++) {
+                $lilv=$arr[$i]['let_lilv'];
+                $money=$arr[$i]['let_money'];
+                $qixian=$arr[$i]['let_qixian'];
+            }
+            $this->assign("data", $arr);
+            $this->assign("lilv", $lilv);
+            $this->assign("money", $money);
+            $this->assign("qixian", $qixian);
+            $this->display('zrxqtb');
+        }
     }
 
 }
