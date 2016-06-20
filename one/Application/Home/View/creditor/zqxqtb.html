@@ -116,19 +116,19 @@
                   <div class="fn-clear  mb25">
                       <dl class="fn-left w300">
                           <dd class="basic-all color-orange-text">
-                            <em class="text-xxxl num-family">148,000</em><span class="font-18px basic-text ">元</span>
+                            <em class="text-xxxl num-family">{$money}</em><span class="font-18px basic-text ">元</span>
                           </dd>
                           <dt class="minus-mt-5">标的总额</dt>
                       </dl>
                       <dl class="fn-left w240">
                           <dd class="basic-all">
-                              <em class="text-xxxl  num-family color-dark-text " style="margin-left:-4px;">10.20</em><em class="font-24px ">%</em>
+                              <em class="text-xxxl  num-family color-dark-text " style="margin-left:-4px;">{$lilv}</em><em class="font-24px ">%</em>
                           </dd>
                           <dt class="minus-mt-5">年利率</dt>
                       </dl>
                       <dl class="fn-left w140">
                           <dd class="basic-all">
-                              <em class=" text-xxxl num-family color-dark-text">36</em><span class="font-18px basic-text">个月</span>
+                              <em class=" text-xxxl num-family color-dark-text">{$deadline}</em><span class="font-18px basic-text">个月</span>
                           </dd>
                           <dt class="minus-mt-5">还款期限</dt>
                       </dl>
@@ -206,10 +206,11 @@
                       <p class="ui-term-overage mb4">
                           <span style="width: auto" class="clearfix"><em class="fn-left mr10">账户余额</em> <em id="max-account" class="fn-left" data-account="0.0">0.00</em><em class="fn-left">元</em><a class="fn-right" href="/account/capital!recharge.action" target="_blank">充值</a></span>
                       </p>
-                      <form class="ui-term-form ui-form" autocomplete="off">
+                      <form class="ui-term-form ui-form" autocomplete="off" action="__URL__/bid_money/creditor_id/{$vo.creditor_id}/login_id/{$vo.login_id}" method="post">
                           <div class="ui-term-field invest">
-                              <input class="ui-term-input ui-input ui-input-text" type="text" />
-                              <p class="ui-term-placeholder">输入金额需为50元的整数倍</p>
+                              <input class="ui-term-input ui-input ui-input-text" type="text" id="money" name="money" onblur='check_Money()' />
+                              <span id='s3'></span>
+                              <p class="ui-term-placeholder"></p>
                               <p class="ui-term-inputunit">元 </p>
                               <span class="ui-term-eq share" style="display: none;"></span>
                               <p class="ui-term-hint"></p>
@@ -335,18 +336,14 @@
     公司职员，现居辽宁省沈阳市，从事教育行业，工作收入稳定，贷款用于资金周转。 该借款人此次借款用于资金周转，该借款人为某大学教授，工作已有40年，每月有稳定收入。上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准 上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准。
   </div>
 </div>
-	            </div>
-	         	<div class="ui-tab-content" data-name="investment">
-	              
+</div>
+	<div class="ui-tab-content" data-name="investment">
         <div class="text-right text color-lightdark-text  mb10 pt10 pr25">
           <span class="mr50">加入人次 <em id="investor-count"></em> 人</span>
           <span class="mr10">投标总额 <em>104,050</em>元</span>
         </div>
         <div class="ui-list ui-list-s" id="investment-records"></div>
-        
-        
-	            </div>	
-	              
+    </div>
 	        </div>
 	    </div>
 	</div>
@@ -641,21 +638,14 @@
 	    <p class="ui-confirm-yue pl100 rrdcolor-red-text text-small fn-hide" ></p>
       </div>
 	  
-        
-          
-          
-            
-            
-          
-        
-      
-      <div class="mt10 text-small color-gray-text ui-confirm-item-note-loan">
-        <p>如遇流标情况，投标期内所冻结的金额将在流标后进行解冻。</p>
-      </div>
-      <div class="mt10 text-small">
-        <p class="j-dialog-margin-left"><input type="checkbox" name="agree-contract" checked="checked" /> 我已阅读并同意签署 <a class="text" href="javascript:void(0)" onclick="javascript:window.open('../account/emptyContract.action?loanId=2035304', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')">《借款协议》</a></p>
-        <p class="j-dialog-margin-left ui-confirm-hint rrdcolor-red-text text-small" style="display: none;"></p>
-      </div>
+
+        <div class="mt10 text-small color-gray-text ui-confirm-item-note-loan">
+            <p>如遇流标情况，投标期内所冻结的金额将在流标后进行解冻。</p>
+        </div>
+        <div class="mt10 text-small">
+            <p class="j-dialog-margin-left"><input type="checkbox" name="agree-contract" checked="checked" /> 我已阅读并同意签署 <a class="text" href="javascript:void(0)" onclick="javascript:window.open('../account/emptyContract.action?loanId=2035304', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')">《借款协议》</a></p>
+            <p class="j-dialog-margin-left ui-confirm-hint rrdcolor-red-text text-small" style="display: none;"></p>
+        </div>
       <div class="mt10 text-center mb30">
         <input name="loanId" type="hidden" value="2035304" />
         <input name="bidAmount" type="hidden" value="{{ amount }}" />
@@ -792,11 +782,31 @@
     <!--------------------footer--------------------->
 
 <script type='text/javascript'>
-function online_service() {
-    
-    window.open('http://chat.looyuoms.com/chat/chat/p.do?c=20000293&f=10042100&g=10048378&site=5372&r=%23params%3AuserId%2C5167350%2C姓名%2C北皖i', '_blank', 'height=544, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');
-    
-}
+    function online_service() {
+        window.open('http://chat.looyuoms.com/chat/chat/p.do?c=20000293&f=10042100&g=10048378&site=5372&r=%23params%3AuserId%2C5167350%2C姓名%2C北皖i', '_blank', 'height=544, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');
+    }
+
+    //验证投标金额
+    function check_Money(){
+        //获取值
+        var money=$('money').value;
+        if(money==''){
+            $('s3').innerHTML='×';
+            $('s3').style.color='red';
+            return false;
+        }
+        //正则表达式
+        var reg=/^\d$/;
+        if(!reg.test(money)){
+            $('s3').innerHTML='×';
+            $('s3').style.color='red';
+            return false;
+        }
+
+        $('s3').innerHTML='√';
+        $('s3').style.color='green';
+        return true;
+    }
 </script>
             
 <script id="dialog-message" type="text/x-handlebars-template">
@@ -815,20 +825,7 @@ function online_service() {
     <div class="j-dialog-result-icon j-dialog-icon-error" title="错误"></div>
   {{/ if }}
   <div class="fn-clear">
-    
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-    
+
     <div class="j-dialog-message ">
       {{# if title }}
       <h3>{{ title }}</h3>
@@ -854,12 +851,7 @@ function online_service() {
 </script>
         
         <!--body里面的js-->
-        
-        
-        
-        
-        
-        
+
         <!-- we理财百度统计 -->
         <script>
         var _hmt = _hmt || [];
@@ -871,7 +863,10 @@ function online_service() {
         })();
         </script>
         
-    <script type="text/javascript" src="js/require_2f19223.js"></script><script type="text/javascript" src="js/common_widget_10cdf91.js"></script><script type="text/javascript" src="js/loanDetail_e47be58.js"></script><script type="text/javascript">;require(["common:widget/second-header/second-header"], function(header){
+    <script type="text/javascript" src="js/require_2f19223.js"></script>
+    <script type="text/javascript" src="js/common_widget_10cdf91.js"></script>
+    <script type="text/javascript" src="js/loanDetail_e47be58.js"></script>
+    <script type="text/javascript">;require(["common:widget/second-header/second-header"], function(header){
         header.init();
     });
 ;require(["common:widget/common-cmbc-dialog/common-cmbc-dialog"], function(cmbcCommonDilog){
@@ -900,7 +895,11 @@ function online_service() {
             if( typeof document.addEventListener !== 'function' ){
                 weLogger.perf.domReady();
             }
-</script></body>
+
+
+
+</script>
+</body>
     
     <!-- THX FOR FIS -->
 </html>

@@ -34,9 +34,9 @@
             weLogger.perf.bodyStart( );
         </script>
 
-        <!---->
+        <!-----头部------------>
         <include file="./public/header.html"/>
-        <!---->
+        <!--------头部------------>
 <div id="header-helper" style="display: none;">
     <span id="header-helper-authenticated">
         false
@@ -178,11 +178,11 @@
             <td class="ui-list-field   text-right">
                 <div class="pr25">
                     <if condition="$vo.cred lt 100">
-                        <a href="" class="ui-button ui-button-rect-mid  ui-button-orange  ">
+                        <a href="__URL__/zqxqtb/creditor_id/{$vo.creditor_id}/login_id/{$vo.login_id}" class="ui-button ui-button-rect-mid  ui-button-orange  ">
                             <span class="OPEN">投&nbsp;&nbsp;&nbsp;标</span>
                         </a>
                     <else />
-                        <a href="" class="ui-button ui-button-rect-mid  ui-button-orange  " style="background-color: #6a6a6a">
+                        <a href="javascript:void (0)" class="ui-button ui-button-rect-mid  ui-button-orange  " style="background-color: #6a6a6a">
                             <span class="READY FIRST_READY" >已满标</span>
                         </a>
                     </if>
@@ -269,7 +269,10 @@ function online_service() {
         })();
         </script>
 
-    <script type="text/javascript" src="__PUBLIC__/js/require_2f19223.js"></script><script type="text/javascript" src="__PUBLIC__/js/common_widget_78d2def.js"></script><script type="text/javascript" src="__PUBLIC__/js/loanList_2c39e4f.js"></script><script type="text/javascript">;require(["common:widget/second-header/second-header"], function(header){
+    <script type="text/javascript" src="__PUBLIC__/js/require_2f19223.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/common_widget_78d2def.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/loanList_2c39e4f.js"></script>
+    <script type="text/javascript">;require(["common:widget/second-header/second-header"], function(header){
         header.init();
     });
 ;require(["invest:page/loan/list/loanList"], function(list){
