@@ -59,4 +59,23 @@ class LoginController extends Controller {
    	$this->assign('page',$show);// 赋值分页输出
    	$this->display('member_list'); // 输出模板
    }
+    //给用户充钱
+    public function moneyadd(){
+        $loginid=$_GET['loginid'];
+        $this->assign("loginid",$loginid);
+        $this->display("moneyadd");
+    }
+    //充钱入库
+    public function money_add(){
+        $User = M("login"); // 实例化User对象
+        // 要修改的数据对象属性赋值
+        $loginsid = I("post.login_id");
+        $data['login_balance'] = I("post.login_balance");
+        $mone=$User->where("login_id='$loginsid'")->save($data);
+        if($mone){
+            $this->success('充值成功', U('login/hui_list'));
+        } else {
+            $this->error('充值失败');
+        }
+    }
 }

@@ -24,7 +24,7 @@ class LoginsController extends Controller {
 			//echo $time;die;
 			$upd=M('login');
         $data['login_times']="$time";
-        $upd->where("login_id='1'")->save($data);
+        $upd->where("login_nickname='$username'")->save($data);
 			$this->success("登录成功",U("Index/index"));
 		}else{
 			$this->error("登录失败");

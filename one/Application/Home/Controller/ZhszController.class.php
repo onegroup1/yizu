@@ -63,6 +63,8 @@ class ZhszController extends Controller {
     }
     //个人中心
     public function xqy(){
+        $id=$_GET['status'];
+
         $loginid=$_GET['loginid'];
         $login = M("login"); // 实例化User对象
         // 查找status值为1name值为think的用户数据
@@ -70,7 +72,19 @@ class ZhszController extends Controller {
         //print_r($data);
        // die;
         $this->assign("logins",$data1);
-        $this->display("xqy");
+        if($id=='1'){
+            $this->display("xqy");
+        }elseif($id=='2'){
+            //修改密码
+            $this->display("password");
+        }elseif($id=='3'){
+            //绑定手机
+            $this->display("phone");
+        }elseif($id=='4'){
+            //实名认证
+            $this->display("idcard");
+        }
+
     }
     //信息完善之入库
     public function emailadd(){
@@ -83,6 +97,61 @@ class ZhszController extends Controller {
         }else{
             $this->error("信息完善失败");
         }
+    }
+    public function password(){
+        $pwd=I("post.login_pwd");
+        $npwd=I("post.login_newpwd");
+        if($pwd!=$npwd){
+            $this->error("新密码和确认密码不一致");
+        }else{
+            $users=session('users');
+            $login=M("login");
+            $data['login_pwd']=$pwd;
+            $up=$login->where("login_nickname='$users'")->save($data);
+            if($up){
+                $this->success("密码修改成功",U("zhsz/index"));
+            }else{
+                $this->error("密码修改失败");
+            }
+        }
+    }
+    //实名认证
+    public function idcard()
+    {
+        $data=I("post.");
+        $users=session('users');
+        $login=M("login");
+        $up=$login->where("login_nickname='$users'")->save($data);
+        if($up){
+            $this->success("实名认证成功",U("zhsz/index"));
+        }else{
+            $this->error("实名认证失败");
+        }
+
+    }
+    //修改手机号
+    public function phone()
+    {
+        $pwd1=I("post.password");
+        $users=session('users');
+        $login=M("login");
+        print_r($data);
+        //查询密码是否正确
+        $use1 = $login->where("login_nickname='$users'")->find();
+        $mi=$use1['login_pwd'];
+        if($pwd1!=$mi){
+            $this->error("密码错误");
+        }else{
+            $data['login_phone']=I("post.phone");
+            $up=$login->where("login_nickname='$users'")->save($data);
+            if($up){
+                $this->success("手机修改成功",U("zhsz/index"));
+            }else{
+                $this->error("手机修改失败");
+            }
+        }
+
+
     }
  }
  ?>
