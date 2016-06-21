@@ -40,7 +40,7 @@ class ZhszController extends Controller {
         $up=$upd->where("login_nickname='$users'")->save();
         if($up){
             session('loign_img',$files);
-            $this->success("头像上传成功",U("zhsz/index"));
+            $this->redirect('zhsz/index');
         }else{
             $this->error("头像上传失败");
         }
@@ -58,12 +58,46 @@ class ZhszController extends Controller {
    }
    //账户总览
    public function zhzl(){
-       //$id
+       $login = M("login"); // 实例化User对象、
+       $users=session('users');
+       $zh = $login->where("login_nickname='$users'")->find();
+       //取出用户id
+       $uid=$zh['login_id'];
+       //取出用户余额
+       $yue=$zh['login_balance'];
+       $bid=M("bid");
+       $mon0 = $bid->where("login_id='$uid'")->select();
+       //print_r($mon0);die;
+       $zq_money=0;
+       foreach($mon0 as $k1=>$v1){
+           $zq_money+=$v1['bid_money'];
+       }
+       //总余额
+       $zye=$zq_money+$yue;
+       //echo $zye;die;
+       //债权百分比
+       $zb=$zq_money/$zye*100;
+       $zb=round($zb,0);
+       //可用余额百分比
+       $ye=$yue/$zye*100;
+       $ye=round($ye,0);
+      // echo $zb;die;
+       $zh['mo1']=$zq_money;
+       $zh['zye']=$zye;
+       $zh['zb']=$zb;
+       $zh['ye']=$ye;
+       $this->assign("zl",$zh);
         $this->display("zhzl");
    }
    //个人中心
     public function grzx(){
-        $this->display("grzx");
+        $login = M("login"); // 实例化User对象、
+        $users=session('users');
+        $data1 = $login->where("login_nickname='$users'")->find();
+        //print_r($data);
+        // die;
+        $this->assign("logins",$data1);
+        $this->display("xqy");
     }
     //个人中心
     public function xqy(){
@@ -97,7 +131,7 @@ class ZhszController extends Controller {
         $login=M("login");
         $up=$login->where("login_nickname='$users'")->save($data);
         if($up){
-            $this->success("信息完善成功",U("zhsz/index"));
+            $this->redirect('zhsz/index');
         }else{
             $this->error("信息完善失败");
         }
@@ -113,7 +147,7 @@ class ZhszController extends Controller {
             $data['login_pwd']=$pwd;
             $up=$login->where("login_nickname='$users'")->save($data);
             if($up){
-                $this->success("密码修改成功",U("zhsz/index"));
+                $this->redirect('zhsz/index');
             }else{
                 $this->error("密码修改失败");
             }
@@ -127,7 +161,7 @@ class ZhszController extends Controller {
         $login=M("login");
         $up=$login->where("login_nickname='$users'")->save($data);
         if($up){
-            $this->success("实名认证成功",U("zhsz/index"));
+            $this->redirect('zhsz/index');
         }else{
             $this->error("实名认证失败");
         }
@@ -149,7 +183,7 @@ class ZhszController extends Controller {
             $data['login_phone']=I("post.phone");
             $up=$login->where("login_nickname='$users'")->save($data);
             if($up){
-                $this->success("手机修改成功",U("zhsz/index"));
+                $this->redirect('zhsz/index');
             }else{
                 $this->error("手机修改失败");
             }
@@ -194,7 +228,7 @@ class ZhszController extends Controller {
         }
         else {
             //echo "邮件发送成功!<br />";
-            $this->success("邮箱发送成功",U("zhsz/index"));
+            $this->redirect('zhsz/index');
         }
     }
     public function email(){
@@ -206,7 +240,7 @@ class ZhszController extends Controller {
         $data['login_email']=$email;
         $up=$login->where("login_id='$id'")->save($data);
         if($up){
-            $this->success("邮箱绑定成功",U("zhsz/index"));
+            $this->redirect('zhsz/index');
         }else{
             $this->error("邮箱绑定失败");
         }

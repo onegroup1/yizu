@@ -59,12 +59,16 @@
 		<div id="wdgYellowBar" class="wdg-yellow-bar">
 			<div class="wdg-yellow-bar-inner">
 				<span>开通民生银行资金存管账户，您的资金会更加安全</span>
-				<a href="/rrdRegist!toCreateAccountByCust.action" class="yellow-bar-cbmc-btn">立即开通民生存管账户</a>
+				<a href="javascript:void(0)" onclick="ms()" class="yellow-bar-cbmc-btn">立即开通民生存管账户</a>
 			</div>
 		</div>
 
 
-
+        <script>
+            function ms(){
+                alert("系统升级中，暂时不能开通");
+            }
+        </script>
 
 
 
@@ -107,10 +111,9 @@
 		<div class="main-section">
 			<ul class="account-menu fn-clear">
 				<li class="active" ><a href="__URL__/zhzl">账户总览</a></li>
-				<li class=""><a href="__URL__/jjzh">基金账户</a></li>
-				<li class=""><a href="__URL__/zhaiq">债权</a></li>
-				<li class=""><a href="__URL__/wdtq">我的特权</a></li>
-				<li class=""><a href="__URL__/fuc">服务窗</a> <span class="org fn-hide">(0)</span></li>
+				<!--<li class=""><a href="__URL__/jjzh">基金账户</a></li>-->
+				<!--<li class=""><a href="__URL__/zhaiq">债权</a></li>-->
+                <li class=""><a href="__URL__/grzx">完善个人信息</a></li>
 				<li class=""><a href="__URL__/index">账户设置</a></li>
 			</ul>
 		</div>
@@ -136,7 +139,7 @@
 	    		<div class="user-security-container mt5 mb5">
 	    			<div class="user-login-info">
 	    				<?php echo session('users'); ?>
-	    				<span>上次登录时间   <i class="num">2016-06-07 14:28:30</i></span>
+	    				<span>上次登录时间   <i class="num">{$zl.login_times|date="Y-m-d H:i:s",###}</i></span>
 	    			</div>
 	    			<div class="user-security-box fn-clear">
 	    				<span class="user-security-level">安全等级
@@ -148,20 +151,22 @@
 
 							</label>
 						</span>
-	    				<a class="safe-rank cellphone light" href="/account/info!basicInfo.action"  data-txt="绑定手机，使您的账户更加安全。||立即绑定" ></a>
-	    				<a class="safe-rank man " title="未开通民生存管账户" href="/rrdRegist!toCreateAccountByCust.action" data-txt="人人贷联手中国民生银行，开通民生银行资金存管账户，保证资金安全。||去开户" ></a>
+                        <!--
+                        <a class="safe-rank cellphone light" href="/account/info!basicInfo.action"  data-txt="绑定手机，使您的账户更加安全。||立即绑定" ></a>
+                        <a class="safe-rank man " title="未开通民生存管账户" href="javascript:void(0)" onclick="ms()" data-txt="人人贷联手中国民生银行，开通民生银行资金存管账户，保证资金安全。||去开户" ></a>
 	    				<a class="safe-rank lock "
 						   title="未开通民生存管账户"
 						   href="/rrdRegist!toCreateAccountByCust.action"
 						   data-txt="您的账户资金已存管至民生银行，为了您的正常使用，需要您去民生银行设置交易密码。||去设置" ></a>
 	    				<a class="safe-rank mail " href="/account/bindRole.action?type=EMAIL" data-txt="绑定邮箱，使您的账户更加安全。||立即绑定" ></a>
-	    			</div>
+                        -->
+                    </div>
 	    		</div>
 	    		<div class="user-coupon-container">
 	    			<dl>
 	    				<dt>优惠券</dt>
 	    				<dd>
-	    					<a href="/account/coupon!toCoupon.action">1</a> 张
+	    					<a href="">0</a> 张
 	    				</dd>
 	    			</dl>
 	    		</div>
@@ -192,21 +197,21 @@
 	    			<ul class="account-tab fn-clear">
 	    				<li class="acc-tab-li active" data-name="total-assets">
 	    					<a>账户总资产</a>
-	    					<span class="num-family">0.00 <i>元</i></span>
+	    					<span class="num-family">{$zl.zye} <i>元</i></span>
 	    				</li>
 	    				<li class="sign">
 	    					=
 	    				</li>
 	    				<li class="acc-tab-li" data-name="financial-assets">
 	    					<a>理财资产</a>
-	    					<span class="num-family">0.00 <i>元</i></span>
+	    					<span class="num-family">{$zl.mo1} <i>元</i></span>
 	    				</li>
 	    				<li class="sign">
 	    					+
 	    				</li>
 	    				<li class="acc-tab-li" data-name="balance">
 	    					<a>账户余额</a>
-	    					<span class="num-family">0.00 <i>元</i></span>
+	    					<span class="num-family">{$zl.login_balance} <i>元</i></span>
 	    				</li>
 	    			</ul>
 	    			<div class="account-tab-content fn-clear" id="account-total-pie" data-name="total-assets">
@@ -471,11 +476,11 @@ function online_service() {
 	    		<ul class="my-assers-list">
 	    			<li class="pie-u fn-clear" data-id="pie-u"><i class="icon"></i> <span class="ass-name">U计划</span><span class="ass-perc">{{pie-u.percent}}</span><span class="ass-amount">{{pie-u.amount}}元</span></li>
 	    			<li class="pie-x fn-clear" data-id="pie-x"><i class="icon"></i> <span class="ass-name">薪计划</span> <span class="ass-perc">{{pie-x.percent}}</span><span class="ass-amount">{{pie-x.amount}}元</span></li>
-	    			<li class="pie-s fn-clear" data-id="pie-s"><i class="icon"></i> <span class="ass-name">散标债权</span> <span class="ass-perc">{{pie-s.percent}}</span><span class="ass-amount">{{pie-s.amount}}元</span></li>
+	    			<li class="pie-s fn-clear" data-id="pie-s"><i class="icon"></i> <span class="ass-name">散标债权</span> <span class="ass-perc">{$zl.zb}%</span><span class="ass-amount">{$zl.mo1}元</span></li>
 	    		</ul>
 	    		<ul class="my-assers-list">
 	    			<li class="pie-d fn-clear" data-id="pie-d"><i class="icon"></i> <span class="ass-name">冻结金额</span> <span class="ass-perc">{{pie-d.percent}}</span><span class="ass-amount">{{pie-d.amount}}元</span></li>
-	    			<li class="pie-k fn-clear" data-id="pie-k"><i class="icon"></i> <span class="ass-name">可用金额</span> <span class="ass-perc">{{pie-k.percent}}</span><span class="ass-amount">{{pie-k.amount}}元</span></li>
+	    			<li class="pie-k fn-clear" data-id="pie-k"><i class="icon"></i> <span class="ass-name">可用金额</span> <span class="ass-perc">{$zl.ye}%</span><span class="ass-amount">{$zl.login_balance}元</span></li>
 	    		</ul>
 	    	</div>
 		</script>
@@ -486,14 +491,14 @@ function online_service() {
 	    			<li class="pie-x fn-clear" data-id="pie-x"><i class="icon"></i> <span class="ass-name">薪计划</span> <span class="ass-perc">{{pie-x.percent}}</span><span class="ass-amount">{{pie-x.amount}}元</span></li>
 	    		</ul>
 	    		<ul class="my-assers-list">
-	    			<li class="pie-s fn-clear" data-id="pie-s"><i class="icon"></i> <span class="ass-name">散标债权</span> <span class="ass-perc">{{pie-s.percent}}</span><span class="ass-amount">{{pie-s.amount}}元</span></li>
+	    			<li class="pie-s fn-clear" data-id="pie-s"><i class="icon"></i> <span class="ass-name">散标债权</span> <span class="ass-perc">{$zl.zb}%</span><span class="ass-amount">{$zl.mo1}元</span></li>
 	    		</ul>
 	    	</div>
 		</script>
         <script id="balance-pie-list-template" type="text/x-handlebars-template">
 	    	<ul class="my-balance-list fn-clear">
 	    		<li class="pie-d fn-clear" data-id="pie-d"><i class="icon"></i> <span class="ass-name">冻结金额</span> <span class="ass-perc">{{pie-d.percent}}</span><span class="ass-amount">{{pie-d.amount}}元  <b class="icon-info color-gray-text" id="frozenTips"></b></span></li>
-	    		<li class="pie-k fn-clear" data-id="pie-k"><i class="icon"></i> <span class="ass-name">可用金额</span> <span class="ass-perc">{{pie-k.percent}}</span><span class="ass-amount">{{pie-k.amount}}元</span></li>
+	    		<li class="pie-k fn-clear" data-id="pie-k"><i class="icon"></i> <span class="ass-name">可用金额</span> <span class="ass-perc">{{pie-k.percent}}</span><span class="ass-amount">{$zl.login_balance}元</span></li>
     		</ul>
 		</script>
 
@@ -553,6 +558,10 @@ function online_service() {
                 weLogger.perf.domReady();
             }
 </script></body>
-
+    <script>
+    function ms(){
+        alert("系统升级中，暂时不能开通");
+    }
+</script>
     <!-- THX FOR FIS -->
 </html>
