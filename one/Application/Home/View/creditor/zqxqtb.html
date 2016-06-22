@@ -153,11 +153,14 @@
                   <li class="fn-clear basic-progress mb5">
                       <span class="fn-left basic-label w70">投标进度</span>
                       <span class="fn-left basic-value">
-	                  <span class="fn-left basic-progress-bg">
-	                    <b class="basic-percent" style="width: 70%"></b>
-	                  </span>
-	                  <span class="fn-left basic-progress-value"><em>70%</em></span>
-                  </span>
+                          <volist name="jindu" id="vo">
+                              <span class="fn-left basic-progress-bg">
+                                  <b class="basic-percent" style="width:{$vo.jindu}%"></b>
+                              </span>
+
+                              <span class="fn-left basic-progress-value"><em>{$vo.jindu}%</em></span>
+                          </volist>
+                      </span>
 	                  <span class="fn-left  basic-label mr30">剩余时间</span>
 	                  <span class="fn-left basic-value num">
                           <em>
@@ -199,16 +202,25 @@
               </div>
               <div class="fn-right  ui-term-box  border-left-gray" id="investment-terminal">
                   <dl class="mb10">
-                      <dd class="mt6"><em class="font-36px color-orange-text num-family" id="max-amount" data-amount="43950.0">43,950</em class="text"> 元（879份）</dd>
+                      <dd class="mt6">
+                          <em class="font-36px color-orange-text num-family" id="max-amount" data-amount="43950.0">{$moneys}</em class="text">
+                          元
+                      </dd>
                       <dt class="minus-mt-10">剩余金额</dt>
                   </dl>
                   <div class="ui-term-content">
                       <p class="ui-term-overage mb4">
-                          <span style="width: auto" class="clearfix"><em class="fn-left mr10">账户余额</em> <em id="max-account" class="fn-left" data-account="0.0">0.00</em><em class="fn-left">元</em><a class="fn-right" href="/account/capital!recharge.action" target="_blank">充值</a></span>
+                          <span style="width: auto" class="clearfix">
+                              <em class="fn-left mr10">账户余额</em>
+                              <em id="max-account" class="fn-left" data-account="0.0">{$balance}</em>
+                              <em class="fn-left">元</em>
+                              <a class="fn-right" href="/account/capital!recharge.action" target="_blank">充值</a>
+                          </span>
                       </p>
+                      <volist name="data" id="vo">
                       <form class="ui-term-form ui-form" autocomplete="off" action="__URL__/bid_money/creditor_id/{$vo.creditor_id}/login_id/{$vo.login_id}" method="post">
                           <div class="ui-term-field invest">
-                              <input class="ui-term-input ui-input ui-input-text" type="text" id="money" name="money" onblur='check_Money()' />
+                              <input class="ui-term-input ui-input ui-input-text" type="text" id="money" name="money" onkeyup='check_Money()' />
                               <span id='s3'></span>
                               <p class="ui-term-placeholder"></p>
                               <p class="ui-term-inputunit">元 </p>
@@ -234,6 +246,29 @@
       </div>
   </div>
 </div>
+     <script src="__PUBLIC__/js/jquery.js"></script>
+     <script>
+         $("#money").keyup(function(){
+             var money=parseInt($("#money").val());
+             //alert(money)
+             var yue=parseInt($("#max-account").html());
+             var zqyue=parseInt($("#max-amount").html());
+             //alert(zqyue)
+             if(money%100!==0){
+                 $("#s3").html("<font color='red'>投标金额不能小于100</font>")
+             } else if(money>yue ){
+                 $("#invest-submit").attr('disabled',true);
+                 $("#s3").html("<font color='red'>账户余额不足</font>")
+                // alert(1);
+             }else if(money>zqyue){
+                 $("#invest-submit").attr('disabled',true);
+                 $("#s3").html("<font color='red'>投标金额不能大于债权余额</font>")
+             }else{
+                 $("#invest-submit").attr('disabled',false);
+                 $("#s3").html("<font color='green'>√</font>")
+             }
+         })
+     </script>
      <script id="credit-info-data" type="text/x-json">{"status":0,"data":{"creditInfo":{"creditInfoId":5182952,"user":5182957,"identificationScanning":"VALID","mobile":"INVALID","graduation":"INVALID","credit":"VALID","residence":"INVALID","marriage":"INVALID","child":"INVALID","album":"INVALID","work":"VALID","renren":"INVALID","kaixin":"INVALID","house":"INVALID","car":"INVALID","identification":"VALID","detailInformation":"INVALID","borrowStudy":"VALID","mobileReceipt":"INVALID","incomeDuty":"VALID","other":"INVALID","account":"INVALID","titles":"INVALID","fieldAudit":"INVALID","mobileAuth":"INVALID","video":"INVALID","lastUpdateTime":"Jun 15, 2016 9:36:02 AM","version":0},"creditPassedTime":{"creditPassedTimeId":5182952,"user":5182957,"credit":"Jun 15, 2016 9:36:02 AM","work":"Jun 15, 2016 9:36:02 AM","incomeDuty":"Jun 15, 2016 9:36:02 AM","identificationScanning":"Jun 15, 2016 9:36:02 AM","identification":"Jun 15, 2016 9:36:02 AM","lastUpdateTime":"Jun 15, 2016 9:36:02 AM"},"loan":{"loanId":2035304,"title":"资金周转","borrowType":"短期周转","picture":"","amount":148000.0,"interest":10.2,"months":36,"description":"公司职员，现居辽宁省沈阳市，从事教育行业，工作收入稳定，贷款用于资金周转。 该借款人此次借款用于资金周转，该借款人为某大学教授，工作已有40年，每月有稳定收入。上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准 上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准。","loanType":"DEBX","productName":"友信","repayType":"MONTH","status":"OPEN","verifyState":"SUCCESS","allowAccess":true,"utmSource":"debx-yx","openTime":"Jun 15, 2016 9:36:04 AM","startTime":"Jun 22, 2016 11:00:00 AM","surplusAmount":43950.0,"finishedRatio":70.30405405405405,"repaidByGuarantor":false,"monthlyMinInterest":"[{\"month\":\"6\",\"minInterest\":\"9\",\"maxInterest\":\"9\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"12\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"18\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"24\",\"minInterest\":\"9.6\",\"maxInterest\":\"12.6\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9.6\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"36\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"48\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"}]","borrowerId":5182957,"forbidComment":false,"nickName":"HePJ_43591147064.yx","avatar":"","borrowerLevel":"A","address":"辽宁","jobType":"工薪阶层","displayLoanType":"SDRZ","currentIsRepaid":false,"amountPerShare":50.0,"oldLoan":false,"interestPerShare":0.0,"principal":0.0,"leftMonths":36,"overDued":false,"beginBidTime":"Jun 15, 2016 11:00:00 AM","allProtected":true,"productId":26}}}</script>
 <div id="loan-details" class="mt14">
 	<div class="ui-loan-tab">
@@ -251,12 +286,11 @@
 	<div class="container_12_1080" id="loan-tab-content">
         <div class="ui-box-white-bg">
             <div class="ui-tab-content ui-tab-content-info ui-tab-content-current" data-name="info">
-
-<!-------------------借款人信息----------------------------->
+                <!-------------------借款人信息----------------------------->
                     <div class="ui-tab-content-basic border-bottom pt25 mlr60">
                         <h4 class="ui-tab-content-title color-dark-text border-bottom-gray">借贷人信息 </h4>
 
-                        <volist name="data" id="vo">
+
                             <table class="ui-table-basic-list">
                                 <tr>
                                     <td class="basic-filed-1"><div class="basic-filed "><span >昵称</span> <em>
@@ -305,23 +339,24 @@
                                         {$vo.login_carloans}
                                     </em></div></td>
                                 </tr>
+
                                 <tr>
                                     <td colspan="3"><div class="color-tab-title-bg">工作信息</div></td></tr>
                                 <td class="basic-filed-1"><div class="basic-filed"><span>公司行业</span><em> {$vo.login_business}</em></div></td>
                                 <td class="basic-filed-2"><div class="basic-filed"><span>公司规模</span><em>{$vo.login_scale}人以下</em></div></td>
                                 <td class="basic-filed-3"><div class="basic-filed"><span>岗位职位</span><em >{$vo.login_position}</em></div></td>
                                 </tr>
+
                                 <tr>
                                     <td class="basic-filed-1"><div class="basic-filed "><span>工作城市</span><em>{$vo.login_city}</em></div></td>
                                     <td colspan="2" ><div class="basic-filed"><span>工作时间</span><em>5年以上</em></div></td>
                                 </tr>
+                                
                             </table>
                         </volist>
                     </div>
- <!-------------------借款人信息----------------------------->
-
-
-                    <div class="ui-tab-content-auditoria border-bottom p25 minus-mt-10 plr60">
+                <!-------------------借款人信息----------------------------->
+                <div class="ui-tab-content-auditoria border-bottom p25 minus-mt-10 plr60">
   <h4 class="ui-tab-content-title color-dark-text">审核状态</h4>
   <div class="details-verfication-list mt10 color-lightdark-text" id="verification-container"></div>  
   <ul>
@@ -384,14 +419,14 @@
         </tbody>
     </table>
 </script>
-<script id="credit-info-template2" type="text/x-handlebars-template">
-    <ul>
-        <li class="fn-clear text-small text-center">
-            <span class="fn-left w100">审核项目</span>
-            <span class="fn-left w50">状态</span>
-            <span class="fn-left w110">通过日期</span>
-        </li>
-        {{# each creditInfo }}
+    <script id="credit-info-template2" type="text/x-handlebars-template">
+        <ul>
+            <li class="fn-clear text-small text-center">
+                <span class="fn-left w100">审核项目</span>
+                <span class="fn-left w50">状态</span>
+                <span class="fn-left w110">通过日期</span>
+            </li>
+            {{# each creditInfo }}
         <li class="fn-clear details-row {{ itemStyle }}">
             {{# if note }}
             <span class="fn-left w100 text-center item">{{ name }}<br><em class="text-small">{{{ note }}}</em></span>
@@ -784,28 +819,6 @@
 <script type='text/javascript'>
     function online_service() {
         window.open('http://chat.looyuoms.com/chat/chat/p.do?c=20000293&f=10042100&g=10048378&site=5372&r=%23params%3AuserId%2C5167350%2C姓名%2C北皖i', '_blank', 'height=544, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');
-    }
-
-    //验证投标金额
-    function check_Money(){
-        //获取值
-        var money=$('money').value;
-        if(money==''){
-            $('s3').innerHTML='×';
-            $('s3').style.color='red';
-            return false;
-        }
-        //正则表达式
-        var reg=/^\d$/;
-        if(!reg.test(money)){
-            $('s3').innerHTML='×';
-            $('s3').style.color='red';
-            return false;
-        }
-
-        $('s3').innerHTML='√';
-        $('s3').style.color='green';
-        return true;
     }
 </script>
             

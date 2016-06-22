@@ -77,193 +77,156 @@
     <span id="commonCMBCDilogCloseBtn" class="j-dialog-close-btn">&times;</span>
 	<div class="cmbc-dialog-top">
 		<div class="mbc-dialog-logo"> </div>
-		<div class="mbc-dialog-text">
+        <div class="mbc-dialog-text">
 			<!--已经开户但未设置交易密码-->
-			
 			<!--已经开户且设置交易密码-->
-			
 			<!--未开户-->
-			
-				<p class="mbc-dialog-title">个人账户升级为民生存管账户</p>
-				<p class="mbc-dialog-subtitle">请开通存管账户以便于您能正常理财</p>
-			
-		</div>
-	</div>
-	<div class="cmbc-dialog-bottom">
+            <p class="mbc-dialog-title">个人账户升级为民生存管账户</p>
+            <p class="mbc-dialog-subtitle">请开通存管账户以便于您能正常理财</p>
+        </div>
+    </div>
+    <div class="cmbc-dialog-bottom">
 		<!--已经开户但未设置交易密码-->
-		
 		<!--已经开户且设置交易密码-->
-		
 		<!--未开户-->
-		
-			<a href="/rrdRegist!toCreateAccountByCust.action">开通民生银行存管账户</a>
-		
-	  
-	</div>
-	</div>
-                
-            
-        
+        <a href="/rrdRegist!toCreateAccountByCust.action">开通民生银行存管账户</a>
+    </div>
+</div>
         <div id="pg-server-message" data-status="" data-message="尚未完成<em>实名认证</em>、<em>交易密码设置</em>，请前往<a href='/account/info!basicInfo.action'>安全信息</a>进行认证。" data-ispop="" data-fundTips="" style="display: none;"></div>
         <div class="maincontent">
-            
-	  <!--
-	  @require "common:widget/oui/oui.css"
-	  @require "invest:widget/static/css/invest-common.less"
-	  -->
- <div id="pg-loan-invest" class="pg-details">
-
-
-     <!-----------------nav --------------- -->
-     <div class="wdg-loan-nav">
-         <div class="main-section">
-             <ul class="account-menu fn-clear">
-                 <li class="" ><a href="__URL__/zhais">散标投资</a></li>
-                 <li class=""><a href="__URL__/zhaiz">债权转让</a></li>
-             </ul>
-         </div>
-         <div class="nav-bg"></div>
-     </div>
-     <!-----------------nav  ----------------->
+            <!--
+            @require "common:widget/oui/oui.css"
+            @require "invest:widget/static/css/invest-common.less"
+            -->
+            <div id="pg-loan-invest" class="pg-details">
+<!-----------------nav --------------- -->
+    <div class="wdg-loan-nav">
+        <div class="main-section">
+            <ul class="account-menu fn-clear">
+                <li class="" ><a href="__URL__/zhais">散标投资</a></li>
+                <li class=""><a href="__URL__/zhaiz">债权转让</a></li>
+            </ul>
+        </div>
+        <div class="nav-bg"></div>
+    </div>
+<!-----------------nav  ----------------->
 	   
-
-  
-  
-  
 <div id="loan-basic">
-  <div class="container_12_1080 mt10 color-white-bg pg-details" id="loan-basic-panel">
-       <div class="ui-box-white-bg fn-clear">
-          <div class="ui-box-title fn-clear">
-            <div class="fn-left fn-text-overflow pl25" title="实地认证标"><em class="icon-loantype SDRZ mr5"></em><em class="title-text">资金周转</em></div>
-            
-           
-            <a class="fn-right text ui-box-text pr25" href="javascript:void(0)" onclick="javascript:window.open('../account/emptyContract.action?loanId=2035304', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')">借款协议（范本）</a>
-          </div>
-          <input type="hidden" id="invest-type" value="loan" /> 
-          <div class="pl25 pr25 fn-clear">
-            <div class="fn-left pt10 loaninfo ">
-              <div class="fn-clear  mb25">
-                <dl class="fn-left w300">
-                  <dd class="basic-all color-orange-text">
-                  	<em class="text-xxxl num-family">{$money}</em><span class="font-18px basic-text ">元</span>
-                  </dd>
-                   <dt class="minus-mt-5">标的总额</dt>
-                </dl>
-                <dl class="fn-left w240">
-                  <dd class="basic-all">
-                  	<em class="text-xxxl  num-family color-dark-text " style="margin-left:-4px;">{$lilv}</em><em class="font-24px ">%</em>
-                  </dd>
-                  <dt class="minus-mt-5">年利率</dt>
-                </dl>
-                <dl class="fn-left w140">
-                  <dd class="basic-all">
-                  	<em class=" text-xxxl num-family color-dark-text">{$deadline}</em><span class="font-18px basic-text">个月</span>
-                  </dd>
-                  <dt class="minus-mt-5">还款期限</dt>
-                </dl>
-              </div>
-              <ul >
-                <li class="fn-clear">
-                  <span class="fn-left basic-label w70">保障方式</span>
-                  <span class="fn-left basic-value last">用户利益保障机制 <a id="tips_0" class="icon-info color-gray-text" href="/help/security/security!detail.action?flag=bjbz" target="_blank"></a></span>
-                  <span class="fn-left basic-label mr30">提前还款费率</span>
-                  <span class="fn-left basic-value num"><em>0.00</em>%</span>
-                </li>
-                <li class="fn-clear">
-                  <span class="fn-left basic-label w70">还款方式</span>
-                  <!-- <span class="fn-left basic-value">按月还款/等额本息 <a id="tips_1" class="icon-info color-gray-text" href="/help/terms/terms!terms.action#equalInterest" target="_blank"></a></span> -->
-                  
-                  
-                  
-                    <span class="fn-left basic-value">按月还款/等额本息 <a id="tips_1" class="icon-info color-gray-text" href="/help/terms/terms!terms.action#equalInterest" target="_blank"></a></span>
-                  
-                  
-                  <!--<span class="fn-left basic-label mr30">月还本息（元）</span>
-                  <span class="fn-left basic-value num last"><em>4,795.20</em></span>-->
-                </li>
-                
-              </ul>
-            
+    <div class="container_12_1080 mt10 color-white-bg pg-details" id="loan-basic-panel">
+        <div class="ui-box-white-bg fn-clear">
+            <div class="ui-box-title fn-clear">
+                <div class="fn-left fn-text-overflow pl25" title="实地认证标"><em class="icon-loantype SDRZ mr5"></em><em class="title-text">资金周转</em></div>
+                <a class="fn-right text ui-box-text pr25" href="javascript:void(0)" onclick="javascript:window.open('../account/emptyContract.action?loanId=2035304', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')">借款协议（范本）</a>
             </div>
-              <div class="ui-poptip  ui-poptip-new fn-hide" id="tipCon_0">
-                  <div class="ui-poptip-shadow">
-                      <div class="ui-poptip-container">
-                          <div class="ui-poptip-arrow ui-poptip-arrow-10">
-                              <em></em>
-                              <span></span>
-                          </div>
-                          <div class="ui-poptip-content" data-role="content">
-                              详情参见<a href="/help/security/security!detail.action?flag=bjbz" target="_blank">用户利益保障机制</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              
-              
-                
-                    
-                    <div class="ui-poptip ui-poptip-new fn-hide" id="tipCon_1">
-                        <div class="ui-poptip-shadow">
-                            <div class="ui-poptip-container">
-                                <div class="ui-poptip-arrow ui-poptip-arrow-10">
-                                    <em></em>
-                                    <span></span>
-                                </div>
-                                <div class="ui-poptip-content" data-role="content">
-                                    等额本息还款法是在还款期内，每月偿还同等数额的贷款(包括本金和利息)。</br>借款人每月还款额中的本金比重逐月递增、利息比重逐月递减。
-                                </div>
+            <input type="hidden" id="invest-type" value="loan" />
+            <div class="pl25 pr25 fn-clear">
+                <div class="fn-left pt10 loaninfo ">
+                    <div class="fn-clear  mb25">
+                        <dl class="fn-left w300">
+                            <dd class="basic-all color-orange-text">
+                                <em class="text-xxxl num-family">{$money}</em><span class="font-18px basic-text ">元</span>
+                            </dd>
+                            <dt class="minus-mt-5">标的总额</dt>
+                        </dl>
+                        <dl class="fn-left w240">
+                            <dd class="basic-all">
+                                <em class="text-xxxl  num-family color-dark-text " style="margin-left:-4px;">{$lilv}</em><em class="font-24px ">%</em>
+                            </dd>
+                            <dt class="minus-mt-5">年利率</dt>
+                        </dl>
+                        <dl class="fn-left w140">
+                            <dd class="basic-all">
+                                <em class=" text-xxxl num-family color-dark-text">{$deadline}</em><span class="font-18px basic-text">个月</span>
+                            </dd>
+                            <dt class="minus-mt-5">还款期限</dt>
+                        </dl>
+                    </div>
+
+                    <ul >
+                        <li class="fn-clear">
+                            <span class="fn-left basic-label w70">保障方式</span>
+                            <span class="fn-left basic-value last">用户利益保障机制 <a id="tips_0" class="icon-info color-gray-text" href="/help/security/security!detail.action?flag=bjbz" target="_blank"></a></span>
+                            <span class="fn-left basic-label mr30">提前还款费率</span>
+                            <span class="fn-left basic-value num"><em>0.00</em>%</span>
+                        </li>
+                        <li class="fn-clear">
+                            <span class="fn-left basic-label w70">还款方式</span>
+                            <span class="fn-left basic-value">按月还款/等额本息 <a id="tips_1" class="icon-info color-gray-text" href="/help/terms/terms!terms.action#equalInterest" target="_blank"></a></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="ui-poptip  ui-poptip-new fn-hide" id="tipCon_0">
+                    <div class="ui-poptip-shadow">
+                        <div class="ui-poptip-container">
+                            <div class="ui-poptip-arrow ui-poptip-arrow-10">
+                                <em></em>
+                                <span></span>
+                            </div>
+                            <div class="ui-poptip-content" data-role="content">
+                                详情参见<a href="/help/security/security!detail.action?flag=bjbz" target="_blank">用户利益保障机制</a>
                             </div>
                         </div>
                     </div>
-                
+                </div>
 
-                  <div class="fn-right loan-status loan-repaying">
-                  	  <div class="box box-top">
-                      	<span><i class="num-family font-36px">12</i><i class="text color-lightdark-text">月</i></span>
-                       	<em >剩余期数</em>                     	
-                      </div>
-                 
-                      <div class="box box-bottom">
-                      	<span><i class="num-family font-36px">2016-07-15</i></span>
-                      	<em>下一合约还款日</em>                      	
-                      </div>
-                      <div class="stamp"><em class="REPAYING"></em></div>
-                  </div>
-            
-            
-            
-            
-            
-            
-          </div>
+                <div class="ui-poptip ui-poptip-new fn-hide" id="tipCon_1">
+                    <div class="ui-poptip-shadow">
+                        <div class="ui-poptip-container">
+                            <div class="ui-poptip-arrow ui-poptip-arrow-10">
+                                <em></em>
+                                <span></span>
+                            </div>
+                            <div class="ui-poptip-content" data-role="content">
+                                等额本息还款法是在还款期内，每月偿还同等数额的贷款(包括本金和利息)。</br>借款人每月还款额中的本金比重逐月递增、利息比重逐月递减。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fn-right loan-status loan-repaying">
+                    <div class="box box-top">
+                        <span><i class="num-family font-36px">12</i><i class="text color-lightdark-text">月</i></span>
+                        <em >剩余期数</em>
+                    </div>
+
+                    <div class="box box-bottom">
+                        <span><i class="num-family font-36px">2016-07-15</i></span>
+                        <em>下一合约还款日</em>
+                    </div>
+                    <div class="stamp"><em class="REPAYING"></em></div>
+                </div>
+            </div>
         </div>
-  </div>
+    </div>
 </div>
-  <script id="credit-info-data" type="text/x-json">{"status":0,"data":{"creditInfo":{"creditInfoId":5182952,"user":5182957,"identificationScanning":"VALID","mobile":"INVALID","graduation":"INVALID","credit":"VALID","residence":"INVALID","marriage":"INVALID","child":"INVALID","album":"INVALID","work":"VALID","renren":"INVALID","kaixin":"INVALID","house":"INVALID","car":"INVALID","identification":"VALID","detailInformation":"INVALID","borrowStudy":"VALID","mobileReceipt":"INVALID","incomeDuty":"VALID","other":"INVALID","account":"INVALID","titles":"INVALID","fieldAudit":"INVALID","mobileAuth":"INVALID","video":"INVALID","lastUpdateTime":"Jun 15, 2016 9:36:02 AM","version":0},"creditPassedTime":{"creditPassedTimeId":5182952,"user":5182957,"credit":"Jun 15, 2016 9:36:02 AM","work":"Jun 15, 2016 9:36:02 AM","incomeDuty":"Jun 15, 2016 9:36:02 AM","identificationScanning":"Jun 15, 2016 9:36:02 AM","identification":"Jun 15, 2016 9:36:02 AM","lastUpdateTime":"Jun 15, 2016 9:36:02 AM"},"loan":{"loanId":2035304,"title":"资金周转","borrowType":"短期周转","picture":"","amount":148000.0,"interest":10.2,"months":36,"description":"公司职员，现居辽宁省沈阳市，从事教育行业，工作收入稳定，贷款用于资金周转。 该借款人此次借款用于资金周转，该借款人为某大学教授，工作已有40年，每月有稳定收入。上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准 上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准。","loanType":"DEBX","productName":"友信","repayType":"MONTH","status":"IN_PROGRESS","verifyState":"SUCCESS","allowAccess":true,"utmSource":"debx-yx","openTime":"Jun 15, 2016 9:36:04 AM","startTime":"Jun 22, 2016 11:00:00 AM","readyTime":"Jun 15, 2016 11:23:41 AM","passTime":"Jun 15, 2016 11:31:56 AM","surplusAmount":0.0,"finishedRatio":100.0,"repaidByGuarantor":false,"monthlyMinInterest":"[{\"month\":\"6\",\"minInterest\":\"9\",\"maxInterest\":\"9\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"12\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"18\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"24\",\"minInterest\":\"9.6\",\"maxInterest\":\"12.6\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9.6\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"36\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"48\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"}]","borrowerId":5182957,"forbidComment":false,"nickName":"HePJ_43591147064.yx","avatar":"","borrowerLevel":"A","address":"辽宁","jobType":"工薪阶层","displayLoanType":"SDRZ","currentIsRepaid":false,"amountPerShare":50.0,"oldLoan":false,"interestPerShare":0.0,"principal":0.0,"leftMonths":36,"overDued":false,"beginBidTime":"Jun 15, 2016 11:00:00 AM","allProtected":true,"productId":26}}}</script>
+
+
+
+
+
+
+                <script id="credit-info-data" type="text/x-json">{"status":0,"data":{"creditInfo":{"creditInfoId":5182952,"user":5182957,"identificationScanning":"VALID","mobile":"INVALID","graduation":"INVALID","credit":"VALID","residence":"INVALID","marriage":"INVALID","child":"INVALID","album":"INVALID","work":"VALID","renren":"INVALID","kaixin":"INVALID","house":"INVALID","car":"INVALID","identification":"VALID","detailInformation":"INVALID","borrowStudy":"VALID","mobileReceipt":"INVALID","incomeDuty":"VALID","other":"INVALID","account":"INVALID","titles":"INVALID","fieldAudit":"INVALID","mobileAuth":"INVALID","video":"INVALID","lastUpdateTime":"Jun 15, 2016 9:36:02 AM","version":0},"creditPassedTime":{"creditPassedTimeId":5182952,"user":5182957,"credit":"Jun 15, 2016 9:36:02 AM","work":"Jun 15, 2016 9:36:02 AM","incomeDuty":"Jun 15, 2016 9:36:02 AM","identificationScanning":"Jun 15, 2016 9:36:02 AM","identification":"Jun 15, 2016 9:36:02 AM","lastUpdateTime":"Jun 15, 2016 9:36:02 AM"},"loan":{"loanId":2035304,"title":"资金周转","borrowType":"短期周转","picture":"","amount":148000.0,"interest":10.2,"months":36,"description":"公司职员，现居辽宁省沈阳市，从事教育行业，工作收入稳定，贷款用于资金周转。 该借款人此次借款用于资金周转，该借款人为某大学教授，工作已有40年，每月有稳定收入。上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准 上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准。","loanType":"DEBX","productName":"友信","repayType":"MONTH","status":"IN_PROGRESS","verifyState":"SUCCESS","allowAccess":true,"utmSource":"debx-yx","openTime":"Jun 15, 2016 9:36:04 AM","startTime":"Jun 22, 2016 11:00:00 AM","readyTime":"Jun 15, 2016 11:23:41 AM","passTime":"Jun 15, 2016 11:31:56 AM","surplusAmount":0.0,"finishedRatio":100.0,"repaidByGuarantor":false,"monthlyMinInterest":"[{\"month\":\"6\",\"minInterest\":\"9\",\"maxInterest\":\"9\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"12\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"18\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"24\",\"minInterest\":\"9.6\",\"maxInterest\":\"12.6\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9.6\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"36\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"48\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"}]","borrowerId":5182957,"forbidComment":false,"nickName":"HePJ_43591147064.yx","avatar":"","borrowerLevel":"A","address":"辽宁","jobType":"工薪阶层","displayLoanType":"SDRZ","currentIsRepaid":false,"amountPerShare":50.0,"oldLoan":false,"interestPerShare":0.0,"principal":0.0,"leftMonths":36,"overDued":false,"beginBidTime":"Jun 15, 2016 11:00:00 AM","allProtected":true,"productId":26}}}</script>
 	    
-	   
-<div id="loan-details" class="mt14">
-	<div class="ui-loan-tab">
-	  	
-	    <div class="container_12_1080" >
-	         <div class="ui-tab ui-tab-transparent invest-tab-title" id="loan-tab">
-	          <ul class="ui-tab-items fn-clear">
-	            <li class="ui-tab-item  ui-tab-item-5  ui-tab-item-current" data-name="info"><a class="ui-tab-item-link">散标详情</a></li>
-	            <li class="ui-tab-item  ui-tab-item-5 " data-name="investment"><a class="ui-tab-item-link">投标记录</a></li>
-	            
-			        <li class="ui-tab-item ui-tab-item-5" data-name="repayment">
-			            <a class="ui-tab-item-link">还款表现</a>
-			        </li>
-			        <li class="ui-tab-item ui-tab-item-5" data-name="transferred">
-			          <a class="ui-tab-item-link">债权信息</a>
-			        </li>
-			        <li class="ui-tab-item ui-tab-item-5" data-name="transfer">
-			            <a class="ui-tab-item-link">转让记录</a>
-			        </li>
-        		
-	          </ul>
-	        </div>
-	    </div>
+                <div id="loan-details" class="mt14">
+                    <div class="ui-loan-tab">
+                        <div class="container_12_1080" >
+                            <div class="ui-tab ui-tab-transparent invest-tab-title" id="loan-tab">
+                                <ul class="ui-tab-items fn-clear">
+                                    <li class="ui-tab-item  ui-tab-item-5  ui-tab-item-current" data-name="info"><a class="ui-tab-item-link">散标详情</a></li>
+                                    <li class="ui-tab-item  ui-tab-item-5 " data-name="investment"><a class="ui-tab-item-link">投标记录</a></li>
+                                    <li class="ui-tab-item ui-tab-item-5" data-name="repayment">
+                                        <a class="ui-tab-item-link">还款表现</a>
+                                    </li>
+                                    <li class="ui-tab-item ui-tab-item-5" data-name="transferred">
+                                        <a class="ui-tab-item-link">债权信息</a>
+                                    </li>
+                                    <li class="ui-tab-item ui-tab-item-5" data-name="transfer">
+                                        <a class="ui-tab-item-link">转让记录</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
         <div class="container_12_1080" id="loan-tab-content">
 	        <div class="ui-box-white-bg"> 
 	            <div class="ui-tab-content ui-tab-content-info ui-tab-content-current" data-name="info">

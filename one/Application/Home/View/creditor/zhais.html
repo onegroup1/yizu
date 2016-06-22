@@ -141,9 +141,10 @@
             <td class="ui-list-field  text">
                 <div class="pl25 w130  fn-text-overflow">
                     <em class="ui-loantype {{ loanType }}" title="{{ loanTypeText }}"></em>
-                    <a  class="rrd-dimgray" href="__URL__/zhaiqxq/id/{$vo.creditor_id}/cred/{$vo.cred}" target="_blank" title="{{ title }}">{$vo.creditor_name}</a>
+                    <a  class="rrd-dimgray" href="__URL__/zhaiqxq/id/{$vo.creditor_id}/jindu/{$vo.jindu}" target="_blank" title="{{ title }}">{$vo.creditor_name}</a>
                 </div>
             </td>
+
 
             <td class="ui-list-field  text-right   color-orange-text">
                 <div class="pr15">
@@ -167,18 +168,18 @@
                 <div class="pl95">
                     <span class="ui-process-long  fn-clear">
                         <span class="basic-progress-bg fn-left">
-                            <b class="basic-percent fn-left" style="width:{$vo.cred}%"></b>
+                            <b class="basic-percent fn-left" style="width:{$vo.jindu}%"></b>
                         </span>
                         <span class="basic-text fn-left text-right">
-                            <em name="cred">{$vo.cred}</em>%
+                            <em name="cred">{$vo.jindu}</em>%
                         </span>
                     </span>
                 </div>
             </td>
             <td class="ui-list-field   text-right">
                 <div class="pr25">
-                    <if condition="$vo.cred lt 100">
-                        <a href="__URL__/zqxqtb/creditor_id/{$vo.creditor_id}/login_id/{$vo.login_id}" class="ui-button ui-button-rect-mid  ui-button-orange  ">
+                    <if condition="$vo.jindu lt 100">
+                        <a href="__URL__/zhaiqxq/id/{$vo.creditor_id}/jindu/{$vo.jindu}" class="ui-button ui-button-rect-mid  ui-button-orange  ">
                             <span class="OPEN">投&nbsp;&nbsp;&nbsp;标</span>
                         </a>
                     <else />
@@ -186,7 +187,6 @@
                             <span class="READY FIRST_READY" >已满标</span>
                         </a>
                     </if>
-                    <!--<span class="IN_PROGRESS">还款中</span>-->
                 </div>
             </td>
         </tr>

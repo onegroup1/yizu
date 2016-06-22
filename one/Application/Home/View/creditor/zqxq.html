@@ -41,13 +41,11 @@
         <include file="./public/header.html"/>
         <!----------------头部------------------>
 
-<div id="header-helper" style="display: none;">
+        <div id="header-helper" style="display: none;">
     <span id="header-helper-authenticated">
-      
-      false
+        false
     </span>
 </div>
-
         <div id="pg-server-message" data-status="" data-message="" data-ispop="" data-fundTips="" style="display: none;"></div>
         <div class="maincontent">
             
@@ -68,108 +66,116 @@
 	<div class="nav-bg"></div>
 </div>
 
-<div id="loan-basic">
-  <div class="container_12_1080 mt10 color-white-bg pg-details" id="loan-basic-panel">
-       <div class="ui-box-white-bg fn-clear">
-          <div class="ui-box-title fn-clear">
-            <div class="fn-left fn-text-overflow pl25" title="实地认证标"><em class="icon-loantype SDRZ mr5"></em><em class="title-text">资金周转</em></div>
-            
-           
-            <a class="fn-right text ui-box-text pr25" href="javascript:void(0)" onclick="javascript:window.open('../account/emptyContract.action?loanId=2035241', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')">借款协议（范本）</a>
-          </div>
-          <input type="hidden" id="invest-type" value="loan" /> 
-          <div class="pl25 pr25 fn-clear">
-            <div class="fn-left pt10 loaninfo ">
-              <div class="fn-clear  mb25">
-                <dl class="fn-left w300">
-                  <dd class="basic-all color-orange-text">
-                  	<em class="text-xxxl num-family">{$money}</em><span class="font-18px basic-text ">元</span>
-                  </dd>
-                   <dt class="minus-mt-5">标的总额</dt>
-                </dl>
-                <dl class="fn-left w240">
-                  <dd class="basic-all">
-                  	<em class="text-xxxl  num-family color-dark-text " style="margin-left:-4px;">{$lilv}</em><em class="font-24px ">%</em>
-                  </dd>
-                  <dt class="minus-mt-5">年利率</dt>
-                </dl>
-                <dl class="fn-left w140">
-                  <dd class="basic-all">
-                  	<em class=" text-xxxl num-family color-dark-text">{$deadline}</em><span class="font-18px basic-text">个月</span>
-                  </dd>
-                  <dt class="minus-mt-5">还款期限</dt>
-                </dl>
-              </div>
-              <ul >
-                <li class="fn-clear">
-                  <span class="fn-left basic-label w70">保障方式</span>
-                  <span class="fn-left basic-value last">用户利益保障机制 <a id="tips_0" class="icon-info color-gray-text" href="/help/security/security!detail.action?flag=bjbz" target="_blank"></a></span>
-                  <span class="fn-left basic-label mr30">提前还款费率</span>
-                  <span class="fn-left basic-value num"><em>0.00</em>%</span>
-                </li>
-                <li class="fn-clear">
-                  <span class="fn-left basic-label w70">还款方式</span>
-                  <!-- <span class="fn-left basic-value">按月还款/等额本息 <a id="tips_1" class="icon-info color-gray-text" href="/help/terms/terms!terms.action#equalInterest" target="_blank"></a></span> -->
-                    <span class="fn-left basic-value">按月还款/等额本息 <a id="tips_1" class="icon-info color-gray-text" href="/help/terms/terms!terms.action#equalInterest" target="_blank"></a></span>
-                  <!--<span class="fn-left basic-label mr30">月还本息（元）</span>
-                  <span class="fn-left basic-value num last"><em>2,737.80</em></span>-->
-                </li>
-                
-              </ul>
-            
-            </div>
-              <div class="ui-poptip  ui-poptip-new fn-hide" id="tipCon_0">
-                  <div class="ui-poptip-shadow">
-                      <div class="ui-poptip-container">
-                          <div class="ui-poptip-arrow ui-poptip-arrow-10">
-                              <em></em>
-                              <span></span>
-                          </div>
-                          <div class="ui-poptip-content" data-role="content">
-                              详情参见<a href="/help/security/security!detail.action?flag=bjbz" target="_blank">用户利益保障机制</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
 
-                    <div class="ui-poptip ui-poptip-new fn-hide" id="tipCon_1">
-                        <div class="ui-poptip-shadow">
-                            <div class="ui-poptip-container">
-                                <div class="ui-poptip-arrow ui-poptip-arrow-10">
-                                    <em></em>
-                                    <span></span>
-                                </div>
-                                <div class="ui-poptip-content" data-role="content">
-                                    等额本息还款法是在还款期内，每月偿还同等数额的贷款(包括本金和利息)。</br>借款人每月还款额中的本金比重逐月递增、利息比重逐月递减。
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  <div class="fn-right loan-status loan-repaying">
-                  	  <div class="box box-top">
-                      	<span><i class="num-family font-36px">24</i><i class="text color-lightdark-text">月</i></span>
-                       	<em >剩余期数</em>                     	
-                      </div>
+<div id="loan-basic">
+    <div class="container_12_1080 mt10 color-white-bg pg-details" id="loan-basic-panel">
+         <div class="ui-box-white-bg fn-clear">
+             <div class="ui-box-title fn-clear">
+                 <div class="fn-left fn-text-overflow pl25" title="实地认证标">
+                     <em class="icon-loantype SDRZ mr5"></em>
+                     <em class="title-text">资金周转</em>
+                 </div>
+                 <a class="fn-right text ui-box-text pr25" href="javascript:void(0)" onclick="javascript:window.open('../account/emptyContract.action?loanId=2035241', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')">借款协议（范本）</a>
+             </div>
+             <input type="hidden" id="invest-type" value="loan" />
+             <div class="pl25 pr25 fn-clear">
+                 <div class="fn-left pt10 loaninfo ">
+                     <div class="fn-clear  mb25">
+                         <dl class="fn-left w300">
+                             <dd class="basic-all color-orange-text">
+                                 <em class="text-xxxl num-family">{$money}</em><span class="font-18px basic-text ">元</span>
+                             </dd>
+                             <dt class="minus-mt-5">标的总额</dt>
+                         </dl>
+                         <dl class="fn-left w240">
+                             <dd class="basic-all">
+                                 <em class="text-xxxl  num-family color-dark-text " style="margin-left:-4px;">{$lilv}</em><em class="font-24px ">%</em>
+                             </dd>
+                             <dt class="minus-mt-5">年利率</dt>
+                         </dl>
+                         <dl class="fn-left w140">
+                             <dd class="basic-all">
+                                 <em class=" text-xxxl num-family color-dark-text">{$deadline}</em><span class="font-18px basic-text">个月</span>
+                             </dd>
+                             <dt class="minus-mt-5">还款期限</dt>
+                         </dl>
+                     </div>
+                     <ul >
+                         <li class="fn-clear">
+                             <span class="fn-left basic-label w70">保障方式</span>
+                             <span class="fn-left basic-value last">用户利益保障机制
+                                 <a id="tips_0" class="icon-info color-gray-text" href="/help/security/security!detail.action?flag=bjbz" target="_blank"></a>
+                             </span>
+                             <span class="fn-left basic-label mr30">提前还款费率</span>
+                             <span class="fn-left basic-value num"><em>0.00</em>%</span>
+                         </li>
+                         <li class="fn-clear">
+                             <span class="fn-left basic-label w70">还款方式</span>
+                             <span class="fn-left basic-value">按月还款/等额本息
+                                 <a id="tips_1" class="icon-info color-gray-text" href="/help/terms/terms!terms.action#equalInterest" target="_blank"></a>
+                             </span>
+                         </li>
+                     </ul>
+                 </div>
+
+                 <div class="ui-poptip  ui-poptip-new fn-hide" id="tipCon_0">
+                     <div class="ui-poptip-shadow">
+                         <div class="ui-poptip-container">
+                             <div class="ui-poptip-arrow ui-poptip-arrow-10">
+                                 <em></em>
+                                 <span></span>
+                             </div>
+                             <div class="ui-poptip-content" data-role="content">
+                                 详情参见<a href="/help/security/security!detail.action?flag=bjbz" target="_blank">用户利益保障机制</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                 <div class="ui-poptip ui-poptip-new fn-hide" id="tipCon_1">
+                     <div class="ui-poptip-shadow">
+                         <div class="ui-poptip-container">
+                             <div class="ui-poptip-arrow ui-poptip-arrow-10">
+                                 <em></em>
+                                 <span></span>
+                             </div>
+                             <div class="ui-poptip-content" data-role="content">
+                                 等额本息还款法是在还款期内，每月偿还同等数额的贷款(包括本金和利息)。</br>借款人每月还款额中的本金比重逐月递增、利息比重逐月递减。
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="fn-right loan-status loan-repaying">
+                     <div class="box box-top">
+                         <span><i class="num-family font-36px">24</i><i class="text color-lightdark-text">月</i></span>
+                         <em >剩余期数</em>
+                     </div>
                  
-                      <div class="box box-bottom">
-                      	<span><i class="num-family font-36px">2016-07-15</i></span>
-                      	<em>下一合约还款日</em>                      	
-                      </div>
-                      <div class="stamp"><em class="REPAYING"></em></div>
+                     <div class="box box-bottom">
+                         <span><i class="num-family font-36px">2016-07-15</i></span>
+                         <em>下一合约还款日</em>
+                     </div>
+                     <div class="stamp"><em class="REPAYING"></em></div>
                   </div>
-          </div>
-        </div>
-  </div>
+             </div>
+         </div>
+    </div>
 </div>
-  <script id="credit-info-data" type="text/x-json">{"status":0,"data":{"creditInfo":{"creditInfoId":5182038,"user":5182043,"identificationScanning":"VALID","mobile":"INVALID","graduation":"INVALID","credit":"VALID","residence":"INVALID","marriage":"INVALID","child":"INVALID","album":"INVALID","work":"VALID","renren":"INVALID","kaixin":"INVALID","house":"INVALID","car":"INVALID","identification":"VALID","detailInformation":"INVALID","borrowStudy":"VALID","mobileReceipt":"INVALID","incomeDuty":"VALID","other":"INVALID","account":"INVALID","titles":"INVALID","fieldAudit":"INVALID","mobileAuth":"INVALID","video":"INVALID","lastUpdateTime":"Jun 14, 2016 5:32:04 PM","version":0},"creditPassedTime":{"creditPassedTimeId":5182038,"user":5182043,"credit":"Jun 14, 2016 5:32:04 PM","work":"Jun 14, 2016 5:32:04 PM","incomeDuty":"Jun 14, 2016 5:32:04 PM","identificationScanning":"Jun 14, 2016 5:32:04 PM","identification":"Jun 14, 2016 5:32:04 PM","lastUpdateTime":"Jun 14, 2016 5:32:04 PM"},"loan":{"loanId":2035241,"title":"资金周转","borrowType":"短期周转","picture":"","amount":84500.0,"interest":10.2,"months":36,"description":"公司职员，现居山东省济南市，从事制造业行业，工作收入稳定，贷款用于资金周转。上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准。","loanType":"DEBX","productName":"友信","repayType":"MONTH","status":"IN_PROGRESS","verifyState":"SUCCESS","allowAccess":true,"utmSource":"debx-yx","openTime":"Jun 14, 2016 5:32:07 PM","startTime":"Jun 21, 2016 6:23:53 PM","readyTime":"Jun 14, 2016 7:04:38 PM","passTime":"Jun 15, 2016 9:07:10 AM","surplusAmount":0.0,"finishedRatio":100.0,"repaidByGuarantor":false,"monthlyMinInterest":"[{\"month\":\"6\",\"minInterest\":\"9\",\"maxInterest\":\"9\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"12\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"18\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"24\",\"minInterest\":\"9.6\",\"maxInterest\":\"12.6\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9.6\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"36\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"48\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"}]","borrowerId":5182043,"forbidComment":false,"nickName":"CaoGY_45131143776.yx","avatar":"","borrowerLevel":"A","address":"山东","jobType":"工薪阶层","displayLoanType":"SDRZ","currentIsRepaid":false,"amountPerShare":50.0,"oldLoan":false,"interestPerShare":0.0,"principal":0.0,"leftMonths":36,"overDued":false,"beginBidTime":"Jun 14, 2016 6:23:53 PM","allProtected":true,"productId":26}}}</script>
+
+
+
+
+
+
+
+<script id="credit-info-data" type="text/x-json">{"status":0,"data":{"creditInfo":{"creditInfoId":5182038,"user":5182043,"identificationScanning":"VALID","mobile":"INVALID","graduation":"INVALID","credit":"VALID","residence":"INVALID","marriage":"INVALID","child":"INVALID","album":"INVALID","work":"VALID","renren":"INVALID","kaixin":"INVALID","house":"INVALID","car":"INVALID","identification":"VALID","detailInformation":"INVALID","borrowStudy":"VALID","mobileReceipt":"INVALID","incomeDuty":"VALID","other":"INVALID","account":"INVALID","titles":"INVALID","fieldAudit":"INVALID","mobileAuth":"INVALID","video":"INVALID","lastUpdateTime":"Jun 14, 2016 5:32:04 PM","version":0},"creditPassedTime":{"creditPassedTimeId":5182038,"user":5182043,"credit":"Jun 14, 2016 5:32:04 PM","work":"Jun 14, 2016 5:32:04 PM","incomeDuty":"Jun 14, 2016 5:32:04 PM","identificationScanning":"Jun 14, 2016 5:32:04 PM","identification":"Jun 14, 2016 5:32:04 PM","lastUpdateTime":"Jun 14, 2016 5:32:04 PM"},"loan":{"loanId":2035241,"title":"资金周转","borrowType":"短期周转","picture":"","amount":84500.0,"interest":10.2,"months":36,"description":"公司职员，现居山东省济南市，从事制造业行业，工作收入稳定，贷款用于资金周转。上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准。","loanType":"DEBX","productName":"友信","repayType":"MONTH","status":"IN_PROGRESS","verifyState":"SUCCESS","allowAccess":true,"utmSource":"debx-yx","openTime":"Jun 14, 2016 5:32:07 PM","startTime":"Jun 21, 2016 6:23:53 PM","readyTime":"Jun 14, 2016 7:04:38 PM","passTime":"Jun 15, 2016 9:07:10 AM","surplusAmount":0.0,"finishedRatio":100.0,"repaidByGuarantor":false,"monthlyMinInterest":"[{\"month\":\"6\",\"minInterest\":\"9\",\"maxInterest\":\"9\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"12\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"18\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"24\",\"minInterest\":\"9.6\",\"maxInterest\":\"12.6\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9.6\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"36\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"48\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"}]","borrowerId":5182043,"forbidComment":false,"nickName":"CaoGY_45131143776.yx","avatar":"","borrowerLevel":"A","address":"山东","jobType":"工薪阶层","displayLoanType":"SDRZ","currentIsRepaid":false,"amountPerShare":50.0,"oldLoan":false,"interestPerShare":0.0,"principal":0.0,"leftMonths":36,"overDued":false,"beginBidTime":"Jun 14, 2016 6:23:53 PM","allProtected":true,"productId":26}}}</script>
 	    
 	   
 <div id="loan-details" class="mt14">
-	<div class="ui-loan-tab">
-	  	
-	    <div class="container_12_1080" >
-	         <div class="ui-tab ui-tab-transparent invest-tab-title" id="loan-tab">
-	          <ul class="ui-tab-items fn-clear">
+    <div class="ui-loan-tab">
+        <div class="container_12_1080" >
+            <div class="ui-tab ui-tab-transparent invest-tab-title" id="loan-tab">
+                <ul class="ui-tab-items fn-clear">
 	            <li class="ui-tab-item  ui-tab-item-5  ui-tab-item-current" data-name="info"><a class="ui-tab-item-link">散标详情</a></li>
 	            <li class="ui-tab-item  ui-tab-item-5 " data-name="investment"><a class="ui-tab-item-link">投标记录</a></li>
 	            
@@ -206,46 +212,28 @@
     <li>3.人人贷WE理财仅为信息发布平台，未以任何明示或暗示的方式对出借人提供担保或承诺保本保息，出借人应根据自身的投资偏好和风险承受能力进行独立判断和作出决策，并自行承担资金出借的风险与责任。市场有风险，投资需谨慎。</li>
   </ul>
 </div>
-<div class="ui-tab-content-description border-bottom p25">
-  <h4 class="ui-tab-content-title color-dark-text">借款描述</h4>
-  <div class="ui-tab-list color-dark-text">
-    公司职员，现居山东省济南市，从事制造业行业，工作收入稳定，贷款用于资金周转。上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准。
-  </div>
-</div>
-	            </div>
-	         	<div class="ui-tab-content" data-name="investment">
-	              
-        
-        <h4 class="auth-hint">请 <a href="/loginPage.action">登录</a> 或 <a href="/regPage.action">注册</a> 后查看</h4>
- 
-	            </div>	
-	              
-	            <div class="ui-tab-content" data-name="repayment">
-	               
-        
-        <h4 class="auth-hint">请 <a href="/loginPage.action">登录</a> 或 <a href="/regPage.action">注册</a> 后查看</h4>
- 
-	            </div>	
-	            <div class="ui-tab-content" data-name="transferred">
-	              
- 	   
-        
-        <h4 class="auth-hint">请 <a href="/loginPage.action">登录</a> 或 <a href="/regPage.action">注册</a> 后查看</h4>
-        
- 
-	            </div>	
-	            <div class="ui-tab-content" data-name="transfer">
-	               
-   
-          
-              <h4 class="auth-hint">请 <a href="/loginPage.action">登录</a> 或 <a href="/regPage.action">注册</a> 后查看</h4>
-    
- 
-	            </div>	
-	            
-	        </div>
-	    </div>
-	</div>
+            <div class="ui-tab-content-description border-bottom p25">
+                <h4 class="ui-tab-content-title color-dark-text">借款描述</h4>
+                <div class="ui-tab-list color-dark-text">
+                    公司职员，现居山东省济南市，从事制造业行业，工作收入稳定，贷款用于资金周转。上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准。
+                </div>
+            </div>
+        </div>
+            <div class="ui-tab-content" data-name="investment">
+                <h4 class="auth-hint">请 <a href="/loginPage.action">登录</a> 或 <a href="/regPage.action">注册</a> 后查看</h4>
+            </div>
+            <div class="ui-tab-content" data-name="repayment">
+                <h4 class="auth-hint">请 <a href="/loginPage.action">登录</a> 或 <a href="/regPage.action">注册</a> 后查看</h4>
+            </div>
+            <div class="ui-tab-content" data-name="transferred">
+                <h4 class="auth-hint">请 <a href="/loginPage.action">登录</a> 或 <a href="/regPage.action">注册</a> 后查看</h4>
+            </div>
+            <div class="ui-tab-content" data-name="transfer">
+                <h4 class="auth-hint">请 <a href="/loginPage.action">登录</a> 或 <a href="/regPage.action">注册</a> 后查看</h4>
+            </div>
+        </div>
+    </div>
+    </div>
 <script id="credit-info-data" type="text/x-json">{"status":0,"data":{"creditInfo":{"creditInfoId":5182038,"user":5182043,"identificationScanning":"VALID","mobile":"INVALID","graduation":"INVALID","credit":"VALID","residence":"INVALID","marriage":"INVALID","child":"INVALID","album":"INVALID","work":"VALID","renren":"INVALID","kaixin":"INVALID","house":"INVALID","car":"INVALID","identification":"VALID","detailInformation":"INVALID","borrowStudy":"VALID","mobileReceipt":"INVALID","incomeDuty":"VALID","other":"INVALID","account":"INVALID","titles":"INVALID","fieldAudit":"INVALID","mobileAuth":"INVALID","video":"INVALID","lastUpdateTime":"Jun 14, 2016 5:32:04 PM","version":0},"creditPassedTime":{"creditPassedTimeId":5182038,"user":5182043,"credit":"Jun 14, 2016 5:32:04 PM","work":"Jun 14, 2016 5:32:04 PM","incomeDuty":"Jun 14, 2016 5:32:04 PM","identificationScanning":"Jun 14, 2016 5:32:04 PM","identification":"Jun 14, 2016 5:32:04 PM","lastUpdateTime":"Jun 14, 2016 5:32:04 PM"},"loan":{"loanId":2035241,"title":"资金周转","borrowType":"短期周转","picture":"","amount":84500.0,"interest":10.2,"months":36,"description":"公司职员，现居山东省济南市，从事制造业行业，工作收入稳定，贷款用于资金周转。上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准。","loanType":"DEBX","productName":"友信","repayType":"MONTH","status":"IN_PROGRESS","verifyState":"SUCCESS","allowAccess":true,"utmSource":"debx-yx","openTime":"Jun 14, 2016 5:32:07 PM","startTime":"Jun 21, 2016 6:23:53 PM","readyTime":"Jun 14, 2016 7:04:38 PM","passTime":"Jun 15, 2016 9:07:10 AM","surplusAmount":0.0,"finishedRatio":100.0,"repaidByGuarantor":false,"monthlyMinInterest":"[{\"month\":\"6\",\"minInterest\":\"9\",\"maxInterest\":\"9\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"12\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"18\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"24\",\"minInterest\":\"9.6\",\"maxInterest\":\"12.6\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9.6\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"36\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"48\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"}]","borrowerId":5182043,"forbidComment":false,"nickName":"CaoGY_45131143776.yx","avatar":"","borrowerLevel":"A","address":"山东","jobType":"工薪阶层","displayLoanType":"SDRZ","currentIsRepaid":false,"amountPerShare":50.0,"oldLoan":false,"interestPerShare":0.0,"principal":0.0,"leftMonths":36,"overDued":false,"beginBidTime":"Jun 14, 2016 6:23:53 PM","allProtected":true,"productId":26}}}</script>
 <script id="credit-info-template" type="text/x-handlebars-template">
     <table  class="ui-table-auditoria" width="100%">
