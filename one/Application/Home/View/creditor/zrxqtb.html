@@ -192,16 +192,24 @@
               </div>
               <div class="fn-right  ui-term-box  border-left-gray" id="investment-terminal">
                   <dl class="mb10">
-                      <dd class="mt6"><em class="font-36px color-orange-text num-family" id="max-amount" data-amount="43950.0">3</em class="text"> 份（879元）</dd>
+                      <dd class="mt6">
+                          <em class="font-36px color-orange-text num-family" id="max-amount" data-amount="43950.0">3</em class="text">
+                          份（{$money}元/份）
+                      </dd>
                       <dt class="minus-mt-10">剩余份数</dt>
                   </dl>
                   <div class="ui-term-content">
                       <p class="ui-term-overage mb4">
-                          <span style="width: auto" class="clearfix"><em class="fn-left mr10">账户余额</em> <em id="max-account" class="fn-left" data-account="0.0">0.00</em><em class="fn-left">元</em><a class="fn-right" href="/account/capital!recharge.action" target="_blank">充值</a></span>
+                          <span style="width: auto" class="clearfix">
+                              <em class="fn-left mr10">账户余额</em>
+                              <em id="max-account" class="fn-left" data-account="0.0">{$login_balance}</em>
+                              <em class="fn-left">元</em>
+                              <a class="fn-right" href="/account/capital!recharge.action" target="_blank">充值</a>
+                          </span>
                       </p>
-                      <form class="ui-term-form ui-form" autocomplete="off" action="__URL__/bid_money/creditor_id/{$vo.creditor_id}/login_id/{$vo.login_id}" method="post">
+                      <form class="ui-term-form ui-form" autocomplete="off" action="__URL__/goumai/let_id/{$let_id}/login_id/{$login_id}" method="post">
                           <div class="ui-term-field invest">
-                              <input class="ui-term-input ui-input ui-input-text" type="text" id="money" name="money" onblur='check_Money()' />
+                              <input class="ui-term-input ui-input ui-input-text" type="text" id="money" name="buy_num" onblur='check_Money()' />
                               <span id='s3'></span>
                               <p class="ui-term-placeholder"></p>
                               <p class="ui-term-inputunit">元</p>
@@ -230,22 +238,19 @@
      <script id="credit-info-data" type="text/x-json">{"status":0,"data":{"creditInfo":{"creditInfoId":5182952,"user":5182957,"identificationScanning":"VALID","mobile":"INVALID","graduation":"INVALID","credit":"VALID","residence":"INVALID","marriage":"INVALID","child":"INVALID","album":"INVALID","work":"VALID","renren":"INVALID","kaixin":"INVALID","house":"INVALID","car":"INVALID","identification":"VALID","detailInformation":"INVALID","borrowStudy":"VALID","mobileReceipt":"INVALID","incomeDuty":"VALID","other":"INVALID","account":"INVALID","titles":"INVALID","fieldAudit":"INVALID","mobileAuth":"INVALID","video":"INVALID","lastUpdateTime":"Jun 15, 2016 9:36:02 AM","version":0},"creditPassedTime":{"creditPassedTimeId":5182952,"user":5182957,"credit":"Jun 15, 2016 9:36:02 AM","work":"Jun 15, 2016 9:36:02 AM","incomeDuty":"Jun 15, 2016 9:36:02 AM","identificationScanning":"Jun 15, 2016 9:36:02 AM","identification":"Jun 15, 2016 9:36:02 AM","lastUpdateTime":"Jun 15, 2016 9:36:02 AM"},"loan":{"loanId":2035304,"title":"资金周转","borrowType":"短期周转","picture":"","amount":148000.0,"interest":10.2,"months":36,"description":"公司职员，现居辽宁省沈阳市，从事教育行业，工作收入稳定，贷款用于资金周转。 该借款人此次借款用于资金周转，该借款人为某大学教授，工作已有40年，每月有稳定收入。上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准 上述信息已经实地认证方友众信业公司考察认证。同时，经审核借款人所提供资料真实有效，符合人人贷的借款审核标准。","loanType":"DEBX","productName":"友信","repayType":"MONTH","status":"OPEN","verifyState":"SUCCESS","allowAccess":true,"utmSource":"debx-yx","openTime":"Jun 15, 2016 9:36:04 AM","startTime":"Jun 22, 2016 11:00:00 AM","surplusAmount":43950.0,"finishedRatio":70.30405405405405,"repaidByGuarantor":false,"monthlyMinInterest":"[{\"month\":\"6\",\"minInterest\":\"9\",\"maxInterest\":\"9\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"12\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"18\",\"minInterest\":\"9\",\"maxInterest\":\"12.0\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"24\",\"minInterest\":\"9.6\",\"maxInterest\":\"12.6\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"9.6\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"36\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"},{\"month\":\"48\",\"minInterest\":\"10.2\",\"maxInterest\":\"13.2\",\"mgmtFee\":\"0\",\"tradeFee\":\"0\",\"guaranteeFee\":\"2\",\"inRepayPenalFee\":\"0\",\"divideFee\":40.0,\"fixInterest\":\"10.2\",\"hasBalanceYearInterest\":\"1\",\"balanceYearInterest\":\"14.4\",\"hasOverDue\":\"1\",\"overDueInterestRate\":\"0.05\",\"overDueMgmtRate\":\"0.1\",\"badDebtInterestRate\":\"0.1\",\"badDebtMgmtRate\":\"0.5\"}]","borrowerId":5182957,"forbidComment":false,"nickName":"HePJ_43591147064.yx","avatar":"","borrowerLevel":"A","address":"辽宁","jobType":"工薪阶层","displayLoanType":"SDRZ","currentIsRepaid":false,"amountPerShare":50.0,"oldLoan":false,"interestPerShare":0.0,"principal":0.0,"leftMonths":36,"overDued":false,"beginBidTime":"Jun 15, 2016 11:00:00 AM","allProtected":true,"productId":26}}}</script>
 <div id="loan-details" class="mt14">
 	<div class="ui-loan-tab">
-	  	
-	    <div class="container_12_1080" >
-	         <div class="ui-tab ui-tab-transparent invest-tab-title" id="loan-tab">
-	          <ul class="ui-tab-items fn-clear">
-	            <li class="ui-tab-item   ui-tab-item-2 ui-tab-item-current" data-name="info"><a class="ui-tab-item-link">散标详情</a></li>
-	            <li class="ui-tab-item   ui-tab-item-2" data-name="investment"><a class="ui-tab-item-link">投标记录</a></li>
-	            
-	          </ul>
-	        </div>
+        <div class="container_12_1080" >
+            <div class="ui-tab ui-tab-transparent invest-tab-title" id="loan-tab">
+                <ul class="ui-tab-items fn-clear">
+                    <li class="ui-tab-item   ui-tab-item-2 ui-tab-item-current" data-name="info"><a class="ui-tab-item-link">散标详情</a></li>
+                    <li class="ui-tab-item   ui-tab-item-2" data-name="investment"><a class="ui-tab-item-link">投标记录</a></li>
+                </ul>
+            </div>
 	    </div>
-	    
-	<div class="container_12_1080" id="loan-tab-content">
-        <div class="ui-box-white-bg">
-            <div class="ui-tab-content ui-tab-content-info ui-tab-content-current" data-name="info">
 
-<!-------------------借款人信息----------------------------->
+        <div class="container_12_1080" id="loan-tab-content">
+            <div class="ui-box-white-bg">
+                <div class="ui-tab-content ui-tab-content-info ui-tab-content-current" data-name="info">
+                    <!-------------------借款人信息----------------------------->
                     <div class="ui-tab-content-basic border-bottom pt25 mlr60">
                         <h4 class="ui-tab-content-title color-dark-text border-bottom-gray">借贷人信息 </h4>
                         <volist name="data" id="vo">
@@ -310,18 +315,16 @@
                             </table>
                         </volist>
                     </div>
- <!-------------------借款人信息----------------------------->
-
-
+                    <!-------------------借款人信息----------------------------->
                     <div class="ui-tab-content-auditoria border-bottom p25 minus-mt-10 plr60">
-  <h4 class="ui-tab-content-title color-dark-text">审核状态</h4>
-  <div class="details-verfication-list mt10 color-lightdark-text" id="verification-container"></div>  
-  <ul>
-    <li>1.人人贷及其合作机构将始终秉持客观公正的原则，严控风险，最大程度的尽力确保借入者信息的真实性，但不保证审核信息100%无误。</li>
-    <li>2.借入者若长期逾期，其个人信息将被公布。</li>
-    <li>3.人人贷WE理财仅为信息发布平台，未以任何明示或暗示的方式对出借人提供担保或承诺保本保息，出借人应根据自身的投资偏好和风险承受能力进行独立判断和作出决策，并自行承担资金出借的风险与责任。市场有风险，投资需谨慎。</li>
-  </ul>
-</div>
+                        <h4 class="ui-tab-content-title color-dark-text">审核状态</h4>
+                        <div class="details-verfication-list mt10 color-lightdark-text" id="verification-container"></div>
+                        <ul>
+                            <li>1.人人贷及其合作机构将始终秉持客观公正的原则，严控风险，最大程度的尽力确保借入者信息的真实性，但不保证审核信息100%无误。</li>
+                            <li>2.借入者若长期逾期，其个人信息将被公布。</li>
+                            <li>3.人人贷WE理财仅为信息发布平台，未以任何明示或暗示的方式对出借人提供担保或承诺保本保息，出借人应根据自身的投资偏好和风险承受能力进行独立判断和作出决策，并自行承担资金出借的风险与责任。市场有风险，投资需谨慎。</li>
+                        </ul>
+                    </div>
 <div class="ui-tab-content-description border-bottom p25">
   <h4 class="ui-tab-content-title color-dark-text">借款描述</h4>
   <div class="ui-tab-list color-dark-text">
@@ -583,31 +586,31 @@
     </table>
 </script>
 <script id="confirm-loan-template" type="text/x-handlebars-template">
-<div class="ui-confirm conform_pay_div">
-  <span class="title data-dialog-title">确认投资</span>
-  <div class="ui-confirm-content">
-    <form class="ui-confirm-form" action="/lend/loanLender.action" method="post">
-      <ul>
-        <li class="fn-clear">
-          <span class="fn-left j-dialog-label">借款标题</span>
-          <span class="fn-left ui-confirm-value fn-text-overflow last j-dialog-value">资金周转</span>
-        </li>
-        <li class="fn-clear">
-          <span class="fn-left  j-dialog-label">借款用户</span>
-          <span class="fn-left ui-confirm-value fn-text-overflow last j-dialog-value">
-            <a>HePJ_43591147064.yx</a>
-          </span>
-        </li>
-        <li class="fn-clear">
-          <span class="fn-left  j-dialog-label">年利率</span>
-          <span class="fn-left ui-confirm-value num-s last j-dialog-value">
-            <em>10.20</em>%
-          </span>
-        </li>
-        <li class="fn-clear">
-          <span class="fn-left  j-dialog-label">还款期限</span>
-          <span class="fn-left ui-confirm-value num-s last j-dialog-value"><em>36</em>个月</span>
-        </li>
+    <div class="ui-confirm conform_pay_div">
+        <span class="title data-dialog-title">确认投资</span>
+        <div class="ui-confirm-content">
+            <form class="ui-confirm-form" action="/lend/loanLender.action" method="post">
+                <ul>
+                    <li class="fn-clear">
+                        <span class="fn-left j-dialog-label">借款标题</span>
+                        <span class="fn-left ui-confirm-value fn-text-overflow last j-dialog-value">资金周转</span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="fn-left  j-dialog-label">借款用户</span>
+                        <span class="fn-left ui-confirm-value fn-text-overflow last j-dialog-value">
+                            <a>HePJ_43591147064.yx</a>
+                        </span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="fn-left  j-dialog-label">年利率</span>
+                        <span class="fn-left ui-confirm-value num-s last j-dialog-value">
+                            <em>10.20</em>%
+                        </span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="fn-left  j-dialog-label">还款期限</span>
+                        <span class="fn-left ui-confirm-value num-s last j-dialog-value"><em>36</em>个月</span>
+                    </li>
         <li class="fn-clear">
           <span class="fn-left j-dialog-label">还款方式</span>
           <span class="fn-left ui-confirm-value last j-dialog-value">按月还款/等额本息</span>
@@ -634,15 +637,15 @@
         <div class="mt10 text-small color-gray-text ui-confirm-item-note-loan">
             <p>如遇流标情况，投标期内所冻结的金额将在流标后进行解冻。</p>
         </div>
-        <div class="mt10 text-small">
-            <p class="j-dialog-margin-left"><input type="checkbox" name="agree-contract" checked="checked" />
-                我已阅读并同意签署
-                <a class="text" href="javascript:void(0)" onclick="javascript:window.open('../account/emptyContract.action?loanId=2035304', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')">
-                    《借款协议》
-                </a>
-            </p>
-            <p class="j-dialog-margin-left ui-confirm-hint rrdcolor-red-text text-small" style="display: none;"></p>
-        </div>
+            <div class="mt10 text-small">
+                <p class="j-dialog-margin-left"><input type="checkbox" name="agree-contract" checked="checked" />
+                    我已阅读并同意签署
+                    <a class="text" href="javascript:void(0)" onclick="javascript:window.open('../account/emptyContract.action?loanId=2035304', '_blank', 'height=768, width=1024,toolbar=no,scrollbars=yes,menubar=no,status=no')">
+                        《借款协议》
+                    </a>
+                </p>
+                <p class="j-dialog-margin-left ui-confirm-hint rrdcolor-red-text text-small" style="display: none;"></p>
+            </div>
       <div class="mt10 text-center mb30">
         <input name="loanId" type="hidden" value="2035304" />
         <input name="bidAmount" type="hidden" value="{{ amount }}" />

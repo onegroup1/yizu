@@ -127,10 +127,13 @@
                         <li class="fn-clear basic-progress mb5">
                             <span class="fn-left basic-label w70">投标进度</span>
                             <span class="fn-left basic-value">
+                                <volist name="jindu" id="vo">
                                 <span class="fn-left basic-progress-bg">
-                                    <b class="basic-percent" style="width: 70%"></b>
+                                    <b class="basic-percent" style="width:{$vo.jindu} %"></b>
                                 </span>
-                                <span class="fn-left basic-progress-value"><em>70%</em></span>
+
+                                <span class="fn-left basic-progress-value"><em>{$vo.jindu}%</em></span>
+                                </volist>
                             </span>
                             <span class="fn-left  basic-label mr30">剩余时间</span>
                             <span class="fn-left basic-value num"><em> <em class='value'>6</em>天<em class='value'>23</em>时<em class='value'>37</em>分</em></span>
@@ -167,7 +170,7 @@
                 </div>
                 <div class="fn-right  ui-term-box  border-left-gray" id="investment-terminal">
                     <dl class="mb10">
-                        <dd class="mt6"><em class="font-36px color-orange-text num-family" id="max-amount" data-amount="950.0">1110</em class="text"> 元（10份）</dd>
+                        <dd class="mt6"><em class="font-36px color-orange-text num-family" id="max-amount" data-amount="950.0">{$money1}</em class="text"> 元（10份）</dd>
                         <dt class="minus-mt-10">剩余金额</dt>
                     </dl>
                     <div class="ui-term-content">
