@@ -61,12 +61,12 @@
 
 	<!--未开户-->
 
-		<div id="wdgYellowBar" class="wdg-yellow-bar">
-			<div class="wdg-yellow-bar-inner">
-				<span>开通民生银行资金存管账户，您的资金会更加安全</span>
-                <a href="javascript:void(0)" onclick="ms()" class="yellow-bar-cbmc-btn">立即开通民生存管账户</a>
-			</div>
-		</div>
+		<!--<div id="wdgYellowBar" class="wdg-yellow-bar">-->
+			<!--<div class="wdg-yellow-bar-inner">-->
+				<!--<span>开通民生银行资金存管账户，您的资金会更加安全</span>-->
+                <!--<a href="javascript:void(0)" onclick="ms()" class="yellow-bar-cbmc-btn">立即开通民生存管账户</a>-->
+			<!--</div>-->
+		<!--</div>-->
 
         <script>
             function ms(){
@@ -125,7 +125,7 @@
 			<ul class="account-menu fn-clear">
 				<li class="" ><a href="__URL__/zhzl">账户总览</a></li>
                 <!--<li class=""><a href="__URL__/jjzh">基金账户</a></li>-->
-                <!--<li class="active"><a href="__URL__/zhaiq">债权</a></li>-->
+                <li class="active"><a href="__URL__/zhaiq">债权</a></li>
                 <li class=""><a href="__URL__/grzx">完善个人信息</a></li>
                 <li class=""><a href="__URL__/index">账户设置</a></li>
 			</ul>
@@ -135,43 +135,37 @@
 			<div id="assets-tab">
 
 <ul class="assets-list-tab fn-clear" data-selectedid="pie-u" >
-	<li class="assets-tab-li active" data-name="uplan">
-		<a>U计划</a>
+	<li class="assets-tab-li " data-name="uplan">
+		<a href="__URL__/zhaiq/zhai/1">U计划</a>
 		<span>(0)</span>
 	</li>
 	<li class="assets-tab-li " data-name="autoinvestplan">
-		<a>薪计划</a>
+		<a href="__URL__/zhaiq/zhai/2">薪计划</a>
 		<span>(0)</span>
 	</li>
-	<li class="assets-tab-li " data-name="loan">
-		<a>债权</a>
-		<span>(0)</span>
+	<li class="assets-tab-li active" data-name="loan">
+		<a href="__URL__/zhaiq/zhai/3">债权</a>
+		<span>({$zl.cnum})</span>
 	</li>
 </ul>
 				<div class="assets-tab-content fn-clear" data-name="assets-uplan">
 					<div id="pie">
 	    			</div>
 	    			<div class="assets-detail">
-	    				<div class="assets-title uplan-title">U计划 &nbsp;&nbsp;<span class="num-family">0.00</span> 元</div>
+	    				<div class="assets-title uplan-title">债权 &nbsp;&nbsp;<span class="num-family">{$zl.mo1}</span> 元</div>
 	    				<div class="fn-clear">
 	    					<dl class="fn-left w345">
 	    						<dt>已赚金额</dt>
-	    						<dd><span class="num-family">0.00</span>元</dd>
+	    						<dd><span class="num-family">{$zl.yz}</span>元</dd>
 	    					</dl>
 	    					<dl class="fn-left w410">
                   <dt>加入总金额</dt>
-                  <dd><span class="num-family">0.00</span>元</dd>
+                  <dd><span class="num-family">{$zl.mo1}</span>元</dd>
 	    					</dl>
 	    				</div>
 	    				<div class="fn-clear mt15">
 	    					<dl class="fn-left w345">
-                  <dt>收益再投资金额</dt>
-                  <dd><span class="num-family">0.00</span>元</dd>
-	    					</dl>
-	    					<dl class="fn-left w410">
-                  <dt>已提取金额</dt>
-                  <dd><span class="num-family">0.00</span>元</dd>
-	    					</dl>
+
 	    				</div>
 	    			</div>
 				</div>
@@ -253,7 +247,7 @@
 	</li>
 	{{ else }}
 	  <li class="ui-list-status" style="list-style:none;">
-	    <p class="color-gray-text">{{# if _message }}{{ _message }}{{ else }}没有持有中的U计划{{/ if }}</p>
+	    <p class="color-gray-text">{{# if _message }}{{ _message }}{{ else }}没有持有中的债权{{/ if }}</p>
 	  </li>
 	{{/ each }}
 </script>
@@ -663,7 +657,12 @@ function online_service() {
         })();
         </script>
 
-    <script type="text/javascript" src="__PUBLIC__/js/require_2f19223.js"></script><script type="text/javascript" src="__PUBLIC__/js/common_widget_78d2def.js"></script><script type="text/javascript" src="__PUBLIC__/js/index_f2ff14c.js"></script><script type="text/javascript" src="__PUBLIC__/js/react_widget_08f408e.js"></script><script type="text/javascript" src="__PUBLIC__/js/user_widget_bdbf3d4.js"></script><script type="text/javascript">;require(["common:widget/second-header/second-header"], function(header){
+    <script type="text/javascript" src="__PUBLIC__/js/require_2f19223.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/common_widget_78d2def.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/index_f2ff14c.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/react_widget_08f408e.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/user_widget_bdbf3d4.js"></script>
+        <script type="text/javascript">;require(["common:widget/second-header/second-header"], function(header){
         header.init();
     });
 ;require(["common:widget/common-cmbc-dialog/common-cmbc-dialog"], function(cmbcCommonDilog){
@@ -698,7 +697,8 @@ function online_service() {
             if( typeof document.addEventListener !== 'function' ){
                 weLogger.perf.domReady();
             }
-</script></body>
+</script>
+    </body>
 
     <!-- THX FOR FIS -->
 </html>
