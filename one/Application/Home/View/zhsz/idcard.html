@@ -58,13 +58,17 @@
 <div id="wdgYellowBar" class="wdg-yellow-bar">
     <div class="wdg-yellow-bar-inner">
         <span>开通民生银行资金存管账户，您的资金会更加安全</span>
-        <a href="/rrdRegist!toCreateAccountByCust.action" class="yellow-bar-cbmc-btn">立即开通民生存管账户</a>
+        <a href="javascript:void(0)" onclick="ms()" class="yellow-bar-cbmc-btn">立即开通民生存管账户</a>
     </div>
 </div>
 
 
 
-
+<script>
+    function ms(){
+        alert("系统升级中，暂时不能开通");
+    }
+</script>
 
 
 <!--民生银行引导开户和设置密码弹窗  且为基金存管上线之后首次登录可见   测试改成false-->
@@ -112,10 +116,9 @@
         <div class="main-section">
             <ul class="account-menu fn-clear">
                 <li class="" ><a href="__URL__/zhzl">账户总览</a></li>
-                <li class=""><a href="__URL__/jjzh">基金账户</a></li>
-                <li class=""]><a href="__URL__/zhaiq">债权</a></li>
-                <li class=""><a href="__URL__/wdtq">我的特权</a></li>
-                <li class=""><a href="__URL__/fuc">服务窗</a> <span class="org fn-hide">(0)</span></li>
+                <!--<li class=""><a href="__URL__/jjzh">基金账户</a></li>-->
+                <!--<li class=""]><a href="__URL__/zhaiq">债权</a></li>-->
+                <li class=""><a href="__URL__/grzx">完善个人信息</a></li>
                 <li class="active"><a href="__URL__/index">账户设置</a></li>
             </ul>
         </div>

@@ -66,6 +66,13 @@
         "__PUBLIC__/{$vo.pict_name}",
         </foreach>
         ];
+       hrefs=[
+    <foreach name="piclist" item="vo" >
+    "{$vo.pict_url}",
+    </foreach>
+    ];
+     /* */
+     //var hrefs=["http://www.wan.com/","https://www.baidu.com/","http://www.we.com/","http://www.mohui.site/","http://www.u17.com/"];
    // var pics=["__PUBLIC__/img/1.jpg","__PUBLIC__/img/2.jpg","__PUBLIC__/img/3.jpg","__PUBLIC__/img/4.jpg","__PUBLIC__/img/5.jpg"];
     //alert(pics);
         //初值
@@ -77,6 +84,10 @@
                     var values=pics[key-1];
                     //alert(values);
                     $("#mohui").attr("src",values);
+                //给a标签加连接
+                var value1=hrefs[key-1];
+                //alert(value1);
+                $("#lun").attr("href",value1);
                     //变颜色
                     $(this).addClass("color").siblings().removeClass("color");
                     //变颜色结束
@@ -116,16 +127,15 @@
 
 
 
-
-
 <div id="pg-server-message" data-status="" data-message="" data-ispop="" data-fundTips="" style="display: none;"></div>
 <div class="maincontent">
 
 <div class="index-banner content-section">
     <div class="slides" id="slidebox" style="m">
         <div>
+            <a target="_blank" href="http://www.baidu.com" id="lun">
             <img src="pic/1.jpg" id="mohui" onerror="this.src='a.jpg'" width="1500px" height="400px" alt="辉哥" />
-
+            </a>
         </div>
     </div>
 
