@@ -72,17 +72,18 @@ class ZhszController extends Controller {
            $umoney=0;
            foreach($ujilu as $k3=>$v3){
                //投资金额
-               $umoney+=$v3['upayplan_salary'];//投资金额
+               $umoney+=$v3['upayplan_salary'];//投资u计划总金额
                //取出所有计划id
                $upay_id[]=$v3['upay_id'];
            }
            $upay_id=array_unique($upay_id);
+           sort($upay_id);
            //print_r($upay_id);
            $unum=count($upay_id);
            $upaymoney = 0;
-           for ($i = 0; $i < $unum; $i++) {
-               //去除单一记得记录id
-//               $ji_id = $cr1[$i];
+//           for ($i = 0; $i < $unum; $i++) {
+//               //去除单一记得记录id
+//               $ji_id = $upay_id[$i];
 //               //实例化债权记录表，根据记录id取出
 //               $jlb = $bid->where("creditor_id='$ji_id'")->select();
 //               //print_r($jlb);
@@ -92,7 +93,7 @@ class ZhszController extends Controller {
 //                   $jmoney += $v2['bid_money'];
 //
 //               }
-           }
+//           }
            //echo $umoney;
            $this->display("ujihua");
        } elseif ($zhai == 2) {
@@ -222,6 +223,31 @@ class ZhszController extends Controller {
        //获取当前时间
        $dtime=time();
        //echo $dtime;
+                        //计算u计划
+       $upayplan=M("upay_upayplan");
+       $ujilu = $upayplan->where("login_id='$uid'")->select();
+       //print_r($ujilu);
+       //取出
+       $umoney=0;
+       foreach($ujilu as $k3=>$v3){
+           //投资金额
+           $umoney+=$v3['upayplan_salary'];//投资u计划总金额
+           //取出所有计划id
+           $upay_id[]=$v3['upay_id'];
+       }
+                        //计算薪计划
+       $payjilu=M("payjilu");
+       $xinjilu = $payjilu->where("user_id='$uid'")->select();
+       //print_r($ujilu);
+       //取出
+       $xinmoney=0;
+       foreach($xinjilu as $k4=>$v4){
+           //投资金额
+           $xinmoney+=$v4['payplan_money'];//投资u计划总金额
+           //取出所有计划id
+           $xinpay_id[]=$v4['payplan_id'];
+       }
+       //echo $xinmoney;
                         //计算债权
        //实例化债权记录表
        $bid=M("bid");
@@ -314,6 +340,8 @@ class ZhszController extends Controller {
        $zh['zb']=$zb;
        $zh['ye']=$ye;
        $zh['yz']=$yz;
+       $zh['umoney']=$umoney;
+       $zh['xinmoney']=$xinmoney;
        //判断
        //print_r($zh);die;
        $this->assign("zl",$zh);
