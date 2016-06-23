@@ -109,11 +109,15 @@ class CreditorController extends Controller {
             $arr=$User
                 ->join("yi_login on yi_creditor.login_id=yi_login.login_id")
                 ->where("creditor_id=$id")->select();
+            //print_r($arr);die;
             for ($i=0;$i<count($arr);$i++) {
                 $money=$arr[$i]['creditor_money'];
                 $lilv=$arr[$i]['creditor_lilv'];
                 $deadline=$arr[$i]['creditor_deadline'];
+                $title=$arr[$i]['creditor_name'];
             }
+            //echo $title;die;
+            $this->assign("title", $title);
             $this->assign("money", $money);
             $this->assign("credlilv", $credlilv);
             $this->assign("money1", $money1);
@@ -134,6 +138,7 @@ class CreditorController extends Controller {
                 $lilv=$arr[$i]['creditor_lilv'];
                 $deadline=$arr[$i]['creditor_deadline'];
                 $balance=$arr[$i]['login_balance'];
+                $title=$arr[$i]['creditor_name'];
             }
 
             $Userb=M('Bid');
@@ -146,6 +151,7 @@ class CreditorController extends Controller {
             $moneys=$moneysub-$money1;
             //print_r($arr);die;
             $this->assign("data",$arr);
+            $this->assign("title", $title);
             $this->assign("money", $money);
             $this->assign("moneys", $moneys);
             $this->assign("lilv", $lilv);
@@ -162,12 +168,16 @@ class CreditorController extends Controller {
             $arr=$User
                 ->join("yi_login on yi_creditor.login_id=yi_login.login_id")
                 ->where("creditor_id=$id")->select();
+            //print_r($id);die;
             for ($i=0;$i<count($arr);$i++) {
                 $money=$arr[$i]['creditor_money'];
                 $lilv=$arr[$i]['creditor_lilv'];
                 $deadline=$arr[$i]['creditor_deadline'];
+                $title=$arr[$i]['creditor_name'];
             }
+           // print_r($arr10);die;
             $this->assign("money", $money);
+            $this->assign("title", $title);
             $this->assign("money1", $money1);
             $this->assign("lilv", $lilv);
             $this->assign("jindu", $arr10);
@@ -187,9 +197,11 @@ class CreditorController extends Controller {
                 $money=$arr[$i]['creditor_money'];
                 $lilv=$arr[$i]['creditor_lilv'];
                 $deadline=$arr[$i]['creditor_deadline'];
+                $title=$arr[$i]['creditor_name'];
             }
             $this->assign("data", $arr);
             $this->assign("money", $money);
+            $this->assign("title", $title);
             $this->assign("money1", $money1);
             $this->assign("lilv", $lilv);
             $this->assign("jindu", $arr10);
@@ -253,8 +265,6 @@ class CreditorController extends Controller {
         $moneys=$moneysub-$money1;
 
         //计算动态账户余额
-
-        //------------------
         $this->assign("data", $arr);
         $this->assign("money", $money);
         $this->assign("moneys", $moneys);
@@ -278,7 +288,6 @@ class CreditorController extends Controller {
             $data2 = $Userlo->where("login_id=".$data['login_id'])->find();
             $data1=$data2['login_balance']-$data['bid_money'];
             //print_r($data1);die;
-
             $Userlo-> where("login_id=".$data['login_id'])->setField('login_balance',"$data1");
             $this->redirect('Creditor/zqxqtb',array(
                 'creditor_id' => $_GET['creditor_id'],
