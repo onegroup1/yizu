@@ -56,7 +56,8 @@ class IndexController extends Controller {
         $this->display('ujihua');
     }
     public function xinjihua(){
-        $this->display('xinjihua');
+        //echo 1;die;
+        $this->redirect('Xin/index');
     }
     public function zq(){
         $this->display('zhaiquan');
