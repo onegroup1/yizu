@@ -8,7 +8,8 @@ class ZhszController extends Controller {
    public function index(){
     	$users=session('users');
     	if(empty($users)){
-    		$this->error("请先登录",U("Logins/index"));
+    		//$this->error("请先登录",U("Logins/index"));
+            $this->redirect('Logins/index');
     	}else{
     		$login=M('login');
     		$arr=$login->where("login_nickname='$users'")->find();
@@ -208,6 +209,23 @@ class ZhszController extends Controller {
 //   public function zhaiquan(){
 //        $this->display("zhaiquan");
 //   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    //账户总览
    public function zhzl(){
        $login = M("login"); // 实例化User对象、
@@ -235,20 +253,73 @@ class ZhszController extends Controller {
            //取出所有计划id
            $upay_id[]=$v3['upay_id'];
        }
-                        //计算薪计划
+                                                                                           //计算薪计划
        $payjilu=M("payjilu");
        $xinjilu = $payjilu->where("user_id='$uid'")->select();
        //print_r($ujilu);
        //取出
+       $arr=array();
        $xinmoney=0;
+       $xmoney0=0;
        foreach($xinjilu as $k4=>$v4){
            //投资金额
-           $xinmoney+=$v4['payplan_money'];//投资u计划总金额
+           $xinmoney+=$v4['payplan_money'];//投资薪计划总金额
            //取出所有计划id
-           $xinpay_id[]=$v4['payplan_id'];
+           $xinpay_id=$v4['payplan_id'];
+           $payplan=M("payplan");
+           $xplan = $payplan->where("payplan_id='$xinpay_id'")->find();
+           $annua=$xplan['payplan_annua'];
+           $xyj=$annua*0.01;
+           $xnz=$xinmoney*$xyj;
+           //求已获得钱数
+           $xtime=$v4['payplan_startime'];
+           $xdtime=time();
+           $xtime=strtotime($xtime);
+           //echo $ztime."</br>";
+           //计算出两个时间的差值
+           $cztime=$xdtime-$xtime;
+           //计算距离活动天
+           $xtimes=floor($cztime/3600/24);
+           $xdz=$xtimes*($xnz/365);
+           $xdz=round($xdz,2);
+           $xmoney0+=$xdz;
+
+
+
+
+
+
+
+           //echo $xtimes."<br>";
+           $arr[$k4]['xd']=$xdz;
+           $arr[$k4]['xin']="薪计划";
+           $arr[$k4]['xzmoney']=$xinmoney;
+           $arr[$k4]['xtime']=$v4['payplan_startime'];
        }
-       //echo $xinmoney;
-                        //计算债权
+       //print_r($arr);die;
+       //print_r($xinmoney);die;
+//       $xid=array_unique($xinpay_id);
+       //排序
+ //      sort($xid);
+       //print_r($xid);die;
+//       $xnum=count($xid);
+//       for($i=0;$i<$xnum;$i++){
+//           $x_id=$xid[$i];
+//           $payplan=M("payplan");
+//           $xplan = $payplan->where("payplan_id='$x_id'")->select();
+//           $xplan[0]['xmoney']=$xinmoney;
+//           print_r($xplan);
+//           //循环
+//           $jmoney=0;
+////           foreach($xplan as $k5=>$v5){
+////               $p_annua=$v5['payplan_annua'];
+////               $fen=$p_annua*0.01;
+////               //echo $x_id*$fen;
+////
+////           }
+//       }
+       //die;
+                                                                                     //计算债权
        //实例化债权记录表
        $bid=M("bid");
        //根据用户id查出债权用户表中该用户的所有的购买债权记录
@@ -279,13 +350,13 @@ class ZhszController extends Controller {
             $ji_id=$cr1[$i];
             //实例化债权记录表，根据记录id取出
             $jlb = $bid->where("creditor_id='$ji_id'")->select();
-            //print_r($jlb);
+           //print_r($jlb);
             //循环记录表，计算每个债权的总价
             $jmoney=0;
             foreach($jlb as $k2=>$v2){
                 $jmoney+=$v2['bid_money'];
-
             }
+            //print_r($jlb);die;
             //echo $jmoney."</br>";
             //实例化债权表，根据记录id取出
             $ditor=M("creditor");
@@ -325,6 +396,8 @@ class ZhszController extends Controller {
                 //echo $yz."</br>";
             }
         }
+       $zongmoney=$xmoney0+$yz;
+      //die;
        //总余额
        $zye=$zq_money+$yue;
        //echo $zye;die;
@@ -339,14 +412,37 @@ class ZhszController extends Controller {
        $zh['zye']=$zye;
        $zh['zb']=$zb;
        $zh['ye']=$ye;
-       $zh['yz']=$yz;
+       $zh['yz']=$zongmoney;
        $zh['umoney']=$umoney;
        $zh['xinmoney']=$xinmoney;
-       //判断
+       //判断$zhb
        //print_r($zh);die;
+       //print_r($jlb);die;
+       $this->assign("arr",$arr);
        $this->assign("zl",$zh);
         $this->display("zhzl");
    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    //个人中心
     public function grzx(){
         $login = M("login"); // 实例化User对象、

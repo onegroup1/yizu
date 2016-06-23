@@ -59,6 +59,26 @@ class LoginController extends Controller {
    	$this->assign('page',$show);// 赋值分页输出
    	$this->display('member_list'); // 输出模板
    }
+    //用户管理之删除
+    public function del()
+    {
+        $uid=$_GET['loginid'];
+        //echo $uid;
+        $login = M("login"); // 实例化User对象$
+        $de=$login->where("login_id='$uid'")->delete();
+        if($de){
+            $this->redirect('login/hui_list');
+        }
+    }
+    //用户管理之查看一条
+    public function selone()
+    {
+        $uid=$_GET['loginid'];
+        //echo $uid;
+        $login = M("login"); // 实例化User对象$
+        $sone=$login->where("login_id='$uid'")->find();
+        print_r($sone);
+    }
     //给用户充钱
     public function moneyadd(){
         $loginid=$_GET['loginid'];

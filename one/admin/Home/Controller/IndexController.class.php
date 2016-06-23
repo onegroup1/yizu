@@ -54,4 +54,8 @@ class IndexController extends Controller {
 			$this->display('index');
 		}
     }
+    public function xin(){
+        //echo 123;
+        $this->redirect('xin/index');
+    }
 }
