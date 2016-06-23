@@ -8,7 +8,8 @@ class ZhszController extends Controller {
    public function index(){
     	$users=session('users');
     	if(empty($users)){
-    		$this->error("请先登录",U("Logins/index"));
+    		//$this->error("请先登录",U("Logins/index"));
+            $this->redirect('Logins/index');
     	}else{
     		$login=M('login');
     		$arr=$login->where("login_nickname='$users'")->find();
