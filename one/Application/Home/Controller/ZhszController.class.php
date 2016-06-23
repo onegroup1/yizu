@@ -50,28 +50,281 @@ class ZhszController extends Controller {
         $this->display("jjzh");
    }
    //债权
-   public function zhaiq(){
-        $this->display("zhaiq");
-   }
-   public function zhaiquan(){
-        $this->display("zhaiquan");
-   }
+   public function zhaiq()
+   {
+       $login = M("login"); // 实例化User对象、
+       //取出用户名
+       $users = session('users');
+       //查出用户信息
+       $zh = $login->where("login_nickname='$users'")->find();
+       //print_r($zh);die;
+       //取出用户id
+       $uid = $zh['login_id'];
+       $zhai=$_GET['zhai'];
+
+
+       if ($zhai == 1) {
+           //查询u计划记录表
+           $upayplan=M("upay_upayplan");
+           $ujilu = $upayplan->where("login_id='$uid'")->select();
+           //print_r($ujilu);
+           //取出
+           $umoney=0;
+           foreach($ujilu as $k3=>$v3){
+               //投资金额
+               $umoney+=$v3['upayplan_salary'];//投资u计划总金额
+               //取出所有计划id
+               $upay_id[]=$v3['upay_id'];
+           }
+           $upay_id=array_unique($upay_id);
+           sort($upay_id);
+           //print_r($upay_id);
+           $unum=count($upay_id);
+           $upaymoney = 0;
+//           for ($i = 0; $i < $unum; $i++) {
+//               //去除单一记得记录id
+//               $ji_id = $upay_id[$i];
+//               //实例化债权记录表，根据记录id取出
+//               $jlb = $bid->where("creditor_id='$ji_id'")->select();
+//               //print_r($jlb);
+//               //循环记录表，计算每个债权的总价
+//               $jmoney = 0;
+//               foreach ($jlb as $k2 => $v2) {
+//                   $jmoney += $v2['bid_money'];
+//
+//               }
+//           }
+           //echo $umoney;
+           $this->display("ujihua");
+       } elseif ($zhai == 2) {
+
+           $this->display("xinjihua");
+       } else {
+       //取出用户余额
+       $yue = $zh['login_balance'];
+       //获取当前时间
+       $dtime = time();
+       //echo $dtime;
+       //计算债权
+       //实例化债权记录表
+       $bid = M("bid");
+       //根据用户id查出债权用户表中该用户的所有的购买债权记录
+       $mon0 = $bid->where("login_id='$uid'")->select();
+       //print_r($mon0);die;
+       //定义一个变量计算当前用户的所有购买债权的总金额
+       $zq_money = 0;
+       foreach ($mon0 as $k1 => $v1) {
+           //取出债权表中当前用户的所有购买的id
+           $cr[] = $v1['creditor_id'];
+           $zid = $v1['creditor_id'];
+           //实例化债权表
+           $ditor = M("creditor");
+           $zhai1[] = $ditor->where("creditor_id='$zid'")->select();
+           //债权总金额
+           $zq_money += $v1['bid_money'];
+       }
+       //print_r($zhai1);die;
+       //去除重复的记录id
+       $cr1 = array_unique($cr);
+       //排序
+       sort($cr1);
+      // $cnum=count($cr1);
+       //print_r($cr1);die;
+       $cnum = count($cr1);
+       $yz = 0;
+       for ($i = 0; $i < $cnum; $i++) {
+           //去除单一记得记录id
+           $ji_id = $cr1[$i];
+           //实例化债权记录表，根据记录id取出
+           $jlb = $bid->where("creditor_id='$ji_id'")->select();
+           //print_r($jlb);
+           //循环记录表，计算每个债权的总价
+           $jmoney = 0;
+           foreach ($jlb as $k2 => $v2) {
+               $jmoney += $v2['bid_money'];
+
+           }
+           //echo $jmoney."</br>";
+           //实例化债权表，根据记录id取出
+           $ditor = M("creditor");
+           //根据记录表取出债权表中的数据
+           $zhb = $ditor->where("creditor_id='$ji_id'")->select();
+           //print_r($zhb);
+           $zhb[0]['jine'] = $jmoney;
+           //print_r($zhb);
+           foreach ($zhb as $k => $v) {
+               //取出债权表时间
+               $ztime = $v['creditor_time'];
+               $zbtime = strtotime($ztime);
+               //echo $ztime."</br>";
+               //计算出两个时间的差值
+               $cztime = $dtime - $zbtime;
+               //计算距离活动天
+               $ktime = floor($cztime / 3600 / 24);
+               $timek = $ktime - 7;
+               //echo $timek."</br>";
+               //取出投资总金额
+               $jmoney = $v['jine'];
+               //取出利率
+               $zli = $v['creditor_lilv'];
+               $zli1 = $zli / 100;
+               //echo $zli1;
+               //计算利率
+               $znlv = $jmoney * $zli1;
+               $zrlv = $znlv / 365;
+               if ($timek <= 0) {
+                   $zrlv = 0;
+               } else {
+                   $zrlv = $zrlv * $timek;
+               }
+               $zrlv = round($zrlv, 2);
+               //echo $zrlv."</br>";
+               $yz += $zrlv;
+               //echo $yz."</br>";
+           }
+       }
+       //总余额
+       $zye = $zq_money + $yue;
+       //echo $zye;die;
+       //债权百分比
+       $zb = $zq_money / $zye * 100;
+       $zb = round($zb, 0);
+       //可用余额百分比
+       $ye = $yue / $zye * 100;
+       $ye = round($ye, 0);
+       // echo $zb;die;
+       $zh['mo1'] = $zq_money;
+       $zh['zye'] = $zye;
+       $zh['zb'] = $zb;
+       $zh['ye'] = $ye;
+       $zh['yz'] = $yz;
+       $zh['cnum'] = $cnum;
+       //判断
+       //print_r($zh);die;
+           $this->assign("zl", $zh);
+           $this->display("zhaiq");
+       }
+ }
+//   public function zhaiquan(){
+//        $this->display("zhaiquan");
+//   }
    //账户总览
    public function zhzl(){
        $login = M("login"); // 实例化User对象、
+       //取出用户名
        $users=session('users');
+       //查出用户信息
        $zh = $login->where("login_nickname='$users'")->find();
+       //print_r($zh);die;
        //取出用户id
        $uid=$zh['login_id'];
        //取出用户余额
        $yue=$zh['login_balance'];
+       //获取当前时间
+       $dtime=time();
+       //echo $dtime;
+                        //计算u计划
+       $upayplan=M("upay_upayplan");
+       $ujilu = $upayplan->where("login_id='$uid'")->select();
+       //print_r($ujilu);
+       //取出
+       $umoney=0;
+       foreach($ujilu as $k3=>$v3){
+           //投资金额
+           $umoney+=$v3['upayplan_salary'];//投资u计划总金额
+           //取出所有计划id
+           $upay_id[]=$v3['upay_id'];
+       }
+                        //计算薪计划
+       $payjilu=M("payjilu");
+       $xinjilu = $payjilu->where("user_id='$uid'")->select();
+       //print_r($ujilu);
+       //取出
+       $xinmoney=0;
+       foreach($xinjilu as $k4=>$v4){
+           //投资金额
+           $xinmoney+=$v4['payplan_money'];//投资u计划总金额
+           //取出所有计划id
+           $xinpay_id[]=$v4['payplan_id'];
+       }
+       //echo $xinmoney;
+                        //计算债权
+       //实例化债权记录表
        $bid=M("bid");
+       //根据用户id查出债权用户表中该用户的所有的购买债权记录
        $mon0 = $bid->where("login_id='$uid'")->select();
        //print_r($mon0);die;
+       //定义一个变量计算当前用户的所有购买债权的总金额
        $zq_money=0;
        foreach($mon0 as $k1=>$v1){
+           //取出债权表中当前用户的所有购买的id
+           $cr[]=$v1['creditor_id'];
+           $zid=$v1['creditor_id'];
+           //实例化债权表
+           $ditor=M("creditor");
+           $zhai1[] = $ditor->where("creditor_id='$zid'")->select();
+           //债权总金额
            $zq_money+=$v1['bid_money'];
        }
+       //print_r($zhai1);die;
+       //去除重复的记录id
+       $cr1=array_unique($cr);
+       //排序
+       sort($cr1);
+       //print_r($cr1);die;
+       $cnum=count($cr1);
+       $yz=0;
+        for($i=0;$i<$cnum;$i++){
+            //去除单一记得记录id
+            $ji_id=$cr1[$i];
+            //实例化债权记录表，根据记录id取出
+            $jlb = $bid->where("creditor_id='$ji_id'")->select();
+            //print_r($jlb);
+            //循环记录表，计算每个债权的总价
+            $jmoney=0;
+            foreach($jlb as $k2=>$v2){
+                $jmoney+=$v2['bid_money'];
+
+            }
+            //echo $jmoney."</br>";
+            //实例化债权表，根据记录id取出
+            $ditor=M("creditor");
+            //根据记录表取出债权表中的数据
+            $zhb = $ditor->where("creditor_id='$ji_id'")->select();
+            //print_r($zhb);
+            $zhb[0]['jine']=$jmoney;
+            //print_r($zhb);
+            foreach($zhb as $k=>$v){
+                //取出债权表时间
+                $ztime=$v['creditor_time'];
+                $zbtime=strtotime($ztime);
+                //echo $ztime."</br>";
+                //计算出两个时间的差值
+                $cztime=$dtime-$zbtime;
+                //计算距离活动天
+                $ktime=floor($cztime/3600/24);
+                $timek=$ktime-7;
+                //echo $timek."</br>";
+                //取出投资总金额
+                $jmoney=$v['jine'];
+                //取出利率
+                $zli=$v['creditor_lilv'];
+                $zli1=$zli/100;
+                //echo $zli1;
+                //计算利率
+                $znlv=$jmoney*$zli1;
+                $zrlv=$znlv/365;
+                if($timek<=0){
+                    $zrlv=0;
+                }else{
+                    $zrlv=$zrlv*$timek;
+                }
+                $zrlv=round($zrlv,2);
+                //echo $zrlv."</br>";
+                $yz+=$zrlv;
+                //echo $yz."</br>";
+            }
+        }
        //总余额
        $zye=$zq_money+$yue;
        //echo $zye;die;
@@ -86,6 +339,11 @@ class ZhszController extends Controller {
        $zh['zye']=$zye;
        $zh['zb']=$zb;
        $zh['ye']=$ye;
+       $zh['yz']=$yz;
+       $zh['umoney']=$umoney;
+       $zh['xinmoney']=$xinmoney;
+       //判断
+       //print_r($zh);die;
        $this->assign("zl",$zh);
         $this->display("zhzl");
    }
