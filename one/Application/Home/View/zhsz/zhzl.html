@@ -107,7 +107,7 @@
             <ul class="account-menu fn-clear">
                 <li class="active" ><a href="__URL__/zhzl">账户总览</a></li>
                 <!--<li class=""><a href="__URL__/jjzh">基金账户</a></li>-->
-                <li class=""><a href="__URL__/zhaiq">债权</a></li>
+                <!--<li class=""><a href="__URL__/zhaiq">债权</a></li>-->
                 <li class=""><a href="__URL__/grzx">完善个人信息</a></li>
                 <li class=""><a href="__URL__/index">账户设置</a></li>
             </ul>
@@ -256,36 +256,42 @@
                     <span class="ui-list-title w200 text-right fn-left pr140 credit">金额</span>
                     <span class="ui-list-title w170 text-right fn-left pr25">结余</span>
                 </li>
-                {{# each pointLogs }}
-                <li class="ui-list-item fn-clear {{ itemStyle }}">
-                    <span class="ui-list-field w210 fn-left number dar pl25">{{ date }} <span class="light">{{ time }}</span></span>
-                    <span class="ui-list-field w210 pl100 text-left fn-left fn-text-overflow dar">{{ type }}{{# if loanId }}<em class="text-small">（<a href="{{ loanLink }}" target="_blank">{{ loanId }}</a>）</em>{{/ if }}</span>
-    <span class="ui-list-field text-right num-s w230 pr110 fn-left number ui-final-amount">
-        {{# if credit }}<i class="plus"/><em class="value-small plus">{{ credit }}元</em>{{/ if }}
-        {{# if debit }}<i class="minus"/><em class="value-small minus">{{ debit }}元</em>{{/ if }}
-        {{# if note }}
-        <span class="icon-info info text cursor-pointer hold-a-icon" data-ui-name="ui-poptip-trigger" data-ui-poptip-ancestor=".ui-final-amount"></span>
-        <div class="ui-poptip ui-poptip-new" data-ui-name="ui-poptip" style="top:6px; display: none; left: 250px;">
-            <div class="ui-poptip-shadow">
-                <div class="ui-poptip-container">
-                    <div class="ui-poptip-arrow ui-poptip-arrow-10"><em></em>
-                        <div class="triangle-border-left"><span></span></div>
-                    </div>
-                    <div class="ui-poptip-content" style="text-align:left;word-wrap: break-word;white-space: pre; ">{{ note }}</div>
-                </div>
-            </div>
-        </div>
-        {{else}}
-        <span class="icon-info info text cursor-pointer hold-a-icon"  style="visibility: hidden;"></span>
-        {{/ if }}
-    </span>
-                    <span class="ui-list-field text-right num-s w170 pr25 fn-left number "><em class="value-small light">{{ balance }}元</em></span>
-                </li>
-                {{ else }}
+                <!--{{# each pointLogs }}-->
+                <!--<li class="ui-list-item fn-clear {{ itemStyle }}">-->
+                    <!--<span class="ui-list-field w210 fn-left number dar pl25">{{ date }} <span class="light">{{ time }}</span></span>-->
+                    <!--<span class="ui-list-field w210 pl100 text-left fn-left fn-text-overflow dar">{{ type }}{{# if loanId }}<em class="text-small">（<a href="{{ loanLink }}" target="_blank">{{ loanId }}</a>）</em>{{/ if }}</span>-->
+    <!--<span class="ui-list-field text-right num-s w230 pr110 fn-left number ui-final-amount">-->
+        <!--{{# if credit }}<i class="plus"/><em class="value-small plus">{{ credit }}元</em>{{/ if }}-->
+        <!--{{# if debit }}<i class="minus"/><em class="value-small minus">{{ debit }}元</em>{{/ if }}-->
+        <!--{{# if note }}-->
+        <!--<span class="icon-info info text cursor-pointer hold-a-icon" data-ui-name="ui-poptip-trigger" data-ui-poptip-ancestor=".ui-final-amount"></span>-->
+        <!--<div class="ui-poptip ui-poptip-new" data-ui-name="ui-poptip" style="top:6px; display: none; left: 250px;">-->
+            <!--<div class="ui-poptip-shadow">-->
+                <!--<div class="ui-poptip-container">-->
+                    <!--<div class="ui-poptip-arrow ui-poptip-arrow-10"><em></em>-->
+                        <!--<div class="triangle-border-left"><span></span></div>-->
+                    <!--</div>-->
+                    <!--<div class="ui-poptip-content" style="text-align:left;word-wrap: break-word;white-space: pre; ">{{ note }}</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--{{else}}-->
+        <!--<span class="icon-info info text cursor-pointer hold-a-icon"  style="visibility: hidden;"></span>-->
+        <!--{{/ if }}-->
+    <!--</span>-->
+                    <!--<span class="ui-list-field text-right num-s w170 pr25 fn-left number "><em class="value-small light">{{ balance }}元</em></span>-->
+                <!--</li>-->
+                <!--{{ else }}-->
+                <foreach name="arr" item="vo">
                 <li class="ui-list-status">
-                    <p class="color-gray-text">{{# if _message }}{{ _message }}{{ else }}没有记录{{/ if }}</p>
+                    <!--<p class="color-gray-text">{{# if _message }}{{ _message }}{{ else }}没有记录{{/ if }}</p>-->
+                    <span class="ui-list-title w210 fn-left time pl25">{$vo.xtime}</span>
+                    <span class="ui-list-title w210 pl100 fn-left type">{$vo.xin}</span>
+                    <span class="ui-list-title w200 text-right fn-left pr140 credit">{$vo.xzmoney}</span>
+                    <span class="ui-list-title w170 text-right fn-left pr25">{$vo.xd}</span>
                 </li>
-                {{/ each }}
+                </foreach>
+                <!--{{/ each }}-->
             </script>
             <script id="transactions-rsp" type="text/x-json">{"status":0,"data":{"totalPage":1,"pageIndex":1,"pointLogs":[]}}</script>
             <!-- transanstionlist -->
