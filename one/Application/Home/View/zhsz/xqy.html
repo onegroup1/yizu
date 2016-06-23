@@ -134,7 +134,8 @@
                     <div class="inputs">
                         <div class="ui-form-item">
                             <label class="ui-label"><span class="ui-form-required">*</span>昵称</label>
-                            <input type="text" name="" class="ui-input" value="{$logins.login_nickname}"  data-is="isEmail"/><span><font color="red">昵称不能修改</font></span>
+                            <!--<input type="text" name="" class="ui-input" value="{$logins.login_nickname}"  data-is="isEmail"/><span><font color="red">昵称不能修改</font></span>-->
+                            {$logins.login_nickname}
                         </div>
                         <div class="ui-form-item">
                             <label class="ui-label"><span class="ui-form-required">*</span>手机号</label>
@@ -142,29 +143,65 @@
                         </div>
                         <div class="ui-form-item">
                             <label class="ui-label"><span class="ui-form-required">*</span>年龄</label>
-                            <input type="text" name="login_age" value="{$logins.login_age}"  class="ui-input" data-is="isEmail"/>
+                            <input type="text" name="login_age" id="login_age" onkeyup="age()" value="{$logins.login_age}"  class="ui-input" data-is="isEmail"/>
+                            <span></span>
                         </div>
                         <div class="ui-form-item">
                             <label class="ui-label"><span class="ui-form-required">*</span>学历</label>
                             <input type="text" name="login_educational" value="{$logins.login_educational}"  class="ui-input" data-is="isEmail"/>
                         </div><div class="ui-form-item">
                         <label class="ui-label"><span class="ui-form-required">*</span>婚姻</label>
-                        <input type="text" name="login_marriage" value="{$logins.login_marriage}" class="ui-input" data-is="isEmail"/>
+                        <!--<input type="text" name="login_marriage" value="{$logins.login_marriage}" class="ui-input" data-is="isEmail"/>-->
+                       <?php if($logins['login_marriage']=='已婚'){ ?>
+                            <input type="radio" name="login_marriage" value="已婚" checked/>已婚
+                            <input type="radio" name="login_marriage" value="未婚"/>未婚
+                       <?php }else{ ?>
+                             <input type="radio" name="login_marriage" value="已婚" />已婚
+                            <input type="radio" name="login_marriage" value="未婚" checked/>未婚
+                        <?php } ?>
                     </div><div class="ui-form-item">
                         <label class="ui-label"><span class="ui-form-required">*</span>收入</label>
                         <input type="text" name="login_income" value="{$logins.login_income}" class="ui-input" data-is="isEmail"/>单位：K
                     </div><div class="ui-form-item">
                         <label class="ui-label"><span class="ui-form-required">*</span>车产</label>
-                        <input type="text" name="login_vehicle" value="{$logins.login_vehicle}" class="ui-input" data-is="isEmail"/>
+                        <!--<input type="text" name="login_vehicle" value="{$logins.login_vehicle}" class="ui-input" data-is="isEmail"/>-->
+                        <?php if($logins['login_vehicle']=='有'){ ?>
+                        <input type="radio" name="login_vehicle" value="有" checked/>有
+                        <input type="radio" name="login_vehicle" value="无"/>无
+                        <?php }else{ ?>
+                        <input type="radio" name="login_vehicle" value="有" />有
+                        <input type="radio" name="login_vehicle" value="无" checked/>无
+                        <?php } ?>
                     </div><div class="ui-form-item">
                         <label class="ui-label"><span class="ui-form-required">*</span>房产</label>
-                        <input type="text" name="login_house" value="{$logins.login_house}" class="ui-input" data-is="isEmail"/>
+                        <!--<input type="text" name="login_house" value="{$logins.login_house}" class="ui-input" data-is="isEmail"/>-->
+                        <?php if($logins['login_house']=='有'){ ?>
+                        <input type="radio" name="login_house" value="有" checked/>有
+                        <input type="radio" name="login_house" value="无"/>无
+                        <?php }else{ ?>
+                        <input type="radio" name="login_house" value="有" />有
+                        <input type="radio" name="login_house" value="无" checked/>无
+                        <?php } ?>
                     </div><div class="ui-form-item">
                         <label class="ui-label"><span class="ui-form-required">*</span>车贷</label>
-                        <input type="text" name="login_carloans" value="{$logins.login_carloans}" class="ui-input" data-is="isEmail"/>
+                        <!--<input type="text" name="login_carloans" value="{$logins.login_carloans}" class="ui-input" data-is="isEmail"/>-->
+                        <?php if($logins['login_carloans']=='有'){ ?>
+                        <input type="radio" name="login_carloans" value="有" checked/>有
+                        <input type="radio" name="login_carloans" value="无"/>无
+                        <?php }else{ ?>
+                        <input type="radio" name="login_carloans" value="有" />有
+                        <input type="radio" name="login_carloans" value="无" checked/>无
+                        <?php } ?>
                     </div><div class="ui-form-item">
                         <label class="ui-label"><span class="ui-form-required">*</span>房贷</label>
-                        <input type="text" name="login_houseloans" value="{$logins.login_houseloans}" class="ui-input" data-is="isEmail"/>
+                        <!--<input type="text" name="login_houseloans" value="{$logins.login_houseloans}" class="ui-input" data-is="isEmail"/>-->
+                        <?php if($logins['login_houseloans']=='有'){ ?>
+                        <input type="radio" name="login_houseloans" value="有" checked/>有
+                        <input type="radio" name="login_houseloans" value="无"/>无
+                        <?php }else{ ?>
+                        <input type="radio" name="login_houseloans" value="有" />有
+                        <input type="radio" name="login_houseloans" value="无" checked/>无
+                        <?php } ?>
                     </div><div class="ui-form-item">
                         <label class="ui-label"><span class="ui-form-required">*</span>公司行业</label>
                         <input type="text" name="login_business" value="{$logins.login_business}" class="ui-input" data-is="isEmail"/>
@@ -192,11 +229,13 @@
                 </form>
             </div>
 
-        
-        
-        
+
+
     </div>
-  
+            <script src="__PUBLIC__/js/jquery.js"></script>
+            <script>
+
+            </script>
         </div>
     
         </div>
