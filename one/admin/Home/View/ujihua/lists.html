@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<center>
+		<table border="1">
+			<tr>
+				<th>最新档期</th>
+				<th>锁定期</th>
+				<th>预期年收益</th>
+				<th>计划金额</th>
+				<th>理财开始时间</th>
+				<th>操作</th>
+			</tr>
+			<?php foreach ($res as $key => $v) { ?>
+				<tr>
+					<td><?php echo $v['upay_name']?></td>
+					<td><?php echo $v['upay_lock']?></td>
+					<td><?php echo $v['upay_annua']?></td>
+					<td><?php echo $v['upay_paymoney']?></td>
+					<td><?php echo $v['upay_financialstime']?></td>
+					<td><a href="delete/id/<?php echo $v['upay_id']?>">删除</a></td>
+				</tr>
+			<?php } ?>
+		</table>
+	</center>
+</body>
+</html>
