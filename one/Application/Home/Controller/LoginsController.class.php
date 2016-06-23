@@ -21,6 +21,8 @@ class LoginsController extends Controller {
 			session('login_name',$log);
 			session('loign_img',$files);
 			$time=time();
+//            $aa=session('login_name');
+//            print_r($aa);die;
 			//echo $time;die;
 			$upd=M('login');
         $data['login_times']="$time";

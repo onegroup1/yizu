@@ -17,10 +17,34 @@ class CreditorController extends Controller {
         $show= $Page->show();// 分页显示输出
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $arr = $User->order('creditor_id')->limit($Page->firstRow.','.$Page->listRows)->select();
-        //print_r($arr);die;
-        for ($i=0;$i<count($arr);$i++) {
-            $arr[$i]['cred']=intval($arr[$i]['yet_bid']/$arr[$i]['creditor_money']*100);
+
+        $rows = $User->select();
+        $bid = M('Bid');
+        $data = [];
+        //print_r($rows);die;
+        foreach($rows as $k => $v){
+            $mo = str_replace(',','',$rows[$k]['creditor_money']);
+            $arrc  = $bid->where("creditor_id=". $rows[$k]['creditor_id'] )->select();
+            //print_r($arrc);die;
+            $money1=0;
+            foreach ($arrc as $row) {
+                $money1 =  $money1 + $row['bid_money'];
+            }
+            //echo $money1;die;
+            $credlilv=intval($money1/$mo*100);
+            //echo $credlilv;die;
+            $data[$k][] =  $credlilv;
+            $data[$k][] =  $rows[$k]['creditor_id'];
         }
+        //print_r($data);die;
+        for($j=0;$j<count($data);$j++){
+            for($i=0;$i<count($arr);$i++){
+                if($arr[$i]['creditor_id']==$data[$j][1]){
+                    $arr[$i]['jindu']=$data[$j][0];
+                }
+            }
+        }
+       //print_r($arr);die;
         $arr1 = $User->select();
         $count=count($arr1);
         $moneyone=0;
@@ -34,30 +58,76 @@ class CreditorController extends Controller {
         $this->display();
     }
 
-
     //显示
     public function zhaiqxq(){
+        $User=M('Bid');
         $id=$_GET['id'];
-        $cred=$_GET['cred'];
+        $jindu=$_GET['jindu'];
+        //echo $jindu;die;
         $sess=$_SESSION['users'];
+        $arr2=$User->where("creditor_id=$id")->select();
+        //计算投资的中金额
+        $money1=0;
+        for ($i=0;$i<count($arr2);$i++) {
+            $money1=$arr2[$i]['bid_money']+$money1;
+        }
+        //计算进度
+        $Userc = M('Creditor');
+        $rows = $Userc->select();
+        $bid = M('Bid');
+        $data = [];
+        //print_r($rows);die;
+        foreach($rows as $k => $v){
+            $mo = str_replace(',','',$rows[$k]['creditor_money']);
+            $arrc  = $bid->where("creditor_id=". $rows[$k]['creditor_id'] )->select();
+            //print_r($arrc);die;
+            $money1=0;
+            foreach ($arrc as $row) {
+                $money1 =  $money1 + $row['bid_money'];
+            }
+            //echo $money1;die;
+            $credlilv=intval($money1/$mo*100);
+            //echo $credlilv;die;
+            $data[$k][] =  $credlilv;
+            $data[$k][] =  $rows[$k]['creditor_id'];
+        }
+        $arr10 = $Userc->where("creditor_id=$id")->select();
+        for($j=0;$j<count($data);$j++){
+            for($i=0;$i<count($arr10);$i++){
+                if($arr10[$i]['creditor_id']==$data[$j][1]){
+                    $arr10[$i]['jindu']=$data[$j][0];
+                }
+            }
+        }
+        //print_r($arr10);die;
+
         //没登陆且等于100%
-        if(empty($sess) && $cred==100){
+        if(empty($sess) && $jindu==100)
+        {
             //echo "没登陆且等于100%";die;
             $User = M('Creditor');
             $arr=$User
                 ->join("yi_login on yi_creditor.login_id=yi_login.login_id")
                 ->where("creditor_id=$id")->select();
+            //print_r($arr);die;
             for ($i=0;$i<count($arr);$i++) {
                 $money=$arr[$i]['creditor_money'];
                 $lilv=$arr[$i]['creditor_lilv'];
                 $deadline=$arr[$i]['creditor_deadline'];
+                $title=$arr[$i]['creditor_name'];
             }
+            //echo $title;die;
+            $this->assign("title", $title);
             $this->assign("money", $money);
+            $this->assign("credlilv", $credlilv);
+            $this->assign("money1", $money1);
             $this->assign("lilv", $lilv);
             $this->assign("deadline", $deadline);
             $this->display('zqxq');
-            //登陆且不等于100%
-        }else if(!empty($sess) && $cred!=100){
+        }
+        //登陆且不等于100%
+        else if(!empty($sess) && $jindu!=100)
+        {
             $User=M('Creditor');
             $arr=$User
                 ->join("yi_login on yi_creditor.login_id=yi_login.login_id")
@@ -67,29 +137,57 @@ class CreditorController extends Controller {
                 $money=$arr[$i]['creditor_money'];
                 $lilv=$arr[$i]['creditor_lilv'];
                 $deadline=$arr[$i]['creditor_deadline'];
+                $balance=$arr[$i]['login_balance'];
+                $title=$arr[$i]['creditor_name'];
             }
+
+            $Userb=M('Bid');
+            $arr2=$Userb->where("creditor_id=$id")->select();
+            $money1=0;
+            for ($i=0;$i<count($arr2);$i++) {
+                $money1=$arr2[$i]['bid_money']+$money1;
+            }
+            $moneysub=str_replace(',','',$money);
+            $moneys=$moneysub-$money1;
+            //print_r($arr);die;
             $this->assign("data",$arr);
+            $this->assign("title", $title);
             $this->assign("money", $money);
+            $this->assign("moneys", $moneys);
             $this->assign("lilv", $lilv);
+            $this->assign("jindu", $arr10);
             $this->assign("deadline", $deadline);
+            $this->assign("balance", $balance);
             $this->display('zqxqtb');
-            //没登陆且不等于100%
-        }else if(empty($sess) && $cred!=100){
+
+        }
+        //没登陆且不等于100%
+        else if(empty($sess) && $jindu!=100)
+        {
             $User=M('Creditor');
             $arr=$User
                 ->join("yi_login on yi_creditor.login_id=yi_login.login_id")
                 ->where("creditor_id=$id")->select();
+            //print_r($id);die;
             for ($i=0;$i<count($arr);$i++) {
                 $money=$arr[$i]['creditor_money'];
                 $lilv=$arr[$i]['creditor_lilv'];
                 $deadline=$arr[$i]['creditor_deadline'];
+                $title=$arr[$i]['creditor_name'];
             }
+           // print_r($arr10);die;
             $this->assign("money", $money);
+            $this->assign("title", $title);
+            $this->assign("money1", $money1);
             $this->assign("lilv", $lilv);
+            $this->assign("jindu", $arr10);
             $this->assign("deadline", $deadline);
             $this->display('zqxqd');
-            //登陆且等于100%
-        }else if(!empty($sess) && $cred==100){
+
+        }
+        //登陆且等于100%
+        else if(!empty($sess) && $jindu==100)
+        {
             //echo "登陆且等于100%";die;
             $User = M('Creditor');
             $arr=$User
@@ -99,10 +197,14 @@ class CreditorController extends Controller {
                 $money=$arr[$i]['creditor_money'];
                 $lilv=$arr[$i]['creditor_lilv'];
                 $deadline=$arr[$i]['creditor_deadline'];
+                $title=$arr[$i]['creditor_name'];
             }
             $this->assign("data", $arr);
             $this->assign("money", $money);
+            $this->assign("title", $title);
+            $this->assign("money1", $money1);
             $this->assign("lilv", $lilv);
+            $this->assign("jindu", $arr10);
             $this->assign("deadline", $deadline);
             $this->display('zqxqdl');
         }
@@ -111,8 +213,37 @@ class CreditorController extends Controller {
     public function zqxqtb(){
         $id=$_GET['login_id'];
         $User=M('Login');
+
+        //计算进度
+        $Userc = M('Creditor');
+        $rows = $Userc->select();
+        $bid = M('Bid');
+        $data = [];
+        //print_r($rows);die;
+        foreach($rows as $k => $v){
+            $mo = str_replace(',','',$rows[$k]['creditor_money']);
+            $arrc  = $bid->where("creditor_id=". $rows[$k]['creditor_id'] )->select();
+            //print_r($arrc);die;
+            $money1=0;
+            foreach ($arrc as $row) {
+                $money1 =  $money1 + $row['bid_money'];
+            }
+            //echo $money1;die;
+            $credlilv=intval($money1/$mo*100);
+            //echo $credlilv;die;
+            $data[$k][] =  $credlilv;
+            $data[$k][] =  $rows[$k]['creditor_id'];
+        }
+        $arr10 = $Userc->where("creditor_id=$id")->select();
+        for($j=0;$j<count($data);$j++){
+            for($i=0;$i<count($arr10);$i++){
+                if($arr10[$i]['creditor_id']==$data[$j][1]){
+                    $arr10[$i]['jindu']=$data[$j][0];
+                }
+            }
+        }
+
         $creditor_id=$_GET['creditor_id'];
-        //$arr=$User->select();
         $arr=$User
             ->join("yi_creditor on yi_login.login_id=yi_creditor.login_id")
             ->where("creditor_id = $id")->select();
@@ -120,21 +251,48 @@ class CreditorController extends Controller {
             $money=$arr[$i]['creditor_money'];
             $lilv=$arr[$i]['creditor_lilv'];
             $deadline=$arr[$i]['creditor_deadline'];
+            $creditor_id=$arr[$i]['creditor_id'];
+            $balance=$arr[$i]['login_balance'];
         }
+        $Userb=M('Bid');
+        $arr2=$Userb->where("creditor_id=$id")->select();
+
+        $money1=0;
+        for ($i=0;$i<count($arr2);$i++) {
+            $money1=$arr2[$i]['bid_money']+$money1;
+        }
+        $moneysub=str_replace(',','',$money);
+        $moneys=$moneysub-$money1;
+
+        //计算动态账户余额
         $this->assign("data", $arr);
         $this->assign("money", $money);
+        $this->assign("moneys", $moneys);
         $this->assign("lilv", $lilv);
+        $this->assign("jindu", $arr10);
         $this->assign("deadline", $deadline);
+        $this->assign("creditor_id", $creditor_id);
+        $this->assign("login_id", $_SESSION['login_name']['login_id']);
+        $this->assign("balance", $balance);
         $this->display();
-
     }
+
     public function bid_money(){
         $User=M('Bid');
         $data['creditor_id']=$_GET['creditor_id'];
         $data['login_id']=$_GET['login_id'];
         $data['bid_money']=$_POST['money'];
+        //print_r($data);die;
         if($User->add($data)){
-            $this->success('投标成功');
+            $Userlo=M('Login');
+            $data2 = $Userlo->where("login_id=".$data['login_id'])->find();
+            $data1=$data2['login_balance']-$data['bid_money'];
+            //print_r($data1);die;
+            $Userlo-> where("login_id=".$data['login_id'])->setField('login_balance',"$data1");
+            $this->redirect('Creditor/zqxqtb',array(
+                'creditor_id' => $_GET['creditor_id'],
+                'login_id' => $_GET['login_id']
+            ));
         }else{
             $this->error('投标失败');
         }
@@ -156,6 +314,7 @@ class CreditorController extends Controller {
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $arr = $User->order('let_id')->limit($Page->firstRow.','.$Page->listRows)->select();
         $arr1 = $User->select();
+        //print_r($arr1);die;
         $count=count($arr1);
         $moneyone=0;
         for ($i=0;$i<count($arr1);$i++) {
@@ -181,11 +340,14 @@ class CreditorController extends Controller {
                 $lilv=$arr[$i]['let_lilv'];
                 $money=$arr[$i]['let_money'];
                 $qixian=$arr[$i]['let_qixian'];
+                $let_id=$arr[$i]['let_id'];
             }
             $this->assign("data", $arr);
             $this->assign("lilv", $lilv);
             $this->assign("money", $money);
             $this->assign("qixian", $qixian);
+            $this->assign("let_id", $let_id);
+            $this->assign("login_id", $_SESSION['login_name']['login_id']);
             $this->display('zrxqd');
         }else{
             //echo "登陆";die;
@@ -198,13 +360,32 @@ class CreditorController extends Controller {
                 $lilv=$arr[$i]['let_lilv'];
                 $money=$arr[$i]['let_money'];
                 $qixian=$arr[$i]['let_qixian'];
+                $login_balance=$arr[$i]['login_balance'];
+                $let_id=$arr[$i]['let_id'];
             }
             $this->assign("data", $arr);
             $this->assign("lilv", $lilv);
             $this->assign("money", $money);
             $this->assign("qixian", $qixian);
+            $this->assign("login_balance", $login_balance);
+            $this->assign("let_id", $let_id);
+            $this->assign("login_id", $_SESSION['login_name']['login_id']);
             $this->display('zrxqtb');
         }
     }
-
+    //购买债权
+    public function goumai(){
+        $User=M('Buy');
+        $data['let_id']=$_GET['let_id'];
+        $data['login_id']=$_GET['login_id'];
+        $data['buy_num']=$_POST['buy_num'];
+        if($User->add($data)){
+            $this->redirect('Creditor/zhaiz',array(
+                'let_id' => $_GET['let_id'],
+                'login_id' => $_GET['login_id'],
+            ));
+        }else{
+            $this->error('购买失败');
+        }
+    }
 }

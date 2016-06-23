@@ -15,9 +15,24 @@ class IndexController extends Controller {
         $creditor=M("creditor");
         $credit=$creditor->order('creditor_id DESC')->limit(4)->select();
         foreach ($credit as $k => $v) {
+            //借款总金额
             $zje=$v['creditor_money'];
-            $dqje=$v['yet_bid'];
-            $ed=($dqje/$zje)*100;
+            $zje=str_replace(',','',$zje);
+            //借款活动id，用来查询记录表的内容
+            $creditor_id=$v['creditor_id'];
+            //实例化记录表
+            $bid=M("bid");
+            $jlb = $bid->where("creditor_id='$creditor_id'")->select();
+            //循环记录表，计算每个债权已投资的总价
+            $jmoney=0;
+            foreach($jlb as $k2=>$v2){
+                $jmoney+=$v2['bid_money'];
+
+            }
+            //echo $zje."</br>";
+            //echo $jmoney."</br>";
+            $ed=($jmoney/$zje)*100;
+            //echo $ed."</br>";
             $ned=intval($ed);
             $credit[$k]['ed']=$ned;
         }
