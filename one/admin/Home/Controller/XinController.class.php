@@ -84,6 +84,7 @@ class XinController extends Controller {
 		$id = $b[0]['max(payplan_id)'];
 		//echo $id;
 		$gai = $obj->execute("update yi_payplan set payplan_stutas = 0 where payplan_id != $id");
+		echo "<script>alert('添加成功');location.href='index'</script>";
 	}
 	public function xiang(){
 		 $id = $_GET['id'];
