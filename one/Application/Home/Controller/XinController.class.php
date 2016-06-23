@@ -5,8 +5,8 @@ class XinController extends Controller {
 	public function index()
 	{
 		//session(null);
-		session('name','小黑');
-		$name = session('name');
+		//session('name','小黑');
+		$name = session('users');
 		//echo $name;die;
 		$nam = M('login');
 		$obj=M('payplan');
@@ -64,7 +64,7 @@ class XinController extends Controller {
 	//显示投资详情
 	public function lists(){
 		//session(null);
-		$value = session('name');
+		$value = session('users');
 		if(!empty($value)){
 			//print_r($value);
 			if(isset($_POST)){
@@ -78,11 +78,11 @@ class XinController extends Controller {
 			$this->display('xinjia');
 		}else{
 
-			$this->redirect('xin/index');
+			$this->redirect('logins/index');
 		}
 		}else{
 			//没有session，跳转到登录页面
-			$this->redirect('xin/index');
+			$this->redirect('logins/index');
 		}
 		
 		//$this->display('xinjia');
@@ -90,7 +90,7 @@ class XinController extends Controller {
 	public function jia(){
 		$pid = $_POST['pid'];
 		$money = $_POST['money'];
-		$name = session('name');
+		$name = session('users');
 		$date = date('Y-m-d H:i:s');
 		$lis = M('payzong');
 		//echo $money;
