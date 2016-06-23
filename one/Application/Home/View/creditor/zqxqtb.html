@@ -95,7 +95,8 @@
          <div class="main-section">
              <ul class="account-menu fn-clear">
                  <li class="" ><a href="__URL__/zhais">散标投资</a></li>
-                 <li class=""><a href="__URL__/zhaiz">债权转让</a></li>
+                 <li class="" ><a href="__URL__/zhaiz">散标投资</a></li>
+                 <li class=""><a href="__URL__/zqadd">债权添加</a></li>
              </ul>
          </div>
          <div class="nav-bg"></div>
@@ -162,14 +163,14 @@
                               <span class="fn-left basic-progress-value"><em>{$vo.jindu}%</em></span>
                           </volist>
                       </span>
-	                  <span class="fn-left  basic-label mr30">剩余时间</span>
-	                  <span class="fn-left basic-value num">
-                          <em>
-                              <em class='value'>6</em>天
-                              <em class='value'>23</em>时
-                              <em class='value'>37</em>分
-                          </em>
-                      </span>
+	                  <!--<span class="fn-left  basic-label mr30">剩余时间</span>-->
+	                  <!--<span class="fn-left basic-value num">-->
+                          <!--<em>-->
+                              <!--<em class='value'>6</em>天-->
+                              <!--<em class='value'>23</em>时-->
+                              <!--<em class='value'>37</em>分-->
+                          <!--</em>-->
+                      <!--</span>-->
                   </li>
               </ul>
               </div>
@@ -213,9 +214,9 @@
                       <p class="ui-term-overage mb4">
                           <span style="width: auto" class="clearfix">
                               <em class="fn-left mr10">账户余额</em>
-                              <em id="max-account" class="fn-left" data-account="0.0">{$balance}</em>
+                              <em id="max-account" class="fn-left" data-account="0.0">{$balance1}</em>
                               <em class="fn-left">元</em>
-                              <a class="fn-right" href="/account/capital!recharge.action" target="_blank">充值</a>
+                              <a class="fn-right" href="/account/capital!recharge.action" target="_blank"></a>
                           </span>
                       </p>
                       <volist name="data" id="vo">
@@ -255,9 +256,9 @@
              var yue=parseInt($("#max-account").html());
              var zqyue=parseInt($("#max-amount").html());
              //alert(zqyue)
-             if(money%100!==0){
-                 $("#s3").html("<font color='red'>投标金额不能小于100</font>")
-             } else if(money>yue ){
+             if(money%100!=0){
+                 $("#s3").html("<font color='red'>投标金额不能小于100,且为100的倍数</font>")
+             } else if(money>yue){
                  $("#invest-submit").attr('disabled',true);
                  $("#s3").html("<font color='red'>账户余额不足</font>")
                 // alert(1);
