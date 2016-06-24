@@ -115,7 +115,9 @@ class UjihuaController extends Controller {
 	}
 
 
-
+public function tiaozhuan(){
+	$this->redirect('logins/index');
+}
 
 
 
