@@ -3,6 +3,10 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
+        $sess=session('login_name');
+        //print_r($sess);die;
+        $sessid=$sess['login_id'];
+        //echo $sessid;die;
         $time=time();
         $picture=M('picture');
         //前台轮播图
@@ -35,6 +39,7 @@ class IndexController extends Controller {
             //echo $ed."</br>";
             $ned=intval($ed);
             $credit[$k]['ed']=$ned;
+            $credit[$k]['login_id']=$sessid;
         }
         //前台首页之薪计划
         $payplan=M("payplan");

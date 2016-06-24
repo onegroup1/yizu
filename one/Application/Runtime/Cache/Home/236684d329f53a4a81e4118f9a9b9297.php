@@ -20,21 +20,21 @@
         <title>薪计划-160607期-人人贷WE理财(Wealth Evolution)官网</title>
     
         <link rel="shortcut icon" type="image/x-icon" href="/static/common/img/favicon.ico" />
-        <link rel="stylesheet" type="text/css" href="/yizu/one/Public/css/base_ac0da34.css">
+        <link rel="stylesheet" type="text/css" href="/Public/css/base_ac0da34.css">
         <!--header中的css-->
         
         
         <script>
             !function(){var c=Object.prototype.toString;var a=/complete|loaded|interactive/;var m="m.we.com/s1/w.gif";var d="";var p=location.protocol;var k="";var l=p+"//"+m;function b(q){return c.call(q)==="[object String]"}function j(s,r){for(var q in r){if(r.hasOwnProperty(q)){s[q]=r[q]}}}function o(s){var q="";for(var r in s){q+=r+"="+encodeURIComponent(s[r])+"&"}return q}function g(t){var s=(new Date()).getTime();var r="___log_"+s;var q=new Image();window[r]=q;q.onload=q.onerror=function(){q.onload=q.onerror=null;window[r]=null;q=null};q.src=t+"&_r="+s}function f(t){var q={pl:d,pid:k};for(var s in t){if(t.hasOwnProperty(s)){if(!b(t[s])){q[s]=JSON.stringify(t[s])}else{q[s]=t[s]}}}var r=l+"?"+o(q);g(r)}var n=false;var i={};var e={init:function(q){d=q.platform;k=q.pageID;if(!k){k=location.pathname}},perf:{headStart:function(q){i.jhead_start=q;return e},bodyStart:function(q){q=q||(new Date()).getTime();i.jbody_start=q;return e},bodyEnd:function(q){q=q||(new Date()).getTime();i.jbody_end=q;return e},domReady:function(q){if(i.jdom_ready){return}q=q||(new Date()).getTime();i.jdom_ready=q;return e},fullLoad:function(q){q=q||(new Date()).getTime();i.jfull_load=q;return e},send:function(){if(!n){if(window.performance&&window.performance.timing&&typeof window.performance.timing.toJSON==="function"){j(i,window.performance.timing.toJSON())}f({perf:i})}n=true}}};if(a.test(document.readyState)&&document.body){e.perf.domReady()}else{if(typeof document.addEventListener==="function"){document.addEventListener("DOMContentLoaded",function(){e.perf.domReady()})}}window.weLogger=e;function h(){e.perf.fullLoad();e.perf.send()}if(document.readyState!=="complete"){if(typeof window.addEventListener==="function"){window.addEventListener("load",h)}else{if(window.attachEvent){window.attachEvent("onload",h)}}}}();
         </script>
-        <script src="/yizu/one/Public/js/vendors_8a6040f.js"></script>
+        <script src="/Public/js/vendors_8a6040f.js"></script>
         <!--header中的js-->
         
         <script>
             weLogger.init({ platform : 'pc' });
             weLogger.perf.headStart( _jHeadStart );
         </script>
-    <link rel="stylesheet" type="text/css" href="/yizu/one/Public/css/common_widget_a1e249e.css" /><link rel="stylesheet" type="text/css" href="/yizu/one/Public/css/invest_widget_5739d14.css" /><link rel="stylesheet" type="text/css" href="/yizu/one/Public/css/autoinvestplan_573dc6a.css" /></head>
+    <link rel="stylesheet" type="text/css" href="/Public/css/common_widget_a1e249e.css" /><link rel="stylesheet" type="text/css" href="/Public/css/invest_widget_5739d14.css" /><link rel="stylesheet" type="text/css" href="/Public/css/autoinvestplan_573dc6a.css" /></head>
     <body class="body">
         <script>
             weLogger.perf.bodyStart( );
@@ -46,15 +46,15 @@
         <ul class="site-nav">
        <?php
  $users=session('users'); if(empty($users)){ ?>
-        <li class="nav-item"><a target="_self" href="/yizu/one/index.php/home/logins/index">立即登录</a></li>
+        <li class="nav-item"><a target="_self" href="/index.php/home/logins/index">立即登录</a></li>
         <li class="nav-item-split"></li>
-        <li class="nav-item"><a target="_self" href="/yizu/one/index.php/home/logins/register">快速注册</a></li>
+        <li class="nav-item"><a target="_self" href="/index.php/home/logins/register">快速注册</a></li>
         <li class="nav-item-split"></li>
         <?php }else{ ?>
         <li class="nav-item"><?php echo $users; ?></li>
         <li class="nav-item-split"></li>
 
-        <li class="nav-item"><a target="_self" href="/yizu/one/index.php/home/logins/tuichu">退出</a></li>
+        <li class="nav-item"><a target="_self" href="/index.php/home/logins/tuichu">退出</a></li>
         <li class="nav-item-split"></li>
         <?php } ?>
 
@@ -72,7 +72,7 @@
 <div class="wdg-second-header">
     <div class="main-section">
         <a href="/" class="brand-logo mt15">
-            <img src="/yizu/one/Public/images/we-logo_79fb26f.png" alt="logo" />
+            <img src="/Public/images/we-logo_79fb26f.png" alt="logo" />
         </a>
         <ul class="site-nav">
             <li class="user-item fn-clear">
@@ -82,23 +82,23 @@
                     <div class="user-avatar-container fn-left">
                     <?php
  if($loign_img){ ?>
-                        <img src="/yizu/one/Public/<?php echo ($loign_img); ?>"  />
+                        <img src="/Public/<?php echo ($loign_img); ?>"  />
                     <?php }else{ ?>
-                        <img src="/yizu/one/Public/images/default-avatar-96_dc38986.png"  />
+                        <img src="/Public/images/default-avatar-96_dc38986.png"  />
                     <?php } ?>
                         <div class="avatar-masking"><a href="/account/index.action"></a></div>
                     </div>
                     <div class="user-name fn-clear">
-                        <a href="/yizu/one/index.php/home/zhsz">我的账户</a>
+                        <a href="/index.php/home/zhsz">我的账户</a>
                     </div>
 
 
             </li>
-            <li class="channel-item"><a href="/yizu/one/index.php/home/index">首页</a></li>
-            <li class="channel-item"><a href="/yizu/one/index.php/home/index/ujihua">U计划</a></li>
-            <li class="channel-item"><a href="/yizu/one/index.php/home/index/xinjihua">薪计划</a></li>
-			<li class="channel-item"><a href="/yizu/one/index.php/home/creditor/zhais">债权</a></li>
-            <li class="channel-item"><a href="/yizu/one/index.php/home/index/xinshou">新手专区</a></li>
+            <li class="channel-item"><a href="/index.php/home/index">首页</a></li>
+            <li class="channel-item"><a href="/index.php/home/Ujihua/index">U计划</a></li>
+            <li class="channel-item"><a href="/index.php/home/index/xinjihua">薪计划</a></li>
+			<li class="channel-item"><a href="/index.php/home/creditor/zhais">债权</a></li>
+            <li class="channel-item"><a href="/index.php/home/index/xinshou">新手专区</a></li>
         </ul>
     </div>
 </div>
@@ -251,7 +251,7 @@
                     <?php if(!isset($name)) {?> 
                      
               <p class="pd20">
-                可用金额 <a href="/loginPage.action">登录</a>后可见
+                可用金额 <a href="login">登录</a>后可见
               </p>
             <?php }else{ ?>
                           <p class="pd20">
@@ -262,7 +262,7 @@
 					 <div class="ui-term-content minus-mt-8">
                     <?php if(!isset($name)) {?>  
               <p class="pd20">
-                可用金额 <a href="/loginPage.action">登录</a>后可见
+                可用金额 <a href="login">登录</a>后可见
               </p>
             <?php }else{ ?>
                           <p class="pd20">
@@ -298,7 +298,7 @@
           </div>
 				<?php } ?>
 			</div>
-      <script src="/yizu/one/Public/js/jquery.js"></script>
+      <script src="/Public/js/jquery.js"></script>
 			<script>
       function qian1(){
          var di =$('#qian').val();
@@ -453,7 +453,7 @@
             <div class="ui-tab-content ui-tab-content-current" data-name="intro">
                 <div class="investointro fn-clear" >
                 	<dl>
-                     <dd><img src="/yizu/one/Public/img/qing.png"></dd>
+                     <dd><img src="/Public/img/qing.png"></dd>
                      <dt class="title">轻松攒薪 不再月光</dt>
                      <dt><?php echo $arr[0]['payplan_monmoney'] ?>元，每月固定出借金额</dt>
                      <dt>到期退出后可收回6,000-240,000本金</dt>
@@ -465,13 +465,13 @@
                      <dt>预期年收益<?php echo $arr[0]['payplan_annua'] ?>%以上</dt>
                   </dl>
                   <dl>
-                     <dd><img src="/yizu/one/Public/img/duo.png"></dd>
+                     <dd><img src="/Public/img/duo.png"></dd>
                      <dt class="title">多重安全保障措施</dt>
                      <dt>资金分散用于100%适用用户利益保障机制的借款标的</dt>
                    
                   </dl>
                   <dl>
-                     <dd><img src="/yizu/one/Public/img/deng.png"></dd>
+                     <dd><img src="/Public/img/deng.png"></dd>
                      <dt class="title">等你加入</dt>
                      <dt>每月1-25号</dt>
                      <dt>每日10:30准时开启</dt>
@@ -915,11 +915,11 @@
             </ul>
             <div class="weixin fn-clear">
                 <dl class="fn-left">
-                    <dd><img src="/yizu/one/Public/images/we-weixing_334069c.png" alt=""></dd>
+                    <dd><img src="/Public/images/we-weixing_334069c.png" alt=""></dd>
                     <dt>关注微信账号</dt>
                 </dl>
                 <dl class="fn-left app-down">
-                    <dd><img src="/yizu/one/Public/images/app-weixin_32107fa.png" alt=""></dd>
+                    <dd><img src="/Public/images/app-weixin_32107fa.png" alt=""></dd>
                     <dt>下载手机app</dt>
                 </dl>
             </div>
@@ -949,17 +949,17 @@
     <li class="fixed-calculator">
 
         <a class="fixed-icon" target="_blank" href="http://www.we.com/lend/calculator.action?prodType=Loanplan">
-            <img src="/yizu/one/Public/img/a1.png" alt="" width="50px" height="51px"/>
+            <img src="/Public/img/a1.png" alt="" width="50px" height="51px"/>
         </a>
     </li>
     <li class="fixed-service">
         <a class="fixed-icon" href="javascript:" onclick="online_service();">
-            <img src="/yizu/one/Public/img/a2.png" alt="" width="50px" height="51px"/>
+            <img src="/Public/img/a2.png" alt="" width="50px" height="51px"/>
         </a>
     </li>
     <li class="fixed-download">
         <a class="fixed-icon" href="javascript:">
-            <img src="/yizu/one/Public/img/a3.png" alt="" width="50px" height="51px"/>
+            <img src="/Public/img/a3.png" alt="" width="50px" height="51px"/>
         </a>
         <div class="download-app-wrap-opacity">
             <div class="fixed-arrow"></div>
@@ -968,24 +968,24 @@
             <h2>人人贷WE理财APP下载</h2>
             <div class="fn-clear">
                 <div class="ewm-big">
-                    <img src="/yizu/one/Public/images/app-weixin_32107fa.png" alt="二维码" />
+                    <img src="/Public/images/app-weixin_32107fa.png" alt="二维码" />
                 </div>
                 <div class="download-btns">
-                    <a target="_blank" class="ios" href="http://itunes.apple.com/us/app/id883561142?mt=8"><img src="/yizu/one/Public/images/a5.png" alt="ios下载" /></a>
-                    <a target="_blank" href="http://www.we.com/event/download.action?type=apk"><img src="/yizu/one/Public/images/a6.png" alt="android下载" /></a>
+                    <a target="_blank" class="ios" href="http://itunes.apple.com/us/app/id883561142?mt=8"><img src="/Public/images/a5.png" alt="ios下载" /></a>
+                    <a target="_blank" href="http://www.we.com/event/download.action?type=apk"><img src="/Public/images/a6.png" alt="android下载" /></a>
                 </div>
             </div>
         </div>
     </li>
     <li class="fixed-goTop">
         <a class="fixed-icon" href="javascript:">
-            <img src="/yizu/one/Public/img/a4.png" alt="" width="50px" height="51px"/>
+            <img src="/Public/img/a4.png" alt="" width="50px" height="51px"/>
         </a>
     </li>
 </ul>
 <div class="fn-hide">
     <div id="weixin-content" class="p20 text-center">
-        <img src="/yizu/one/Public/images/weixin_l.jpg" style="width:250px" />
+        <img src="/Public/images/weixin_l.jpg" style="width:250px" />
         <p>微信扫一扫，人人贷We理财里动态全知道！</p>
     </div>
 </div>
@@ -1071,7 +1071,7 @@ function online_service() {
         })();
         </script>
         
-    <script type="text/javascript" src="/yizu/one/Public/js/require_2f19223.js"></script><script type="text/javascript" src="/yizu/one/Public/js/common_widget_78d2def.js"></script><script type="text/javascript" src="/yizu/one/Public/js/invest_widget_4a5998d.js"></script><script type="text/javascript" src="/yizu/one/Public/js/autoinvestplan_0c0dfaf.js"></script><script type="text/javascript">;require(["common:widget/second-header/second-header"], function(header){
+    <script type="text/javascript" src="/Public/js/require_2f19223.js"></script><script type="text/javascript" src="/Public/js/common_widget_78d2def.js"></script><script type="text/javascript" src="/Public/js/invest_widget_4a5998d.js"></script><script type="text/javascript" src="/Public/js/autoinvestplan_0c0dfaf.js"></script><script type="text/javascript">;require(["common:widget/second-header/second-header"], function(header){
         header.init();
     });
 ;require(["invest:page/autoinvestplan/details/autoinvestplan"], function(invest){
