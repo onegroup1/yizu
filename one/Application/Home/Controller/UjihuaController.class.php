@@ -3,8 +3,9 @@ namespace Home\Controller;
 use Think\Controller;
 class UjihuaController extends Controller {
 	public function index(){
-		$obj=M('upay_content');
-		$obj1=M('upay_upayplan');
+		//session(null);
+		$obj=M('yi_upay_content');
+		$obj1=M('yi_upay_upayplan');
 		//AAAAAAAAAAAAAAAAA
 		$res=$obj->order('upay_id desc')->where('up_id=1')->limit(1)->find();
 		$tiaojian = $res['upay_id'];
@@ -47,11 +48,11 @@ class UjihuaController extends Controller {
 		$this->display('ujihua1');
 	}
 	public function index1(){
-		$obj=M('upay_content');
+		$obj=M('yi_upay_content');
 		$res=$obj->order('upay_id desc')->where('up_id=1')->limit(1)->find();
 		$tiaojian = $res['upay_id'];
 
-		$obj1=M('upay_upayplan');
+		$obj1=M('yi_upay_upayplan');
 		$res1=$obj1->where('upay_id='.$tiaojian)->select();
 		//print_r($res1);die;
 		foreach ($res1 as $k => $v) {
@@ -66,15 +67,15 @@ class UjihuaController extends Controller {
 		$this->assign('data',$res1);
 
 		$this->assign('res',$res);
-		session('users','小黑');
+		session('users','$');
 		$this->display('ujihuaA');
 	}
 	public function index2(){
-		$obj=M('upay_content');
+		$obj=M('yi_upay_content');
 		$res=$obj->order('upay_id desc')->where('up_id=2')->limit(1)->find();
 		$tiaojian = $res['upay_id'];
 
-		$obj1=M('upay_upayplan');
+		$obj1=M('yi_upay_upayplan');
 		$res1=$obj1->where('upay_id='.$tiaojian)->select();
 		//print_r($res1);die;
 		foreach ($res1 as $k => $v) {
@@ -89,15 +90,14 @@ class UjihuaController extends Controller {
 		$this->assign('data',$res1);
 
 		$this->assign('res',$res);
-		session('users','小黑');
 		$this->display('ujihuaB');
 	}
 	public function index3(){
-		$obj=M('upay_content');
+		$obj=M('yi_upay_content');
 		$res=$obj->order('upay_id desc')->where('up_id=3')->limit(1)->find();
 		$tiaojian = $res['upay_id'];
 
-		$obj1=M('upay_upayplan');
+		$obj1=M('yi_upay_upayplan');
 		$res1=$obj1->where('upay_id='.$tiaojian)->select();
 		//print_r($res1);die;
 		foreach ($res1 as $k => $v) {
@@ -112,10 +112,19 @@ class UjihuaController extends Controller {
 		$this->assign('data',$res1);
 
 		$this->assign('res',$res);
-		session('users','小黑');
 		$this->display('ujihuaC');
 	}
+
+
+
+
+
+
+
 	public function index4(){
+		if(empty(session('users'))){
+			$this->redirect('logins/index');
+		}
 		$upay_id = $_POST['upay_id'];
 		$jine = $_POST['jine'];
 		$jiaruren = $_POST['jiaruren'];
@@ -126,11 +135,14 @@ class UjihuaController extends Controller {
 			'upayplan_salary' => $jine,
 			'upayplan_time' => $time
 			);
-		$biao = M('upay_upayplan');
+		$biao = M('yi_upay_upayplan');
 		$biao -> add($data);
 		echo "<script>alert('加入成功');location.href='index1'</script>";
 	}
 	public function index5(){
+		if(empty(session('users'))){
+			$this->redirect('logins/index');
+		}
 		$upay_id = $_POST['upay_id'];
 		$jine = $_POST['jine'];
 		$jiaruren = $_POST['jiaruren'];
@@ -141,11 +153,14 @@ class UjihuaController extends Controller {
 			'upayplan_salary' => $jine,
 			'upayplan_time' => $time
 			);
-		$biao = M('upay_upayplan');
+		$biao = M('yi_upay_upayplan');
 		$biao -> add($data);
 		echo "<script>alert('加入成功');location.href='index2'</script>";
 	}
 	public function index6(){
+		if(empty(session('users'))){
+			$this->redirect('logins/index');
+		}
 		$upay_id = $_POST['upay_id'];
 		$jine = $_POST['jine'];
 		$jiaruren = $_POST['jiaruren'];
@@ -156,7 +171,7 @@ class UjihuaController extends Controller {
 			'upayplan_salary' => $jine,
 			'upayplan_time' => $time
 			);
-		$biao = M('upay_upayplan');
+		$biao = M('yi_upay_upayplan');
 		$biao -> add($data);
 		echo "<script>alert('加入成功');location.href='index3'</script>";
 	}

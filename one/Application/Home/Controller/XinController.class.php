@@ -131,4 +131,8 @@ class XinController extends Controller {
 		}
 
 	}
+	public function login(){
+		$this->redirect('logins/index');
+	}
+
 }

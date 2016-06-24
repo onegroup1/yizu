@@ -41,15 +41,15 @@ class IndexController extends Controller {
         $xinplan=$payplan->order("payplan_id DESC")->limit(1)->find();
         //U计划
         $upay_content=M("upay_content");
-        $ua=$upay_content->where("upay_up_id='1'")->order("upay_id DESC")->limit(1)->find();
+        $ua=$upay_content->where("up_id='1'")->order("upay_id DESC")->limit(1)->find();
         $fq=$ua['upay_financialstime'];
         $yn=$fq-$time;
         $ua['yn']=$yn;
-        $ub=$upay_content->where("upay_up_id='2'")->order("upay_id DESC")->limit(1)->find();
+        $ub=$upay_content->where("up_id='2'")->order("upay_id DESC")->limit(1)->find();
         $ub['yn']=$yn;
-        $uc=$upay_content->where("upay_up_id='3'")->order("upay_id DESC")->limit(1)->find();
+        $uc=$upay_content->where("up_id='3'")->order("upay_id DESC")->limit(1)->find();
         $uc['yn']=$yn;
-        $ux=$upay_content->where("upay_up_id='4'")->order("upay_id DESC")->limit(1)->find();
+        $ux=$upay_content->where("up_id='4'")->order("upay_id DESC")->limit(1)->find();
         $ux['yn']=$yn;
         //print_r($ua);die;
         //die;
