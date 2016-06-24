@@ -364,26 +364,6 @@ class CreditorController extends Controller {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //显示债权转让页面
     public function zhaiz(){
         $User = M('Creditor_let');
