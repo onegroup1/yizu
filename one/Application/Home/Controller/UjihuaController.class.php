@@ -3,8 +3,8 @@ namespace Home\Controller;
 use Think\Controller;
 class UjihuaController extends Controller {
 	public function index(){
-		$obj=M('yi_upay_content');
-		$obj1=M('yi_upay_upayplan');
+		$obj=M('upay_content');
+		$obj1=M('upay_upayplan');
 		//AAAAAAAAAAAAAAAAA
 		$res=$obj->order('upay_id desc')->where('up_id=1')->limit(1)->find();
 		$tiaojian = $res['upay_id'];
@@ -47,11 +47,11 @@ class UjihuaController extends Controller {
 		$this->display('ujihua1');
 	}
 	public function index1(){
-		$obj=M('yi_upay_content');
+		$obj=M('upay_content');
 		$res=$obj->order('upay_id desc')->where('up_id=1')->limit(1)->find();
 		$tiaojian = $res['upay_id'];
 
-		$obj1=M('yi_upay_upayplan');
+		$obj1=M('upay_upayplan');
 		$res1=$obj1->where('upay_id='.$tiaojian)->select();
 		//print_r($res1);die;
 		foreach ($res1 as $k => $v) {
@@ -70,11 +70,11 @@ class UjihuaController extends Controller {
 		$this->display('ujihuaA');
 	}
 	public function index2(){
-		$obj=M('yi_upay_content');
+		$obj=M('upay_content');
 		$res=$obj->order('upay_id desc')->where('up_id=2')->limit(1)->find();
 		$tiaojian = $res['upay_id'];
 
-		$obj1=M('yi_upay_upayplan');
+		$obj1=M('upay_upayplan');
 		$res1=$obj1->where('upay_id='.$tiaojian)->select();
 		//print_r($res1);die;
 		foreach ($res1 as $k => $v) {
@@ -93,11 +93,11 @@ class UjihuaController extends Controller {
 		$this->display('ujihuaB');
 	}
 	public function index3(){
-		$obj=M('yi_upay_content');
+		$obj=M('upay_content');
 		$res=$obj->order('upay_id desc')->where('up_id=3')->limit(1)->find();
 		$tiaojian = $res['upay_id'];
 
-		$obj1=M('yi_upay_upayplan');
+		$obj1=M('upay_upayplan');
 		$res1=$obj1->where('upay_id='.$tiaojian)->select();
 		//print_r($res1);die;
 		foreach ($res1 as $k => $v) {
@@ -126,7 +126,7 @@ class UjihuaController extends Controller {
 			'upayplan_salary' => $jine,
 			'upayplan_time' => $time
 			);
-		$biao = M('yi_upay_upayplan');
+		$biao = M('upay_upayplan');
 		$biao -> add($data);
 		echo "<script>alert('加入成功');location.href='index1'</script>";
 	}
@@ -141,7 +141,7 @@ class UjihuaController extends Controller {
 			'upayplan_salary' => $jine,
 			'upayplan_time' => $time
 			);
-		$biao = M('yi_upay_upayplan');
+		$biao = M('upay_upayplan');
 		$biao -> add($data);
 		echo "<script>alert('加入成功');location.href='index2'</script>";
 	}
@@ -156,7 +156,7 @@ class UjihuaController extends Controller {
 			'upayplan_salary' => $jine,
 			'upayplan_time' => $time
 			);
-		$biao = M('yi_upay_upayplan');
+		$biao = M('upay_upayplan');
 		$biao -> add($data);
 		echo "<script>alert('加入成功');location.href='index3'</script>";
 	}
