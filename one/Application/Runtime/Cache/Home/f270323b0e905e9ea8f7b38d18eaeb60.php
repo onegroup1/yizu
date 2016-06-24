@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html><head>
         <meta charset="UTF-8">
         <script>
@@ -16,7 +16,7 @@
         <title>登录 - 人人贷WE理财(Wealth Evolution)官网</title>
 
         <link rel="shortcut icon" type="image/x-icon" href="/static/common/img/favicon.ico" />
-        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/base_ac0da34.css">
+        <link rel="stylesheet" type="text/css" href="/yizu/one/Public/css/base_ac0da34.css">
         <!--header中的css-->
 
             <style type="text/css">
@@ -29,19 +29,19 @@
         <script>
             !function(){var c=Object.prototype.toString;var a=/complete|loaded|interactive/;var m="m.we.com/s1/w.gif";var d="";var p=location.protocol;var k="";var l=p+"//"+m;function b(q){return c.call(q)==="[object String]"}function j(s,r){for(var q in r){if(r.hasOwnProperty(q)){s[q]=r[q]}}}function o(s){var q="";for(var r in s){q+=r+"="+encodeURIComponent(s[r])+"&"}return q}function g(t){var s=(new Date()).getTime();var r="___log_"+s;var q=new Image();window[r]=q;q.onload=q.onerror=function(){q.onload=q.onerror=null;window[r]=null;q=null};q.src=t+"&_r="+s}function f(t){var q={pl:d,pid:k};for(var s in t){if(t.hasOwnProperty(s)){if(!b(t[s])){q[s]=JSON.stringify(t[s])}else{q[s]=t[s]}}}var r=l+"?"+o(q);g(r)}var n=false;var i={};var e={init:function(q){d=q.platform;k=q.pageID;if(!k){k=location.pathname}},perf:{headStart:function(q){i.jhead_start=q;return e},bodyStart:function(q){q=q||(new Date()).getTime();i.jbody_start=q;return e},bodyEnd:function(q){q=q||(new Date()).getTime();i.jbody_end=q;return e},domReady:function(q){if(i.jdom_ready){return}q=q||(new Date()).getTime();i.jdom_ready=q;return e},fullLoad:function(q){q=q||(new Date()).getTime();i.jfull_load=q;return e},send:function(){if(!n){if(window.performance&&window.performance.timing&&typeof window.performance.timing.toJSON==="function"){j(i,window.performance.timing.toJSON())}f({perf:i})}n=true}}};if(a.test(document.readyState)&&document.body){e.perf.domReady()}else{if(typeof document.addEventListener==="function"){document.addEventListener("DOMContentLoaded",function(){e.perf.domReady()})}}window.weLogger=e;function h(){e.perf.fullLoad();e.perf.send()}if(document.readyState!=="complete"){if(typeof window.addEventListener==="function"){window.addEventListener("load",h)}else{if(window.attachEvent){window.attachEvent("onload",h)}}}}();
         </script>
-        <script src="__PUBLIC__/js/vendors_8a6040f.js"></script>
+        <script src="/yizu/one/Public/js/vendors_8a6040f.js"></script>
         <!--header中的js-->
 
         <script>
             weLogger.init({ platform : 'pc' });
             weLogger.perf.headStart( _jHeadStart );
         </script>
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common_widget_a1e249e.css" /><link rel="stylesheet" type="text/css" href="__PUBLIC__/css/login_8d2aa37.css" /></head>
+    <link rel="stylesheet" type="text/css" href="/yizu/one/Public/css/common_widget_a1e249e.css" /><link rel="stylesheet" type="text/css" href="/yizu/one/Public/css/login_8d2aa37.css" /></head>
 
 <style>
     #body{
 
-        background-image: url("__PUBLIC__/images/1.jpg" );
+        background-image: url("/yizu/one/Public/images/1.jpg" );
         width: 80xp;
         height: 520px;;
     }
@@ -57,7 +57,7 @@
 <div class="wdg-second-header-lg">
     <div class="main-section">
         <a href="/" class="brand-logo mt5 mr10">
-            <img src="__PUBLIC__/images//we-logo_79fb26f.png" alt="logo" />
+            <img src="/yizu/one/Public/images//we-logo_79fb26f.png" alt="logo" />
         </a>
         <ul class="site-nav">
            	<li class="channel-item"> 登录</li>
@@ -78,7 +78,7 @@
       <div class="ui-box-main  h315 ">
       	<div class="fund-manager">人人贷WE理财资金由民生银行存管</div>
         <div class="content loginbox clearfix" id="loginBox">
-              <form data-name="login" class="ui-form" method="post" action="__APP__/home/logins/login" id="login">
+              <form data-name="login" class="ui-form" method="post" action="/yizu/one/index.php/home/logins/login" id="login">
                 <fieldset>
 	                  <legend>登录</legend>
 
@@ -100,10 +100,13 @@
                   <!--  <span class="icon input-icon-lock-gray"></span>-->
                   </div>
 
-                    <!--<div class="ui-form-item ui-form-item-remember">-->
-                        <!--<input name="rememberme" id="rememberme" type="checkbox">-->
-                        <!--<label for="rememberme">记住用户名</label> <a class="findpsw" href="/findPwd.action">忘记密码</a>-->
-                    <!--</div>-->
+                  <div class="ui-form-item ui-form-item-remember">
+
+
+                    		<input name="rememberme" id="rememberme" type="checkbox">
+
+                    		<label for="rememberme">记住用户名</label> <a class="findpsw" href="/findPwd.action">忘记密码</a>
+                  </div>
                   <input type="hidden" name="targetUrl" value="" id="targetUrl"/>
                   <input type="hidden" name="returnUrl" value="" id="returnUrl"/>
 
@@ -112,7 +115,7 @@
                     <input type="submit" class="login-btn" value='立即登录'>
                   </div>
                   <div class="ui-form-item text-center ui-form-item-no-name">
-                        <p class="go-reg">没有账号？ <a href="__URL__/register">免费注册</a></p>
+                        <p class="go-reg">没有账号？ <a href="/yizu/one/index.php/Home/Logins/register">免费注册</a></p>
                   </div>
                 </fieldset>
               </form>
@@ -180,7 +183,7 @@ function online_service() {
         })();
         </script>
 
-    <script type="text/javascript" src="__PUBLIC__/js/require_2f19223.js"></script><script type="text/javascript" src="__PUBLIC__/js/common_widget_78d2def.js"></script><script type="text/javascript" src="__PUBLIC__/js/login_d6bb8cc.js"></script><script type="text/javascript">;require(['common:widget/oui/lib/jquery/1.9.1/jquery'], function($){
+    <script type="text/javascript" src="/yizu/one/Public/js/require_2f19223.js"></script><script type="text/javascript" src="/yizu/one/Public/js/common_widget_78d2def.js"></script><script type="text/javascript" src="/yizu/one/Public/js/login_d6bb8cc.js"></script><script type="text/javascript">;require(['common:widget/oui/lib/jquery/1.9.1/jquery'], function($){
             	$('.no-nav-text').html('登录').show();
         	} );
 ;if (window.top != window) {

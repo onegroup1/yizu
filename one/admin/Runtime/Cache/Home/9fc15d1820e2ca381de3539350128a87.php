@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -7,14 +7,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="__PUBLIC__/admin/lib/html5.js"></script>
-<script type="text/javascript" src="__PUBLIC__/admin/lib/respond.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/admin/lib/PIE_IE678.js"></script>
+<script type="text/javascript" src="/yizu/one/Public/admin/lib/html5.js"></script>
+<script type="text/javascript" src="/yizu/one/Public/admin/lib/respond.min.js"></script>
+<script type="text/javascript" src="/yizu/one/Public/admin/lib/PIE_IE678.js"></script>
 <![endif]-->
-<link href="__PUBLIC__/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/admin/css/style.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="/yizu/one/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="/yizu/one/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="/yizu/one/Public/admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/yizu/one/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -53,7 +53,7 @@
 				<td><?php echo $v['login_nickname'] ?></td>
 				<td><?php echo $v['login_phone'] ?></td>
 				<td><?php echo $v['login_email'] ?></a></td>
-				<td><?php echo $v['payplan_money'] ?>.00元</td>
+				<td><?php echo $v['login_balance'] ?>.00元</td>
 				<td><?php echo $v['payplan_startime'] ?></td>
 			</tr>
 		<?php endforeach ?>	
@@ -63,9 +63,9 @@
 	</div>
 
 </div>
-<script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/lib/layer/1.9.3/layer.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="/yizu/one/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/yizu/one/Public/admin/lib/layer/1.9.3/layer.js"></script> 
+<script type="text/javascript" src="/yizu/one/Public/admin/lib/My97DatePicker/WdatePicker.js"></script> 
 <script type="text/javascript" src="js/H-ui.js"></script> 
 <script type="text/javascript" src="js/H-ui.admin.js"></script> 
 <script type="text/javascript">

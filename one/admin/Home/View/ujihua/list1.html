@@ -25,8 +25,8 @@
 <nav class="breadcrumb">
     <i class="Hui-iconfont">&#xe67f;</i>
     首页 <span class="c-gray en">&gt;</span>
-    债权<span class="c-gray en">&gt;</span>
-    债权列表 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+    U计划<span class="c-gray en">&gt;</span>
+    分期列表 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
 </nav>
 
 <div class="pd-20" style="padding-top:20px;">
@@ -37,35 +37,25 @@
                 <th colspan="8" scope="col">债权统计列表</th>
             </tr>
             <tr class="text-c">
-                <th>借款标题</th>
-                <th>年利率</th>
-                <th>金额</th>
-                <th>期限</th>
-                <th>进度</th>
-                <th>是否满标</th>
+                <th>最新档期</th>
+                <th>锁定期</th>
+                <th>预期年收益</th>
+                <th>计划金额</th>
+                <th>理财开始时间</th>
                 <th>操作</th>
             </tr>
         </thead>
         <tbody>
-        <volist name="data" id="vo">
+        <volist name="res" id="vo">
             <tr class="text-c">
-                <td>{$vo.creditor_name}</td>
-                <td>{$vo.creditor_lilv}％</td>
-                <td>{$vo.creditor_money}万元</td>
-                <td>{$vo.creditor_deadline}个月</td>
-                <td>10.20％</td>
-                <td>已满标</td>
-                <td>
-                    <a href="__URL__/creditor_up/id/{$vo.creditor_id}">修改</a>
-                    <a href="__URL__/creditor_del/id/{$vo.creditor_id}" >删除</a>
-                </td>
+                <td>{$vo.upay_name}</td>
+                <td>{$vo.upay_lock}</td>
+                <td>{$vo.upay_annua}</td>
+                <td>{$vo.upay_paymoney}</td>
+                <td>{$vo.upay_financialstime}</td>
+                <td><a href="delete/id/<?php echo $v['upay_id']?>">删除</a></td>
             </tr>
         </volist>
-            <tr class="text-c">
-                <td colspan="2">累计成交总笔数：<span>笔</span></td>
-                <td colspan="2">累计成交总金额：<span>元</span></td>
-                <td colspan="3">累计为用户赚取：<span>元</span></td>
-            </tr>
         </tbody>
     </table>
     <p style="font-size: 16px;">{$page}</p>
