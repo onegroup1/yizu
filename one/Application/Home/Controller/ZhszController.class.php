@@ -289,6 +289,7 @@ class ZhszController extends Controller {
        $upaymoney = 0;
        $uo=0;
        $arr2=array();
+       //echo $unum;
        for ($i = 0; $i < $unum; $i++) {
            //去除单一记得记录id
            $upayid = $upay_id[$i];
@@ -450,8 +451,8 @@ class ZhszController extends Controller {
             //去除单一记得记录id
             $ji_id=$cr1[$i];
             //实例化债权记录表，根据记录id取出
-            $jlb = $bid->where("creditor_id='$ji_id'")->select();
-           //print_r($jlb);
+            $jlb = $bid->where("creditor_id='$ji_id' and login_id='1'")->select();
+           print_r($jlb);
             //循环记录表，计算每个债权的总价
             $jmoney=0;
             foreach($jlb as $k2=>$v2){
@@ -493,7 +494,7 @@ class ZhszController extends Controller {
                     $zrlv=$zrlv*$timek;
                 }
                 $zrlv=round($zrlv,2);
-                //echo $zrlv."</br>";
+                echo $zrlv."</br>";
                 $yz+=$zrlv;
                 //echo $yz."</br>";
             }
@@ -503,6 +504,7 @@ class ZhszController extends Controller {
             $arr1[$i]['stime']=$ztime;
         }
       // print_r($arr1);
+      // $zongmoney=$xmoney0+$yz+$uo;
        $zongmoney=$xmoney0+$yz+$uo;
       //die;
        //总余额
