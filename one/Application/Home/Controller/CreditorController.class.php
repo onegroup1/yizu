@@ -16,8 +16,7 @@ class CreditorController extends Controller {
         $Page -> setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
         $show= $Page->show();// 分页显示输出
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        $arr = $User->order('creditor_id')->limit($Page->firstRow.','.$Page->listRows)->select();
-
+        $arr = $User->order('creditor_id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
         $rows = $User->select();
         $bid = M('Bid');
         $data = [];
@@ -317,11 +316,11 @@ class CreditorController extends Controller {
         $Login=M('Login');
         $bala=$Login->where("login_id=$sessid")->select();
         $balance1=$bala[0]['login_balance'];
-
         $User=M('Bid');
         $data['creditor_id']=$_GET['creditor_id'];
         $data['login_id']=$_GET['login_id'];
         $data['bid_money']=$_POST['money'];
+        $data['bid_time']=date("Y-m-d H:i:s");
         //print_r($data);die;
         if($User->add($data)){
             $Userlo=M('Login');
@@ -353,7 +352,7 @@ class CreditorController extends Controller {
         $date['creditor_lilv']=number_format($_POST['creditor_lilv'],2);
         $date['creditor_money']=number_format($_POST['creditor_money'],2);
         $date['creditor_deadline']=$_POST['creditor_deadline'];
-        $date['creditor_time']=time();
+        $date['creditor_time']=date("Y-m-d H:i:s");
         //print_r($date);die;
         if($User->add($date)){
             $this->redirect('Creditor/zhais');

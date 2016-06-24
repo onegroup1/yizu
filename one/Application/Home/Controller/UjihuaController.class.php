@@ -47,6 +47,7 @@ class UjihuaController extends Controller {
 		$this->assign('baifenbi',$baifenbi1);
 		$this->display('ujihua1');
 	}
+
 	public function index1(){
 		$obj=M('upay_content');
 		$res=$obj->order('upay_id desc')->where('up_id=1')->limit(1)->find();
