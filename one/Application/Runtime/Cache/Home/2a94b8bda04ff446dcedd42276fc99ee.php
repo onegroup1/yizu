@@ -433,7 +433,7 @@
  $maa=$ua['upay_sunk']; $mab=$ua['upay_paymoney']; ?>
                          <?php if(($maa == $mab)): ?><a id="J_count_time_a" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2738" data-wait="1392" data-status="3">查看详情</a>
                          <?php else: ?>
-                        <a id="J_count_time_a" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2738" data-wait="1392" data-status="3">立即加入</a><?php endif; endif; ?>
+                        <a id="J_count_time_a" target="_blank" class="j-btn j-btn-orange" href="<?php echo U("Ujihua/index1");?>" data-wait="1392" data-status="3">立即加入</a><?php endif; endif; ?>
 
                 </div>
             </li>
@@ -449,7 +449,7 @@
  $mba=$ub['upay_sunk']; $mbd=$ub['upay_paymoney']; ?>
                          <?php if(($mba == $mbd)): ?><a id="J_count_time_b" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2739" data-wait="1392" data-status="3">查看详情</a>
                         <?php else: ?>
-                        <a id="J_count_time_b" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2739" data-wait="1392" data-status="3">立即加入</a><?php endif; endif; ?>
+                        <a id="J_count_time_b" target="_blank" class="j-btn j-btn-orange" href="<?php echo U("Ujihua/index2");?>" data-wait="1392" data-status="3">立即加入</a><?php endif; endif; ?>
                 </div>
             </li>
             <li class="u-plan-item col-1-3 u-plan-c">
@@ -467,7 +467,7 @@
                          <?php if(($a == $b)): ?><a id="J_count_time_c" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2740" data-wait="1392" data-status="3">查看详情</a>
                         <?php else: ?>
 
-                         <a id="J_count_time_c" target="_blank" class="j-btn j-btn-orange" href="/financeplan/2740" data-wait="1392" data-status="3">立即加入</a><?php endif; endif; ?>
+                         <a id="J_count_time_c" target="_blank" class="j-btn j-btn-orange" href="<?php echo U("Ujihua/index3");?>" data-wait="1392" data-status="3">立即加入</a><?php endif; endif; ?>
 
                 </div>
             </li>
