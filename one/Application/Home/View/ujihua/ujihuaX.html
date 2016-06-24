@@ -68,9 +68,9 @@
     <a title="U-code预定" target="_blank" href="/help/terms/terms!terms.action#ucode"><i class="icon-u icon-u-code"></i></a>
 {{/ if }}
 {{#if mobileUsed }}
- 	<a title="手机预定" target="_blank" href="http://www.we.com/event/app.action"><i class="icon-u icon-u-mobile"></i></a>
+  <a title="手机预定" target="_blank" href="http://www.we.com/event/app.action"><i class="icon-u icon-u-mobile"></i></a>
 {{/ if }}
- 	
+  
 </div></td><!--
               --><td><div class="ui-td-bg text-right pr25">{{ status }}</div></td><!--
             --></tr>
@@ -355,7 +355,6 @@
         </script>
 
 
-
         <!-----头部------------>
         <include file="./public/header.html"/>
         <!--------头部------------>
@@ -401,7 +400,7 @@
             <div class="ui-box-title fn-clear">
                 
                 
-                    <div class="fn-left fn-text-overflow text-big">U计划-A<span class='text-big'>（<?php echo $res['upay_name']?>）</span></div>
+                    <div class="fn-left fn-text-overflow text-big">U计划-新人计划<span class='text-big'>（<?php echo $res['upay_name']?>）</span></div>
                 
                 <div class="fn-right text ui-box-text">
                     <a id="plan-basic-contract" href="javascript:void(0)"
@@ -436,8 +435,8 @@
                                 
                                  
                                      <span class="text-xxxl color-dark-text num-family"><?php echo $res['upay_periodss']?></span>
-                                     <span class="font-18px basic-text">个月</span>
-                                  	
+                                     <span class="font-18px basic-text">天</span>
+                                    
                             </dd>
                             <dt class="minus-mt-5">投资期限</dt>
                         </dl>
@@ -475,22 +474,22 @@
                         
                          
                         
-	                          <li class="fn-clear basic-progress ">
-	                        	    <span class="fn-left basic-label w70">
-	                            加入进度</span>
-	                            <span class="fn-left basic-value fn-clear ">
-		                            <span class="fn-left basic-progress-bg"> 
+                            <li class="fn-clear basic-progress ">
+                                <span class="fn-left basic-label w70">
+                              加入进度</span>
+                              <span class="fn-left basic-value fn-clear ">
+                                <span class="fn-left basic-progress-bg"> 
 
 <!--百分比-->
 
-		                            	<b class="basic-percent"  style="width: <?php echo $baifenbi; ?>%"></b>
+                                  <b class="basic-percent"  style="width: <?php echo $baifenbi; ?>%"></b>
 
 
-		                            </span>	                          
-	                              	<span class="fn-left basic-progress-value"><em><?php echo $baifenbi; ?>%</em></span>
-	                            </span>
-	                         
-	                        </li>
+                                </span>                           
+                                  <span class="fn-left basic-progress-value"><em><?php echo $baifenbi; ?>%</em></span>
+                              </span>
+                           
+                          </li>
                         
                     </ul>
                     <div id="tipCon_0" class="ui-poptip ui-poptip-new fn-hide" data-widget-cid="widget-2" style="width:156px;z-index: 99; position: absolute; left: 264.5px; top: 330.5px; display: none;">
@@ -506,14 +505,8 @@
                       </div>
                   </div>
               </div>
-	</div>
+  </div>
             
-
-
-<!--往数据库添加数据-->
-
-
-
                 <div class="fn-right  ui-term-box  border-left-gray" id="investment-terminal">
                     <dl class="pd4">
                         <dd class="mt6 color-orange-text">
@@ -538,7 +531,7 @@
 
                      <?php } ?>
                         
-                        <form action="index4" method="post">
+                        <form action="indexxj" method="post">
                             <div class="ui-term-field invest">
                                 
                                 
@@ -583,15 +576,12 @@
                     </div>
                 
                     
-
-
-
                     
                 <!-- 等待预定 已登录-->
                 
             </div>
             
-   			<!-- 等待开放加入 已登录-->
+        <!-- 等待开放加入 已登录-->
             
             <!-- 预定满额 -->
             
@@ -616,15 +606,15 @@
 </div>
 </div>
             <div id="plan-details" class="mt14">
-              	
+                
 <div class="container_12_1080">
     <div class="ui-box-white-bg  fn-clear pl25  pr25">
       <div class="ui-box-title fn-clear">
         <h3 class="fn-left fn-text-overflow text-big">计划进度</h3>
         <a class="fn-right text ui-box-text" href="/help/invest/invest!detail.action?flag=jryxlc" target="_blank">如何加入U计划</a>
       </div>
-  	  <div class="plan-progress fn-clear pl15">
-    		<div class="step step-one plan-progress-current " mm="4">
+      <div class="plan-progress fn-clear pl15">
+        <div class="step step-one plan-progress-current " mm="4">
             <div class="step-bg step-pass-bg fn-clear">
               <span class="step-bg-1"></span>
             </div>
@@ -639,16 +629,16 @@
             <p class="step2"><span>开始加入</span><br /><?php echo $res['upay_statime']?></p>
             <div class="progressbar"></div>
             <div class="end-time">
-	           		             	
-	                
-	                    <span>剩余时间</span>
-	                    <span><em>5天</em></span>
-	                
+                              
+                  
+                      <span>剩余时间</span>
+                      <span><em>5天</em></span>
+                  
             </div>
           </div>
         
         
-		
+    
         
           <div class="step step-three fn-clear">
             <div class="step-bg fn-clear">
@@ -766,7 +756,7 @@
                 <th>开始加入时间</th>
                 
                 
-                 <td><?php echo $res['upay_statime']?>/td>
+                 <td><?php echo $res['upay_statime']?></td>
                 
               </tr>
               <tr class="dark">
@@ -806,7 +796,7 @@
             </tbody>
           </table>
         </div>
- 			 
+       
 
 
 
@@ -814,9 +804,10 @@
 
 
         <div class="ui-tab-content pt10" data-name="joined">
-        	<div class="text-right text color-lightdark-text mb10 pr25">
+          <div class="text-right text color-lightdark-text mb10 pr25">
+           
           </div>
-       	  <ul id="joined-records" class="ui-list ui-list-s"></ul>
+          <ul id="joined-records" class="ui-list ui-list-s"></ul>
         </div>
         
   
@@ -826,58 +817,58 @@
 
 
        <div class="ui-tab-content pt10" data-name="performance" id="J_NEW_PRO_DIV">
-       				<div class="ui-performance-div">
-								<div class="ui-performance-content">
-										<div class="ui-performance-bg"></div>
-									  <div class="ui-performance-box ui-performance-box-left ui-performance-box-left-1">
-	       	 			  		<ul>
-	       	 			  			  <li><dl><dt>发布时间</dt><dd id="J_PER_FBSJ">&nbsp;</dd></dl></li>
-	       	 			  			  <li><dl><dt>计划金额</dt><dd><?php echo $res['upay_paymoney']?></dd></dl></li>
-	       	 			  		</ul>
-	       	 			  		  <img src="__PUBLIC__/images/u-details_07_7169b9f.jpg" class="arrow left-arrow"/>
-	       	 			  			  <img src="__PUBLIC__/images/u-details_02_2beaea1.png" class="box-img box-left-img"/>
-       	 			  		</div>
-       	 			  		<div class="ui-performance-box ui-performance-box-left ui-performance-box-left-2">
-	       	 			  		<ul>
-	       	 			  			  <li><dl><dt>自动投标</dt><dd id="J_PER_ZDTB">&nbsp;</dd></dl></li>
-	       	 			  			  <li><dl><dt>帮助借款用户</dt><dd id="J_PER_BZJKYH">&nbsp;</dd></dl></li>
-	       	 			  		</ul>
-	       	 			  		 <img src="__PUBLIC__/images/u-details_07_7169b9f.jpg" class="arrow left-arrow">
-	       	 			  		 <img src="__PUBLIC__/images/u-details_09_3eeb877.png" class="box-img box-left-img box-left-img-2"/>
-       	 			  		</div>
-       	 			  		<div class="ui-performance-box ui-performance-box-left ui-performance-box-left-3">
-	       	 			  		<ul>
-	       	 			  			  <li><dl><dt>为用户赚取</dt><ddid="J_PER_BZJKYH">&nbsp;</dd></dl></li>
-	       	 			  		</ul>
-	       	 			  		 <img src="__PUBLIC__/images/u-details_07_7169b9f.jpg" class="arrow left-arrow">
-	       	 			  			<img src="__PUBLIC__/images/u-details_06_6462739.png" class="box-img box-left-img box-left-img-3"/>
-       	 			  		</div>
-       	 			  		<div class="ui-performance-box ui-performance-box-right ui-performance-box-right-1">
-	       	 			  		<ul>
-	       	 			  			  <li><dl><dt>加入人数</dt><dd id="J_PER_JRRS">&nbsp;</dd></dl></li>
-	       	 			  			  <li><dl><dt>满额用时</dt><dd id="J_PER_MEYSJW">&nbsp;</dd></dl></li>
-	       	 			  		</ul> 
-	       	 			  		 <img src="__PUBLIC__/images/u-details_08_2c1ce36.png" class="arrow right-arrow">
-	       	 			  			<img src="__PUBLIC__/images/u-details_03_c858991.png" class="box-img box-right-img box-right-img-1"/>
-       	 			 			</div>
-       	 			 			<div class="ui-performance-box ui-performance-box-right ui-performance-box-right-2">
-	       	 			  		<ul>
-	       	 			  			  <li><dl><dt>借款人地域分布</dt> 
-	       	 			  			  		<dd id="J_PER_DYFB">
-							                   <p>&nbsp;</p>
-							                </dd>
-	       	 			  			  </dl></li>
-	       	 			  		</ul> 
-	       	 			  		 		<img src="__PUBLIC__/images/u-details_08_2c1ce36.png" class="arrow right-arrow">
-	       	 			  			  <img src="__PUBLIC__/images/u-details_05_028a142.png" class="box-img box-right-img"/>
-       	 			  		</div>
-       	 			  	</div>     	 			  		
-       	 				</div>
-       	 </div>
+              <div class="ui-performance-div">
+                <div class="ui-performance-content">
+                    <div class="ui-performance-bg"></div>
+                    <div class="ui-performance-box ui-performance-box-left ui-performance-box-left-1">
+                      <ul>
+                          <li><dl><dt>发布时间</dt><dd id="J_PER_FBSJ">&nbsp;</dd></dl></li>
+                          <li><dl><dt>计划金额</dt><dd><?php echo $res['upay_paymoney']?></dd></dl></li>
+                      </ul>
+                        <img src="__PUBLIC__/images/u-details_07_7169b9f.jpg" class="arrow left-arrow"/>
+                          <img src="__PUBLIC__/images/u-details_02_2beaea1.png" class="box-img box-left-img"/>
+                    </div>
+                    <div class="ui-performance-box ui-performance-box-left ui-performance-box-left-2">
+                      <ul>
+                          <li><dl><dt>自动投标</dt><dd id="J_PER_ZDTB">&nbsp;</dd></dl></li>
+                          <li><dl><dt>帮助借款用户</dt><dd id="J_PER_BZJKYH">&nbsp;</dd></dl></li>
+                      </ul>
+                       <img src="__PUBLIC__/images/u-details_07_7169b9f.jpg" class="arrow left-arrow">
+                       <img src="__PUBLIC__/images/u-details_09_3eeb877.png" class="box-img box-left-img box-left-img-2"/>
+                    </div>
+                    <div class="ui-performance-box ui-performance-box-left ui-performance-box-left-3">
+                      <ul>
+                          <li><dl><dt>为用户赚取</dt><ddid="J_PER_BZJKYH">&nbsp;</dd></dl></li>
+                      </ul>
+                       <img src="__PUBLIC__/images/u-details_07_7169b9f.jpg" class="arrow left-arrow">
+                        <img src="__PUBLIC__/images/u-details_06_6462739.png" class="box-img box-left-img box-left-img-3"/>
+                    </div>
+                    <div class="ui-performance-box ui-performance-box-right ui-performance-box-right-1">
+                      <ul>
+                          <li><dl><dt>加入人数</dt><dd id="J_PER_JRRS">&nbsp;</dd></dl></li>
+                          <li><dl><dt>满额用时</dt><dd id="J_PER_MEYSJW">&nbsp;</dd></dl></li>
+                      </ul> 
+                       <img src="__PUBLIC__/images/u-details_08_2c1ce36.png" class="arrow right-arrow">
+                        <img src="__PUBLIC__/images/u-details_03_c858991.png" class="box-img box-right-img box-right-img-1"/>
+                    </div>
+                    <div class="ui-performance-box ui-performance-box-right ui-performance-box-right-2">
+                      <ul>
+                          <li><dl><dt>借款人地域分布</dt> 
+                              <dd id="J_PER_DYFB">
+                                 <p>&nbsp;</p>
+                              </dd>
+                          </dl></li>
+                      </ul> 
+                          <img src="__PUBLIC__/images/u-details_08_2c1ce36.png" class="arrow right-arrow">
+                          <img src="__PUBLIC__/images/u-details_05_028a142.png" class="box-img box-right-img"/>
+                    </div>
+                  </div>                  
+                </div>
+         </div>
   
   
         <div class="ui-tab-content plr35 pd30" data-name="question">
-  				<ul class="question_ul">
+          <ul class="question_ul">
             <li>1. U计划安全吗？
                 <p>人人贷WE理财以严谨负责的态度对每笔借款进行严格筛选。同时，U计划所对应借款100%适用人人贷WE理财用户利益保障机制。</p>
             </li>
