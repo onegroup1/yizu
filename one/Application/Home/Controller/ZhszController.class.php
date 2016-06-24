@@ -77,24 +77,52 @@ class ZhszController extends Controller {
                //取出所有计划id
                $upay_id[]=$v3['upay_id'];
            }
+           //取出所属u计划id
            $upay_id=array_unique($upay_id);
            sort($upay_id);
            //print_r($upay_id);
            $unum=count($upay_id);
            $upaymoney = 0;
-//           for ($i = 0; $i < $unum; $i++) {
-//               //去除单一记得记录id
-//               $ji_id = $upay_id[$i];
-//               //实例化债权记录表，根据记录id取出
-//               $jlb = $bid->where("creditor_id='$ji_id'")->select();
-//               //print_r($jlb);
-//               //循环记录表，计算每个债权的总价
-//               $jmoney = 0;
-//               foreach ($jlb as $k2 => $v2) {
-//                   $jmoney += $v2['bid_money'];
-//
-//               }
-//           }
+           for ($i = 0; $i < $unum; $i++) {
+               //去除单一记得记录id
+               $upayid = $upay_id[$i];
+               //实例化债权记录表，根据记录id取出
+               $upay=M("upay_content");
+               $ujh = $upay->where("upay_id='$upayid'")->select();
+               //print_r($jlb);
+               //循环记录表，计算每个债权的总价
+               $jmoney = 0;
+               foreach ($ujh as $k2 => $v2) {
+                   $utime = $v2['upay_statime'];
+                   $u_time = strtotime($utime);
+                   echo $u_time."</br>";
+                   //计算出两个时间的差值
+//                   $cztime = $dtime - $zbtime;
+//                   //计算距离活动天
+//                   $ktime = floor($cztime / 3600 / 24);
+//                   $timek = $ktime - 7;
+//                   //echo $timek."</br>";
+//                   //取出投资总金额
+//                   $jmoney = $v['jine'];
+//                   //取出利率
+//                   $zli = $v['creditor_lilv'];
+//                   $zli1 = $zli / 100;
+//                   //echo $zli1;
+//                   //计算利率
+//                   $znlv = $jmoney * $zli1;
+//                   $zrlv = $znlv / 365;
+//                   if ($timek <= 0) {
+//                       $zrlv = 0;
+//                   } else {
+//                       $zrlv = $zrlv * $timek;
+//                   }
+//                   $zrlv = round($zrlv, 2);
+//                   //echo $zrlv."</br>";
+//                   $yz += $zrlv;
+//                   //echo $yz."</br>";
+
+               }
+           }
            //echo $umoney;
            $this->display("ujihua");
        } elseif ($zhai == 2) {
@@ -245,6 +273,7 @@ class ZhszController extends Controller {
        $upayplan=M("upay_upayplan");
        $ujilu = $upayplan->where("login_id='$uid'")->select();
        //print_r($ujilu);
+       //print_r($ujilu);die;
        //取出
        $umoney=0;
        foreach($ujilu as $k3=>$v3){
@@ -253,6 +282,83 @@ class ZhszController extends Controller {
            //取出所有计划id
            $upay_id[]=$v3['upay_id'];
        }
+       $upay_id=array_unique($upay_id);
+       sort($upay_id);
+       //print_r($upay_id);
+       $unum=count($upay_id);
+       $upaymoney = 0;
+       $uo=0;
+       $arr2=array();
+       for ($i = 0; $i < $unum; $i++) {
+           //去除单一记得记录id
+           $upayid = $upay_id[$i];
+           //取出每个活动投资总钱数
+           //根据记录表取出债权表中的数据
+           $ub = $upayplan->where("upay_id='$upayid'")->select();
+           //print_r($ub);
+           $umoney0=0;
+           foreach($ub as $k5=>$v5){
+               $umoney0+=$v5['upayplan_salary'];
+               //echo $umoney0;
+           }
+           //echo $umoney0."</br>";
+           //$zhb[0]['jine']=$jmoney;
+           //实例化债权记录表，根据记录id取出
+           $upay=M("upay_content");
+           $ujh = $upay->where("upay_id='$upayid'")->select();
+           $ujh[0]['u_money']=$umoney0;
+           //print_r($ujh);
+           //循环记录表，计算每个债权的总价
+           $jmoney = 0;
+
+           foreach ($ujh as $k2 => $v2) {
+               $qixian=$v2['upay_periodss'];
+               //echo $qixian;
+               $utime = $v2['upay_statime'];
+               $u_time = strtotime($utime);
+               //echo $utime."</br>";
+               //计算出两个时间的差值
+                   $udtime = $dtime - $u_time;
+                   //计算距离活动天
+                   $uktime = floor($udtime / 3600 / 24);
+                   $uimek = $uktime - 7;
+                  // echo $timek."</br>";
+                   //取出投资总金额
+                   $umoney = $v2['u_money'];
+               //echo $umoney."</br>";
+                   //取出利率
+                   $uli = $v2['upay_annua'];
+                   $uli1 = $uli / 100;
+                   //echo $uli1."</br>";
+                   //计算利率
+                   $unlv = $umoney * $uli1;
+               //echo $unlv."</br>";
+                   $qixian1=$qixian*30;
+
+                   $urlv = $unlv / $qixian1;
+               //echo $urlv."</br>";
+                   if ($uimek <= 0) {
+                       $urlv = 0;
+                   } else {
+                       $urlv = $urlv * $uimek;
+                   }
+//                   $zrlv = round($urlv, 2);
+//                   echo $zrlv."</br>";
+//                   $uo+=$zrlv;
+//                   echo $uo."</br>";
+
+           }
+           $zrlv = round($urlv, 2);
+           //echo $zrlv."</br>";
+           $uo+=$zrlv;
+           //echo $uo."</br>";
+           $arr2[$i]['uplan']="u计划";
+           $arr2[$i]['utime']=$utime;
+           $arr2[$i]['jine']=$umoney;
+           $arr2[$i]['zuan']=$zrlv;
+       }
+       //print_r($arr2);
+       //echo $uo;
                                                                                            //计算薪计划
        $payjilu=M("payjilu");
        $xinjilu = $payjilu->where("user_id='$uid'")->select();
@@ -283,12 +389,6 @@ class ZhszController extends Controller {
            $xdz=$xtimes*($xnz/365);
            $xdz=round($xdz,2);
            $xmoney0+=$xdz;
-
-
-
-
-
-
 
            //echo $xtimes."<br>";
            $arr[$k4]['xd']=$xdz;
@@ -345,6 +445,7 @@ class ZhszController extends Controller {
        //print_r($cr1);die;
        $cnum=count($cr1);
        $yz=0;
+       $arr1=array();
         for($i=0;$i<$cnum;$i++){
             //去除单一记得记录id
             $ji_id=$cr1[$i];
@@ -365,6 +466,7 @@ class ZhszController extends Controller {
             //print_r($zhb);
             $zhb[0]['jine']=$jmoney;
             //print_r($zhb);
+
             foreach($zhb as $k=>$v){
                 //取出债权表时间
                 $ztime=$v['creditor_time'];
@@ -395,8 +497,13 @@ class ZhszController extends Controller {
                 $yz+=$zrlv;
                 //echo $yz."</br>";
             }
+            $arr1[$i]['zhai']="债权";
+            $arr1[$i]['zrlv']=$zrlv;
+            $arr1[$i]['zmoney']=$jmoney;
+            $arr1[$i]['stime']=$ztime;
         }
-       $zongmoney=$xmoney0+$yz;
+      // print_r($arr1);
+       $zongmoney=$xmoney0+$yz+$uo;
       //die;
        //总余额
        $zye=$zq_money+$yue;
@@ -407,6 +514,7 @@ class ZhszController extends Controller {
        //可用余额百分比
        $ye=$yue/$zye*100;
        $ye=round($ye,0);
+       //echo $ye;
       // echo $zb;die;
        $zh['mo1']=$zq_money;
        $zh['zye']=$zye;
