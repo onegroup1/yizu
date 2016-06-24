@@ -67,7 +67,6 @@ class UjihuaController extends Controller {
 		$this->assign('data',$res1);
 
 		$this->assign('res',$res);
-		session('users','$');
 		$this->display('ujihuaA');
 	}
 	public function index2(){
