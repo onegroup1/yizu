@@ -48,12 +48,12 @@ class UjihuaController extends Controller {
 			'upay_financialstime' => $upay_financialstime,
 			'up_id' => $up_id
 			);
-    	$res = M('yi_upay_content');
+    	$res = M('upay_content');
     	$res -> add($data);
     	$this->redirect('lists');
     }
     public function lists(){
-    	$obj1=M('yi_upay_content');
+    	$obj1=M('upay_content');
 		$res1=$obj1->select();
 		$this->assign('res',$res1);
 		$this->display('list1');		
@@ -61,7 +61,7 @@ class UjihuaController extends Controller {
     public function delete(){
     	$id = $_GET['id'];
     	//echo $id;
-    	$obj1=M('yi_upay_content');
+    	$obj1=M('upay_content');
     	$res = $obj1->where('upay_id='.$id)->delete();
     	$this->redirect('lists');
     }
