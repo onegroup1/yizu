@@ -1,0 +1,94 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/html5.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/respond.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/PIE_IE678.js"></script>
+<![endif]-->
+<link href="__PUBLIC__/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+
+<link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>我的桌面</title>
+</head>
+<body>
+<nav class="breadcrumb">
+    <i class="Hui-iconfont">&#xe67f;</i>
+    首页 <span class="c-gray en">&gt;</span>
+    U计划<span class="c-gray en">&gt;</span>
+    分期列表 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+</nav>
+
+<div class="pd-20" style="padding-top:20px;">
+
+    <table class="table table-border table-bordered table-bg">
+        <thead>
+            <tr>
+                <th colspan="8" scope="col">债权统计列表</th>
+            </tr>
+            <tr class="text-c">
+                <th>最新档期</th>
+                <th>锁定期</th>
+                <th>预期年收益</th>
+                <th>计划金额</th>
+                <th>理财开始时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <volist name="res" id="vo">
+            <tr class="text-c">
+                <td>{$vo.upay_name}</td>
+                <td>{$vo.upay_lock}</td>
+                <td>{$vo.upay_annua}</td>
+                <td>{$vo.upay_paymoney}</td>
+                <td>{$vo.upay_financialstime}</td>
+                <td><a href="delete/id/<?php echo $v['upay_id']?>">删除</a></td>
+            </tr>
+        </volist>
+        </tbody>
+    </table>
+    <p style="font-size: 16px;">{$page}</p>
+</div>
+<footer class="footer">
+  <p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br>Copyright &copy;2015 H-ui.admin v2.3 All Rights Reserved.<br>
+    本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
+</footer>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function(){
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?080836300300be57b7f34f4b3e97d911";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F080836300300be57b7f34f4b3e97d911' type='text/javascript'%3E%3C/script%3E"));
+
+        /*ajax搜索*/
+        function sousuo(){
+            var ss=document.getElementById('ss').value;
+            var ajax=new XMLHttpRequest();
+            ajax.onreadystatechange=function(){
+                if(ajax.readyState==4 && ajax.status==200){
+                    document.getElementById('left').innerHTML=ajax.responseText;
+                }
+            }
+            ajax.open('post','__URL__/sousuo/ss/'+ss,true);
+            ajax.send(null);
+        }
+    </script>
+</body>
+</html>
