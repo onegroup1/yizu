@@ -176,4 +176,44 @@ public function tiaozhuan(){
 		$biao -> add($data);
 		echo "<script>alert('加入成功');location.href='index3'</script>";
 	}
+		public function indexx(){
+		$obj=M('upay_content');
+		$res=$obj->order('upay_id desc')->where('up_id=4')->limit(1)->find();
+		$tiaojian = $res['upay_id'];
+
+		$obj1=M('upay_upayplan');
+		$res1=$obj1->where('upay_id='.$tiaojian)->select();
+		//print_r($res1);die;
+		foreach ($res1 as $k => $v) {
+			$qian+= $v['upayplan_salary'];
+		}
+		$shengyu = 1000000 - $qian;
+		$baifenbi = $qian/1000000;
+		$baifenbi1 = substr($baifenbi,0,4)*100;
+		//echo $baifenbi1;die;
+		$this->assign('baifenbi',$baifenbi1);
+		$this->assign('shengyu',$shengyu);
+		$this->assign('data',$res1);
+
+		$this->assign('res',$res);
+		$this->display('ujihuaX');
+	}
+	public function indexxj(){
+		if(empty(session('users'))){
+			$this->redirect('logins/index');
+		}
+		$upay_id = $_POST['upay_id'];
+		$jine = $_POST['jine'];
+		$jiaruren = $_POST['jiaruren'];
+		$time = time();
+		$data = array(
+			'upay_id' => $upay_id,
+			'upayplan_man' => $jiaruren,
+			'upayplan_salary' => $jine,
+			'upayplan_time' => $time
+			);
+		$biao = M('upay_upayplan');
+		$biao -> add($data);
+		echo "<script>alert('加入成功');location.href='index3'</script>";
+	}
 }
