@@ -189,7 +189,11 @@
 
                 <div class="log-in">
                     <div class="header-img" id="headerImg">
+                        <?php if($login_img==''){ ?>
+                        <a href="__APP__/home/zhsz"><img  src="__PUBLIC__/images/default-avatar-96_dc38986.png" /></a>
+                        <?php }else{ ?>
                         <a href="__APP__/home/zhsz"><img  src="__PUBLIC__/{$loign_img}" /></a>
+                        <?php }　?>
                     </div>
                     <p class="desc">您好，<?php echo $users?>，欢迎来到易贷 !</p>
                     <a href="__APP__/home/zhsz/zhzl" class="j-btn j-btn-orange">我的账户</a>
