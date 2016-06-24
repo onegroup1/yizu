@@ -520,7 +520,7 @@
 <li class="ui-list-item fn-clear ">
 <span class="ui-list-field fn-left text-big w140 pl30">
 <em class="ui-loantype XYRZ" title="信用认证标"></em>
-<a class="fn-left w116 rrd-dimgray fn-text-overflow" title="{$vo.creditor_name}" target="_blank" href="__APP__/home/creditor/bid_money/creditor_id/{$vo.creditor_id}/login_id/{$vo.login_id}">{$vo.creditor_name}</a>
+<a class="fn-left w116 rrd-dimgray fn-text-overflow" title="{$vo.creditor_name}" target="_blank" href="__APP__/home/creditor/zhaiqxq/id/{$vo.creditor_id}/jindu/{$vo.jindu}">{$vo.creditor_name}</a>
 </span>
 <span class="ui-list-field fn-left num text-center w86 ">
 <em class="value">{$vo.creditor_lilv}</em>
@@ -543,13 +543,13 @@
 <span class="ui-list-field fn-left text-right w130">
 
 <if condition="($vo.ed eq 100) ">
-        <a href="__APP__/home/creditor/bid_money/creditor_id/{$vo.creditor_id}/login_id/{$vo.login_id}" class="ui-button j-btn j-btn-orange ui-list-invest-button ui-list-invest-button-READY FIRST_READY">
+        <a href="javascript:void(0)" class="ui-button j-btn j-btn-orange ui-list-invest-button ui-list-invest-button-READY FIRST_READY">
         <span class="IN_PROGRESS">投标</span>
         <span class="READY FIRST_READY">已满标</span>
         <span class="OPEN">还款中</span>
         </a>
 <else />
-        <a href="__APP__/home/creditor/bid_money/creditor_id/{$vo.creditor_id}/login_id/{$vo.login_id}" class="ui-button j-btn j-btn-orange ui-list-invest-button ui-list-invest-button-OPEN">
+        <a href="__APP__/home/creditor/zhaiqxq/id/{$vo.creditor_id}/jindu/{$vo.jindu}" class="ui-button j-btn j-btn-orange ui-list-invest-button ui-list-invest-button-OPEN">
         <span class="OPEN">投标</span>
         <span class="READY FIRST_READY">已满标</span>
         <span class="IN_PROGRESS">还款中</span>
