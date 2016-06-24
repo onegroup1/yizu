@@ -452,12 +452,13 @@ class ZhszController extends Controller {
             //去除单一记得记录id
             $ji_id=$cr1[$i];
             //实例化债权记录表，根据记录id取出
-            $jlb = $bid->where("creditor_id='$ji_id' and login_id='1'")->select();
+            $jlb = $bid->where("creditor_id='$ji_id' and login_id='$uid'")->select();
            //print_r($jlb);
             //循环记录表，计算每个债权的总价
             $jmoney=0;
             foreach($jlb as $k2=>$v2){
                 $jmoney+=$v2['bid_money'];
+                //echo $v2['bid_money']."</br>";
             }
             //print_r($jlb);die;
             //echo $jmoney."</br>";
@@ -485,17 +486,19 @@ class ZhszController extends Controller {
                 //取出利率
                 $zli=$v['creditor_lilv'];
                 $zli1=$zli/100;
-                //echo $zli1;
+                //echo $zli1."</br>";
                 //计算利率
                 $znlv=$jmoney*$zli1;
                 $zrlv=$znlv/365;
+                //echo $zrlv."</br>";
+                //echo $timek."</br>";
                 if($timek<=0){
                     $zrlv=0;
                 }else{
                     $zrlv=$zrlv*$timek;
                 }
                 $zrlv=round($zrlv,2);
-                echo $zrlv."</br>";
+                //echo $zrlv."</br>";
                 $yz+=$zrlv;
                 //echo $yz."</br>";
             }
@@ -526,6 +529,8 @@ class ZhszController extends Controller {
        $zh['yz']=$zongmoney;
        $zh['umoney']=$umoney;
        $zh['xinmoney']=$xinmoney;
+       //echo $uid;die;
+       $zh['loginid']=$uid;
        //判断$zhb
        //print_r($zh);die;
        //print_r($jlb);die;
@@ -550,7 +555,38 @@ class ZhszController extends Controller {
 
 
 
-
+    //全部交易记录
+    public function jiaoyi(){
+        $loginid=$_GET['loginid'];
+        //echo $loginid;die;
+        //债权
+        $bid=M("bid");
+        //根据记录表取出债权表中的数据
+        $zhai = $bid->where("login_id='$loginid'")->select();
+        foreach($zhai as $k=>$v){
+            $zhai[$k]['zq']="债权";
+        }
+        //print_r($zhai);
+        //薪计划
+        $payjilu=M("payjilu");
+        //根据记录表取出债权表中的数据
+        $xin = $payjilu->where("user_id='$loginid'")->select();
+        foreach($xin as $k=>$v){
+            $xin[$k]['xjh']="薪计划";
+        }
+        //u计划
+        $upaypan=M("upay_upayplan");
+        //根据记录表取出债权表中的数据
+        $upay = $upaypan->where("login_id='$loginid'")->select();
+        foreach($xin as $k=>$v){
+            $upay[$k]['ujh']="U计划";
+        }
+        //print_r($zhai);
+        $this->assign('zai',$zhai);
+        $this->assign('xin',$xin);
+        $this->assign('upay',$upay);
+        $this->display("jiaoyi");
+    }
 
 
 
