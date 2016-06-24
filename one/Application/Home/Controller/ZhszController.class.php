@@ -269,6 +269,7 @@ class ZhszController extends Controller {
        //获取当前时间
        $dtime=time();
        //echo $dtime;
+
                         //计算u计划
        $upayplan=M("upay_upayplan");
        $ujilu = $upayplan->where("login_id='$uid'")->select();
@@ -452,7 +453,7 @@ class ZhszController extends Controller {
             $ji_id=$cr1[$i];
             //实例化债权记录表，根据记录id取出
             $jlb = $bid->where("creditor_id='$ji_id' and login_id='1'")->select();
-           print_r($jlb);
+           //print_r($jlb);
             //循环记录表，计算每个债权的总价
             $jmoney=0;
             foreach($jlb as $k2=>$v2){
