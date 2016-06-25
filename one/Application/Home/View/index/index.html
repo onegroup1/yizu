@@ -571,12 +571,12 @@
 
 <div class="news-con fn-clear">
     <dl class="company-info-con">
-        <dt><a href="/about/about.action?flag=news" target="_self" class="fn-right more">更多网站动态</a>公司动态</dt>
+        <dt><a href="__URL__/gsdts" target="_blank" class="fn-right more">更多网站动态</a>公司动态</dt>
         <dd>
             <ul class="news-list-con">
             <foreach name="trend" item="vo" >
                 <li class="news-item">
-                    <a href="/about/detail.action?news_id=news_377" target="_blank" class="title">{$vo.trends_name}</a>
+                    <a href="__URL__/gsdtlist/trends_id/{$vo.trends_id}" target="_blank" class="title">{$vo.trends_name}</a>
                     <span class="news-date">{$vo.trends_time|date="Y-m-d",###}</span>
                 </li>
             </foreach>
@@ -589,7 +589,7 @@
             <ul class="news-list-con">
             <foreach name="trend1" item="vo" >
                         <li class="news-item">
-                            <a href="/about/detail.action?report_id=report_72" target="_blank" class="title">{$vo.trends_name}</a>
+                            <a href="__URL__/gsdtlist/trends_id/{$vo.trends_id}" target="_blank" class="title">{$vo.trends_name}</a>
                             <span class="news-date">{$vo.trends_time|date="Y-m-d",###}</span>
                         </li>
                 </foreach>
