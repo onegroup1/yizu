@@ -40,9 +40,13 @@
 			</li>
 		</ul>
 	</nav>
+    <?php
+     $value = session('name');
+     $name=$value['admin_user'];
+    ?>
 	<ul class="Hui-userbar">
 		<li>超级管理员</li>
-		<li class="dropDown dropDown_hover"><a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+		<li class="dropDown dropDown_hover"><a href="#" class="dropDown_A"><?php echo $name; ?> <i class="Hui-iconfont">&#xe6d5;</i></a>
 			<ul class="dropDown-menu radius box-shadow">
 				<li><a href="#">个人信息</a></li>
 				<li><a href="#">切换账户</a></li>
@@ -81,8 +85,8 @@
                 <ul>
                     <li><a _href="__APP__/home/creditor/creditor_add" href="javascript:void(0)">债权添加</a></li>
                     <li><a _href="__APP__/home/creditor/creditor_list" href="javascript:void(0)">债权列表</a></li>
-                    <li><a _href="__APP__/home/creditor/let_add" href="javascript:void(0)">债权转让添加</a></li>
-                    <li><a _href="__APP__/home/creditor/let_list" href="javascript:void(0)">债权转让列表</a></li>
+                    <!--<li><a _href="__APP__/home/creditor/let_add" href="javascript:void(0)">债权转让添加</a></li>-->
+                    <!--<li><a _href="__APP__/home/creditor/let_list" href="javascript:void(0)">债权转让列表</a></li>-->
                 </ul>
             </dd>
         </dl>
