@@ -674,7 +674,7 @@ class ZhszController extends Controller {
         $pwd1=I("post.password");
         $users=session('users');
         $login=M("login");
-        print_r($data);
+        //print_r($data);
         //查询密码是否正确
         $use1 = $login->where("login_nickname='$users'")->find();
         $mi=$use1['login_pwd'];

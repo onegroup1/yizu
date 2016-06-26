@@ -31,7 +31,6 @@ class IndexController extends Controller {
             $jmoney=0;
             foreach($jlb as $k2=>$v2){
                 $jmoney+=$v2['bid_money'];
-
             }
             //echo $zje."</br>";
             //echo $jmoney."</br>";
