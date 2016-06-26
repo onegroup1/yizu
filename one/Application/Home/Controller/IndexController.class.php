@@ -31,7 +31,6 @@ class IndexController extends Controller {
             $jmoney=0;
             foreach($jlb as $k2=>$v2){
                 $jmoney+=$v2['bid_money'];
-
             }
             //echo $zje."</br>";
             //echo $jmoney."</br>";
@@ -68,6 +67,26 @@ class IndexController extends Controller {
         $this->assign('uc',$uc);//U计划C
         $this->assign('ux',$ux);//U计划C
         $this->display('index');
+    }
+    //公司动态
+    public function gsdtlist(){
+        $trends_id=$_GET['trends_id'];
+        $trends = M("trends");
+        $pic=$trends->where("trends_id='$trends_id'")->select();
+        $this->assign('gsdts',$pic);
+        $this->display('gsdtlist');
+    }
+    public function gsdts()
+    {
+        $trends=M("trends");
+        isset($_GET['p'])?$p=$_GET['p']:$p=1;
+        $list = $trends->order('trends_time DESC')->page($p.',5')->select();
+        $this->assign('gsdts',$list);// 赋值数据集
+        $count      = $trends->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page($count,5);// 实例化分页类 传入总记录数和每页显示的记录数
+        $show       = $Page->show();// 分页显示输出
+        $this->assign('page',$show);// 赋值分页输出
+        $this->display('gsdt'); // 输出模板
     }
     public function jijin(){
         $this->display('jijin');

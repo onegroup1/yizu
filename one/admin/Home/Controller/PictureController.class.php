@@ -77,4 +77,15 @@ class PictureController extends Controller {
 			$this->error('置顶失败');
 		}
    }
+    //图片删除
+    public function del(){
+        $pict_id=$_GET['pict_id'];
+        //echo $pict_id;die;
+        $picture = M("picture");
+        // 要修改的数据对象属性赋值
+        $de=$picture->where("pict_id='$pict_id'")->delete();
+        if($de){
+            $this->redirect('login/hui_list');
+        }
+    }
 }

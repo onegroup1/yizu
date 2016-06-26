@@ -236,7 +236,7 @@
       <div class="notice-head fn-clear">
         <a href="/about/detail.action?notices_id=notices_476" target="_blank" class="notice-title h5 fn-left color-gray-text w700 fn-text-overflow" id="notice-title">人人贷WE理财合作伙伴中国民生银行系统升级维护公告</a>
         <span class="notice-date fn-left color-silver-text">2016-05-20</span>
-        <a class="notice-more fn-right " href="/about/about.action?flag=notices" target="_blank">更多公告</a>
+        <a class="notice-more fn-right " href="" target="_blank">更多公告</a>
       </div>
       <div class="notice-content color-dimgray-text" id="notice-content"><p align="left">
 
@@ -329,7 +329,7 @@
 </div>
 
 
-    <a href="/regPage.action?registerSource=web_top" class="main-section content-section newbee-guide-section">
+    <a href="" class="main-section content-section newbee-guide-section">
     <h2 class="section-title">新手指南</h2>
     <div class="section-body">
         <ul class="newbee-step-list fn-clear">
@@ -571,12 +571,12 @@
 
 <div class="news-con fn-clear">
     <dl class="company-info-con">
-        <dt><a href="/about/about.action?flag=news" target="_self" class="fn-right more">更多网站动态</a>公司动态</dt>
+        <dt><a href="__URL__/gsdts" target="_blank" class="fn-right more">更多网站动态</a>公司动态</dt>
         <dd>
             <ul class="news-list-con">
             <foreach name="trend" item="vo" >
                 <li class="news-item">
-                    <a href="/about/detail.action?news_id=news_377" target="_blank" class="title">{$vo.trends_name}</a>
+                    <a href="__URL__/gsdtlist/trends_id/{$vo.trends_id}" target="_blank" class="title">{$vo.trends_name}</a>
                     <span class="news-date">{$vo.trends_time|date="Y-m-d",###}</span>
                 </li>
             </foreach>
@@ -589,7 +589,7 @@
             <ul class="news-list-con">
             <foreach name="trend1" item="vo" >
                         <li class="news-item">
-                            <a href="/about/detail.action?report_id=report_72" target="_blank" class="title">{$vo.trends_name}</a>
+                            <a href="__URL__/gsdtlist/trends_id/{$vo.trends_id}" target="_blank" class="title">{$vo.trends_name}</a>
                             <span class="news-date">{$vo.trends_time|date="Y-m-d",###}</span>
                         </li>
                 </foreach>

@@ -72,21 +72,29 @@ class LoginsController extends Controller {
 			$this->error('验证码错误');
 		}else
 		{
+            $logins['login_nickname']=I("post.nickname");
 			$regi['login_nickname']=I("post.nickname");
 			$regi['login_pwd']=I("post.password");
 			$regi['login_phone']=I("post.username");
-			//入库
-			$add=$login->data($regi)->add();
-			//print_r($add);
-			if($add)
-			{
-				$username=$regi['login_nickname'];
-				session('users',$username);
-                $this->redirect('Index/index');
-			}else
-			{
-				$this->error('添加失败');
-			}
+            //查看是否有此昵称
+            $log=$login->where($logins)->find();
+            if($log){
+                $this->error("已有此昵称用户");
+            }else{
+                //print_r($regi);die;
+                //入库
+                $add=$login->data($regi)->add();
+                //print_r($add);
+                if($add)
+                {
+                    $username=$regi['login_nickname'];
+                    session('users',$username);
+                    $this->redirect('Index/index');
+                }else
+                {
+                    $this->error('添加失败');
+                }
+            }
 		}
 	}
 }
