@@ -62,6 +62,7 @@ class CreditorController extends Controller {
         $sess=session('login_name');
         //print_r($sess);die;
         $sessid=$sess['login_id'];
+
         if(!empty($sessid)){
             $Login=M('Login');
             $bala=$Login->where("login_id=$sessid")->select();
@@ -70,7 +71,12 @@ class CreditorController extends Controller {
 
         //print_r($balance);die;
         $User=M('Bid');
-        $id=$_GET['id'];
+        if($_GET['creditor_id']==''){
+            $id=$_GET['id'];
+        }else{
+            $id=$_GET['creditor_id'];
+        }
+
         //print_r($id);die;
         $jindu=$_GET['jindu'];
         //print_r($sessid);die;
@@ -233,13 +239,12 @@ class CreditorController extends Controller {
     }
     //显示投标页面
     public function zqxqtb(){
+       // $creditor_id=$_GET['creditor_id'];
         $sess=session('login_name');
         $sessid=$sess['login_id'];
         $Login=M('Login');
         $bala=$Login->where("login_id=$sessid")->select();
         $balance1=$bala[0]['login_balance'];
-
-
         $id=$_GET['login_id'];
         $User=M('Login');
         //计算进度
@@ -274,7 +279,7 @@ class CreditorController extends Controller {
         $creditor_id=$_GET['creditor_id'];
         $arr=$User
             ->join("yi_creditor on yi_login.login_id=yi_creditor.login_id")
-            ->where("creditor_id = $id")->select();
+            ->where("creditor_id = $creditor_id")->select();
         for ($i=0;$i<count($arr);$i++) {
             $money=$arr[$i]['creditor_money'];
             $lilv=$arr[$i]['creditor_lilv'];
@@ -282,8 +287,9 @@ class CreditorController extends Controller {
             $creditor_id=$arr[$i]['creditor_id'];
             $balance=$arr[$i]['login_balance'];
         }
+        //print_r($arr);die;
         $Userb=M('Bid');
-        $arr2=$Userb->where("creditor_id=$id")->select();
+        $arr2=$Userb->where("creditor_id=$creditor_id")->select();
 
         $money1=0;
         for ($i=0;$i<count($arr2);$i++) {
@@ -318,6 +324,7 @@ class CreditorController extends Controller {
         $balance1=$bala[0]['login_balance'];
         $User=M('Bid');
         $data['creditor_id']=$_GET['creditor_id'];
+            //echo $data['creditor_id'];die;
         $data['login_id']=$_GET['login_id'];
         $data['bid_money']=$_POST['money'];
         $data['bid_time']=date("Y-m-d H:i:s");
@@ -329,7 +336,7 @@ class CreditorController extends Controller {
             $data1=$data2['login_balance']-$data['bid_money'];
             //print_r($data1);die;
             $Userlo-> where("login_id=".$sessid)->setField('login_balance',"$data1");
-            $this->redirect('Creditor/zqxqtb',array(
+            $this->redirect('Creditor/zhaiqxq',array(
                 'creditor_id' => $_GET['creditor_id'],
                 'login_id' => $_GET['login_id']
             ));
