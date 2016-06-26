@@ -131,6 +131,21 @@ public function tiaozhuan(){
 		$jine = $_POST['jine'];
 		$jiaruren = $_POST['jiaruren'];
 		$time = time();
+		$obj=M('upay_content');
+		$obj1=M('upay_upayplan');
+		//AAAAAAAAAAAAAAAAA
+		$res=$obj->order('upay_id desc')->where('up_id=1')->limit(1)->find();
+		$tiaojian = $res['upay_id'];
+		$res1=$obj1->where('upay_id='.$tiaojian)->select();
+		//print_r($res1);die;
+		foreach ($res1 as $k => $v) {
+			$qian+= $v['upayplan_salary'];
+		}
+		$zong = $qian+$jine;
+		$cheng = 6000000-$zong;
+		if($cheng<0){
+			echo "<script>alert('超出剩余金额');location.href='index1'</script>";die;
+		}
 		$data = array(
 			'upay_id' => $upay_id,
 			'upayplan_man' => $jiaruren,
@@ -149,6 +164,25 @@ public function tiaozhuan(){
 		$jine = $_POST['jine'];
 		$jiaruren = $_POST['jiaruren'];
 		$time = time();
+		$obj=M('upay_content');
+		$obj1=M('upay_upayplan');
+		//AAAAAAAAAAAAAAAAA
+		$res=$obj->order('upay_id desc')->where('up_id=2')->limit(1)->find();
+		$tiaojian = $res['upay_id'];
+		$res1=$obj1->where('upay_id='.$tiaojian)->select();
+		//print_r($res1);die;
+		foreach ($res1 as $k => $v) {
+			$qian+= $v['upayplan_salary'];
+		}
+		$zong = $qian+$jine;
+		$cheng = 2000000-$zong;
+		if($cheng<0){
+			echo "<script>alert('超出剩余金额');location.href='index2'</script>";die;
+		}
+		$upay_id = $_POST['upay_id'];
+		$jine = $_POST['jine'];
+		$jiaruren = $_POST['jiaruren'];
+		$time = time();
 		$data = array(
 			'upay_id' => $upay_id,
 			'upayplan_man' => $jiaruren,
@@ -162,6 +196,25 @@ public function tiaozhuan(){
 	public function index6(){
 		if(empty(session('users'))){
 			$this->redirect('logins/index');
+		}
+		$upay_id = $_POST['upay_id'];
+		$jine = $_POST['jine'];
+		$jiaruren = $_POST['jiaruren'];
+		$time = time();
+		$obj=M('upay_content');
+		$obj1=M('upay_upayplan');
+		//AAAAAAAAAAAAAAAAA
+		$res=$obj->order('upay_id desc')->where('up_id=3')->limit(1)->find();
+		$tiaojian = $res['upay_id'];
+		$res1=$obj1->where('upay_id='.$tiaojian)->select();
+		//print_r($res1);die;
+		foreach ($res1 as $k => $v) {
+			$qian+= $v['upayplan_salary'];
+		}
+		$zong = $qian+$jine;
+		$cheng = 12000000-$zong;
+		if($cheng<0){
+			echo "<script>alert('超出剩余金额');location.href='index3'</script>";die;
 		}
 		$upay_id = $_POST['upay_id'];
 		$jine = $_POST['jine'];
@@ -207,6 +260,25 @@ public function tiaozhuan(){
 		$jine = $_POST['jine'];
 		$jiaruren = $_POST['jiaruren'];
 		$time = time();
+		$obj=M('upay_content');
+		$obj1=M('upay_upayplan');
+		//AAAAAAAAAAAAAAAAA
+		$res=$obj->order('upay_id desc')->where('up_id=4')->limit(1)->find();
+		$tiaojian = $res['upay_id'];
+		$res1=$obj1->where('upay_id='.$tiaojian)->select();
+		//print_r($res1);die;
+		foreach ($res1 as $k => $v) {
+			$qian+= $v['upayplan_salary'];
+		}
+		$zong = $qian+$jine;
+		$cheng = 1000000-$zong;
+		if($cheng<0){
+			echo "<script>alert('超出剩余金额');location.href='indexx'</script>";die;
+		}
+		$upay_id = $_POST['upay_id'];
+		$jine = $_POST['jine'];
+		$jiaruren = $_POST['jiaruren'];
+		$time = time();
 		$data = array(
 			'upay_id' => $upay_id,
 			'upayplan_man' => $jiaruren,
@@ -215,6 +287,6 @@ public function tiaozhuan(){
 			);
 		$biao = M('upay_upayplan');
 		$biao -> add($data);
-		echo "<script>alert('加入成功');location.href='index3'</script>";
+		echo "<script>alert('加入成功');location.href='indexx'</script>";
 	}
 }
