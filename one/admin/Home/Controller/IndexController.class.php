@@ -39,7 +39,7 @@ class IndexController extends Controller {
 			$log=$admin->where($logins)->find();
 			if($log){
 				session('name',$log);
-				$this->success("登录成功",U("Index/login"));
+                $this->redirect("Index/login");
 			}else{
 				$this->error("登录失败");
 			}
@@ -53,6 +53,10 @@ class IndexController extends Controller {
 		}else{
 			$this->display('index');
 		}
+    }
+    public function qie(){
+        //echo 123;
+        $this->redirect('Index/index');
     }
     public function xin(){
         //echo 123;
