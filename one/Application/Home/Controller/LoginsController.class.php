@@ -81,6 +81,7 @@ class LoginsController extends Controller {
             if($log){
                 $this->error("已有此昵称用户");
             }else{
+                //print_r($regi);die;
                 //入库
                 $add=$login->data($regi)->add();
                 //print_r($add);
